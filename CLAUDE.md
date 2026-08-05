@@ -17,8 +17,21 @@ API works the way it used to.
 - Business facts (address, phone, hours, VAT/register) live in
   `src/content/site.ts` — single source of truth, do not hardcode them
   elsewhere.
+- Brand colors are green + white — a single green Tailwind scale
+  (`green-50`...`green-950` in `src/app/globals.css`) covers both dark
+  structural chrome and bright accents/CTAs. Don't reintroduce a second
+  accent hue.
+- `public/images/` holds the business's real photos (logo, team, fleet)
+  pulled from the old site — see `knowledge/content-editing.md` for what's
+  mapped where and what's still missing (OG image).
 - No fabricated content: `testimonials.ts` stays empty until real reviews
-  exist, no prices are invented anywhere (see `knowledge/content-editing.md`).
+  exist, no prices are invented anywhere. Google reviews
+  (`GoogleReviews.tsx`) show a dated real snapshot, with live data once
+  `GOOGLE_PLACES_API_KEY`/`GOOGLE_PLACE_ID` are set — see
+  `knowledge/content-editing.md`.
+- The contact form must deliver to the client's **GMX** mailbox — see
+  `knowledge/deployment.md` for the exact SMTP settings and the GMX account
+  setting that has to be enabled first.
 - Deployment target is DigitalOcean via Docker (`Dockerfile`, `.do/app.yaml`)
   with the repo on GitHub.
 

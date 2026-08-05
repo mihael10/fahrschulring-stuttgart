@@ -5,6 +5,7 @@ import { Highlights } from "@/components/Highlights";
 import { Process } from "@/components/Process";
 import { TeamPreview } from "@/components/TeamPreview";
 import { Testimonials } from "@/components/Testimonials";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { Faq } from "@/components/Faq";
 import { ContactCta } from "@/components/ContactCta";
 
@@ -17,6 +18,7 @@ export default function Home() {
       <Highlights />
       <Process />
       <TeamPreview />
+      <GoogleReviews />
       <Testimonials />
       <Faq />
       <ContactCta />

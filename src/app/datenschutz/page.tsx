@@ -11,9 +11,9 @@ export default function DatenschutzPage() {
   return (
     <>
       <PageHero eyebrow="Rechtliches" title="Datenschutzerklärung" />
-      <div className="container-page max-w-2xl space-y-8 py-16 text-sm leading-relaxed text-navy-800 sm:py-20">
+      <div className="container-page max-w-2xl space-y-8 py-16 text-sm leading-relaxed text-green-800 sm:py-20">
         <section>
-          <h2 className="text-base font-bold text-navy-950">1. Verantwortlicher</h2>
+          <h2 className="text-base font-bold text-green-950">1. Verantwortlicher</h2>
           <p className="mt-3">
             {site.legalName}
             <br />
@@ -24,7 +24,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-navy-950">2. Hosting und Server-Logfiles</h2>
+          <h2 className="text-base font-bold text-green-950">2. Hosting und Server-Logfiles</h2>
           <p className="mt-3">
             Diese Website wird bei einem Cloud-Hosting-Anbieter (DigitalOcean) betrieben.
             Beim Aufruf der Website erhebt der Hosting-Provider automatisch technische
@@ -37,7 +37,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-navy-950">3. Kontaktformular</h2>
+          <h2 className="text-base font-bold text-green-950">3. Kontaktformular</h2>
           <p className="mt-3">
             Wenn du das Kontaktformular nutzt, verarbeiten wir die von dir angegebenen
             Daten (Name, E-Mail-Adresse, optional Telefonnummer, gewünschte
@@ -50,7 +50,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-navy-950">4. Google Maps</h2>
+          <h2 className="text-base font-bold text-green-950">4. Google Maps</h2>
           <p className="mt-3">
             Auf der Seite &bdquo;Anfahrt&ldquo; binden wir eine Karte des Dienstes Google
             Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland)
@@ -72,7 +72,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-navy-950">5. Cookies und Tracking</h2>
+          <h2 className="text-base font-bold text-green-950">5. Cookies und Tracking</h2>
           <p className="mt-3">
             Diese Website setzt derzeit keine Analyse- oder Marketing-Cookies ein. Sollte
             sich das künftig ändern (z. B. durch Webanalyse), informieren wir dich an
@@ -81,7 +81,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-navy-950">6. SSL-/TLS-Verschlüsselung</h2>
+          <h2 className="text-base font-bold text-green-950">6. SSL-/TLS-Verschlüsselung</h2>
           <p className="mt-3">
             Diese Seite nutzt aus Sicherheitsgründen eine SSL-/TLS-Verschlüsselung. Eine
             verschlüsselte Verbindung erkennst du daran, dass die Adresszeile des
@@ -90,7 +90,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-navy-950">7. Deine Rechte</h2>
+          <h2 className="text-base font-bold text-green-950">7. Deine Rechte</h2>
           <p className="mt-3">
             Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung oder
             Einschränkung der Verarbeitung deiner gespeicherten personenbezogenen Daten,
@@ -101,7 +101,7 @@ export default function DatenschutzPage() {
           </p>
         </section>
 
-        <p className="text-xs text-navy-500">Stand: August 2026</p>
+        <p className="text-xs text-green-500">Stand: August 2026</p>
       </div>
     </>
   );

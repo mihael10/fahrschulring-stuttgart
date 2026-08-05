@@ -7,9 +7,9 @@ export type Instructor = {
 // Sourced from fahrschulring.de/pages/team.php. The old site lists only names
 // and certified classes — no bios or tenure are published, so none are invented.
 export const team: Instructor[] = [
-  { name: "Frank Eibl", role: "Inhaber · Fahrlehrer aller Klassen" },
-  { name: "Heiko Schaible", role: "Fahrlehrer Klasse A, B, BE" },
-  { name: "Karol Szymanowski", role: "Fahrlehrer Klasse A, B, BE" },
-  { name: "Florije Iseni", role: "Fahrlehrerin Klasse B, BE" },
-  { name: "Leyla Heptunali", role: "Fahrlehrerin Klasse B, BE" },
+  { name: "Frank Eibl", role: "Inhaber · Fahrlehrer aller Klassen", photo: "/images/team/frank-eibl.jpg" },
+  { name: "Heiko Schaible", role: "Fahrlehrer Klasse A, B, BE", photo: "/images/team/heiko-schaible.jpg" },
+  { name: "Karol Szymanowski", role: "Fahrlehrer Klasse A, B, BE", photo: "/images/team/karol-szymanowski.jpg" },
+  { name: "Florije Iseni", role: "Fahrlehrerin Klasse B, BE", photo: "/images/team/florije-iseni.jpg" },
+  { name: "Leyla Heptunali", role: "Fahrlehrerin Klasse B, BE", photo: "/images/team/leyla-heptunali.jpg" },
 ];

@@ -46,13 +46,13 @@ export function WhyUs() {
           {points.map((point) => (
             <div
               key={point.title}
-              className="rounded-2xl border border-navy-100 p-6 transition-shadow hover:shadow-lg hover:shadow-navy-900/5"
+              className="rounded-2xl border border-green-100 p-6 transition-shadow hover:shadow-lg hover:shadow-green-900/5"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-amber-600">
-                <span className="h-2.5 w-2.5 rounded-full bg-amber-500" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-100 text-green-600">
+                <span className="h-2.5 w-2.5 rounded-full bg-green-500" />
               </div>
-              <h3 className="mt-4 text-lg font-bold text-navy-950">{point.title}</h3>
-              <p className="mt-2 text-sm text-navy-700">{point.description}</p>
+              <h3 className="mt-4 text-lg font-bold text-green-950">{point.title}</h3>
+              <p className="mt-2 text-sm text-green-700">{point.description}</p>
             </div>
           ))}
         </div>

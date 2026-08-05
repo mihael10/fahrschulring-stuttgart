@@ -2,20 +2,22 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #101828;
+  --foreground: #0b2d1c;
 
-  --color-brand-navy-950: #0a1626;
-  --color-brand-navy-900: #0f2138;
-  --color-brand-navy-800: #16324f;
-  --color-brand-navy-700: #1d4165;
-  --color-brand-navy-600: #26547f;
-  --color-brand-navy-100: #e6edf5;
-  --color-brand-navy-50: #f4f7fb;
-
-  --color-brand-amber-600: #d97e0a;
-  --color-brand-amber-500: #f59e0b;
-  --color-brand-amber-400: #fbbf24;
-  --color-brand-amber-100: #fef3c7;
+  /* Brand green ramp — matches the real Fahrschulring logo green.
+     One hue, used both for dark structural chrome (900/950) and
+     bright accents/CTAs (400/500), same way Tailwind's own scales work. */
+  --color-brand-green-950: #052e1c;
+  --color-brand-green-900: #14532d;
+  --color-brand-green-800: #166534;
+  --color-brand-green-700: #15803d;
+  --color-brand-green-600: #16a34a;
+  --color-brand-green-500: #22c55e;
+  --color-brand-green-400: #4ade80;
+  --color-brand-green-300: #86efac;
+  --color-brand-green-200: #bbf7d0;
+  --color-brand-green-100: #dcfce7;
+  --color-brand-green-50: #f0fdf4;
 }
 
 @theme inline {
@@ -23,18 +25,17 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-manrope);
 
-  --color-navy-950: var(--color-brand-navy-950);
-  --color-navy-900: var(--color-brand-navy-900);
-  --color-navy-800: var(--color-brand-navy-800);
-  --color-navy-700: var(--color-brand-navy-700);
-  --color-navy-600: var(--color-brand-navy-600);
-  --color-navy-100: var(--color-brand-navy-100);
-  --color-navy-50: var(--color-brand-navy-50);
-
-  --color-amber-600: var(--color-brand-amber-600);
-  --color-amber-500: var(--color-brand-amber-500);
-  --color-amber-400: var(--color-brand-amber-400);
-  --color-amber-100: var(--color-brand-amber-100);
+  --color-green-950: var(--color-brand-green-950);
+  --color-green-900: var(--color-brand-green-900);
+  --color-green-800: var(--color-brand-green-800);
+  --color-green-700: var(--color-brand-green-700);
+  --color-green-600: var(--color-brand-green-600);
+  --color-green-500: var(--color-brand-green-500);
+  --color-green-400: var(--color-brand-green-400);
+  --color-green-300: var(--color-brand-green-300);
+  --color-green-200: var(--color-brand-green-200);
+  --color-green-100: var(--color-brand-green-100);
+  --color-green-50: var(--color-brand-green-50);
 }
 
 body {

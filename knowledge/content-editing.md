@@ -37,18 +37,21 @@ export const testimonials: Testimonial[] = [
 
 ## Known source discrepancies (from the old site)
 
-The old fahrschulring.de was internally inconsistent. Two facts in
-`site.ts` carry a resolved-but-unverified flag in their comments:
+The old fahrschulring.de was internally inconsistent.
 
-- **Phone**: 4 of 5 old pages said `0711 / 294100`; the Impressum alone said
-  `0711 - 295928`. Currently using `294100` site-wide except the Impressum
-  page, which mirrors the legally-filed number verbatim. Confirm with the
-  owner (Frank Eibl) which is actually live before launch.
+- **Phone** — resolved 2026-08-06: 4 of 5 old pages said `0711/294100`; the
+  Impressum alone said `0711-295928`. Checked the live Google Business
+  Profile (4.9★, 315 reviews, "Fahrschulring", Hegelstraße 48) — it lists
+  `+49 711 295928`, agreeing with the Impressum. `site.ts` now uses
+  `295928` everywhere. Two current independent sources beat four stale
+  marketing pages, but it's still worth a final nod from the owner (Frank
+  Eibl) before launch.
 - **Office hours**: Impressum + Anfahrt agreed on 15:00–18:30; the old
-  Kontakt page alone said 18:00. Using 18:30.
+  Kontakt page alone said 18:00. Using 18:30 — still unverified beyond the
+  2-vs-1 page count, no independent source like the phone number had.
 
-Don't "fix" these by picking a number without checking — they're flagged
-because the two sources disagree, not because one is obviously right.
+Don't "fix" the hours by picking a number without checking — it's flagged
+because the sources disagree, not because one is obviously right.
 
 ## Adding a team member / vehicle / class
 
@@ -61,14 +64,49 @@ updating that map too.
 
 ## Images
 
-There's no imagery from the old site vendored into this repo (its
-photos aren't ours to redistribute). `public/images/` is empty. The design
-currently uses initials/color-block placeholders for the team grid instead
-of photos. Before launch, drop in:
+`public/images/` holds the business's own photos, pulled from the old
+fahrschulring.de (logo, team headshots, fleet/gallery shots, the simulator
+photo) — these are the business's own marketing assets, reused for its own
+redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`:
 
-- Real headshots for the 5 team members (referenced nowhere yet — wire them
-  into `team.ts` as an optional `photo` field, already typed, once files
-  exist)
-- An OG/social share image at `public/images/og-cover.jpg` (referenced by
-  `src/app/layout.tsx`'s JSON-LD `image` field — currently points at a path
-  that doesn't exist yet)
+- `logo/template-logo.jpg` is the actual brand mark (green circle +
+  "Fahrschul Ring" wordmark) — used in `Header.tsx` / `Footer.tsx`.
+  `logo/vb-fs-logo.png` is a separate "gut betreut" Verbands-Fahrschule
+  certification seal from the old site, downloaded but not currently placed
+  anywhere — add it near the footer if the association membership should be
+  displayed as a trust badge.
+- `team.ts` maps each of the 5 instructors to their real photo (`photo`
+  field) — order was cross-checked against the old team page's HTML
+  (name/image pairs), not assumed from array position.
+- `fleet.ts` maps a vehicle's `image` field only where the old site's own
+  filename made the match confident (e.g. `Golf.jpg` → VW Golf). Vehicles
+  without a confident source photo (Polo, X1, X2, Tesla, Sprinter, Actros,
+  Setra, most motorcycles) intentionally stay text-only rather than
+  guessing wrong. `galleryPhotos` in the same file holds the remaining
+  unmapped shots, rendered as a general "Impressionen" grid on `/fahrzeuge`.
+- Still missing: an OG/social share image at `public/images/og-cover.jpg`,
+  referenced by `layout.tsx`'s JSON-LD `image` field but not part of the
+  original scrape (the old site had no dedicated share image).
+- `sharp` is a dependency — required for `next/image` optimization in the
+  standalone Docker build; don't remove it.
+
+## Google reviews (`GoogleReviews.tsx`)
+
+Same no-fabrication pattern as testimonials, but with a twist: rather than
+render nothing until configured, the section shows a **dated static
+snapshot** (4.9★, 315 reviews, fetched from the live Google Business Profile
+on 2026-08-06 — see `site.googleReviews`) plus a real link to the listing,
+because that's honestly-sourced aggregate data, not an invented quote.
+Individual review text only ever appears when `GOOGLE_PLACES_API_KEY` and
+`GOOGLE_PLACE_ID` are set (`src/lib/google-reviews.ts`) — fetched live via
+the Places API (New), revalidated every 24h, never hardcoded.
+
+`GOOGLE_PLACE_ID` must be the real Places API place ID (`ChIJ...` format),
+which is **not** the same as the `cid` embedded in `site.googleReviews.mapsUrl`
+(that's a Maps feature ID, fine for a plain outbound link, useless for the
+API). To get the real place ID: Google's public "Place ID Finder" tool at
+developers.google.com/maps/documentation/places/web-service/place-id — search
+"Fahrschulring, Hegelstraße 48, 70174 Stuttgart" and copy the ID it shows.
+The API key needs "Places API (New)" enabled in Google Cloud Console and a
+billing account attached (it has a free monthly quota, but requires billing
+to be enabled regardless).

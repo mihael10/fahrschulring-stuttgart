@@ -19,8 +19,8 @@ export default function KontaktPage() {
       />
       <div className="container-page grid gap-12 py-16 sm:py-20 lg:grid-cols-[1fr_1.4fr]">
         <div>
-          <h2 className="text-xl font-bold text-navy-950">{site.legalName}</h2>
-          <address className="mt-3 not-italic text-navy-700">
+          <h2 className="text-xl font-bold text-green-950">{site.legalName}</h2>
+          <address className="mt-3 not-italic text-green-700">
             {site.address.street}
             <br />
             {site.address.zip} {site.address.city}
@@ -28,33 +28,33 @@ export default function KontaktPage() {
 
           <dl className="mt-8 space-y-4 text-sm">
             <div>
-              <dt className="font-semibold text-navy-900">Telefon</dt>
+              <dt className="font-semibold text-green-900">Telefon</dt>
               <dd>
-                <a href={`tel:${site.phoneHref}`} className="text-navy-700 hover:text-navy-950">
+                <a href={`tel:${site.phoneHref}`} className="text-green-700 hover:text-green-950">
                   {site.phone}
                 </a>
               </dd>
             </div>
             <div>
-              <dt className="font-semibold text-navy-900">E-Mail</dt>
+              <dt className="font-semibold text-green-900">E-Mail</dt>
               <dd>
-                <a href={`mailto:${site.email}`} className="text-navy-700 hover:text-navy-950">
+                <a href={`mailto:${site.email}`} className="text-green-700 hover:text-green-950">
                   {site.email}
                 </a>
               </dd>
             </div>
             <div>
-              <dt className="font-semibold text-navy-900">Bürozeiten</dt>
-              <dd className="text-navy-700">{site.hours.office}</dd>
+              <dt className="font-semibold text-green-900">Bürozeiten</dt>
+              <dd className="text-green-700">{site.hours.office}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-navy-900">Theorieunterricht</dt>
-              <dd className="text-navy-700">{site.hours.theory}</dd>
+              <dt className="font-semibold text-green-900">Theorieunterricht</dt>
+              <dd className="text-green-700">{site.hours.theory}</dd>
             </div>
           </dl>
         </div>
 
-        <div className="rounded-2xl border border-navy-100 bg-white p-6 sm:p-8">
+        <div className="rounded-2xl border border-green-100 bg-white p-6 sm:p-8">
           <ContactForm />
         </div>
       </div>

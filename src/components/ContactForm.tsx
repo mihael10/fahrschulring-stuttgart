@@ -50,9 +50,9 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-navy-100 bg-navy-50 p-8 text-center">
-        <h3 className="text-lg font-bold text-navy-950">Danke für deine Anfrage!</h3>
-        <p className="mt-2 text-sm text-navy-700">
+      <div className="rounded-2xl border border-green-100 bg-green-50 p-8 text-center">
+        <h3 className="text-lg font-bold text-green-950">Danke für deine Anfrage!</h3>
+        <p className="mt-2 text-sm text-green-700">
           Wir melden uns schnellstmöglich bei dir zurück.
         </p>
       </div>
@@ -71,18 +71,18 @@ export function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="text-sm font-semibold text-navy-900">
+          <label htmlFor="name" className="text-sm font-semibold text-green-900">
             Name *
           </label>
           <input
             id="name"
             name="name"
             required
-            className="mt-1.5 w-full rounded-lg border border-navy-200 px-3.5 py-2.5 text-sm outline-none focus:border-navy-700"
+            className="mt-1.5 w-full rounded-lg border border-green-200 px-3.5 py-2.5 text-sm outline-none focus:border-green-700"
           />
         </div>
         <div>
-          <label htmlFor="email" className="text-sm font-semibold text-navy-900">
+          <label htmlFor="email" className="text-sm font-semibold text-green-900">
             E-Mail *
           </label>
           <input
@@ -90,25 +90,25 @@ export function ContactForm() {
             name="email"
             type="email"
             required
-            className="mt-1.5 w-full rounded-lg border border-navy-200 px-3.5 py-2.5 text-sm outline-none focus:border-navy-700"
+            className="mt-1.5 w-full rounded-lg border border-green-200 px-3.5 py-2.5 text-sm outline-none focus:border-green-700"
           />
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="phone" className="text-sm font-semibold text-navy-900">
+          <label htmlFor="phone" className="text-sm font-semibold text-green-900">
             Telefon (optional)
           </label>
           <input
             id="phone"
             name="phone"
             type="tel"
-            className="mt-1.5 w-full rounded-lg border border-navy-200 px-3.5 py-2.5 text-sm outline-none focus:border-navy-700"
+            className="mt-1.5 w-full rounded-lg border border-green-200 px-3.5 py-2.5 text-sm outline-none focus:border-green-700"
           />
         </div>
         <div>
-          <label htmlFor="wunschklasse" className="text-sm font-semibold text-navy-900">
+          <label htmlFor="wunschklasse" className="text-sm font-semibold text-green-900">
             Gewünschte Klasse *
           </label>
           <select
@@ -116,7 +116,7 @@ export function ContactForm() {
             name="wunschklasse"
             required
             defaultValue=""
-            className="mt-1.5 w-full rounded-lg border border-navy-200 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-navy-700"
+            className="mt-1.5 w-full rounded-lg border border-green-200 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-green-700"
           >
             <option value="" disabled>
               Bitte wählen
@@ -132,28 +132,28 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="text-sm font-semibold text-navy-900">
+        <label htmlFor="message" className="text-sm font-semibold text-green-900">
           Nachricht (optional)
         </label>
         <textarea
           id="message"
           name="message"
           rows={4}
-          className="mt-1.5 w-full rounded-lg border border-navy-200 px-3.5 py-2.5 text-sm outline-none focus:border-navy-700"
+          className="mt-1.5 w-full rounded-lg border border-green-200 px-3.5 py-2.5 text-sm outline-none focus:border-green-700"
         />
       </div>
 
-      <label className="flex items-start gap-3 text-sm text-navy-700">
+      <label className="flex items-start gap-3 text-sm text-green-700">
         <input
           type="checkbox"
           name="consent"
           required
-          className="mt-1 h-4 w-4 rounded border-navy-300"
+          className="mt-1 h-4 w-4 rounded border-green-300"
         />
         <span>
           Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert
           werden. Details in der{" "}
-          <a href="/datenschutz" className="underline hover:text-navy-950">
+          <a href="/datenschutz" className="underline hover:text-green-950">
             Datenschutzerklärung
           </a>
           . *
@@ -167,7 +167,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex w-full items-center justify-center rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-navy-950 transition-colors hover:bg-amber-400 disabled:opacity-60 sm:w-auto"
+        className="inline-flex w-full items-center justify-center rounded-full bg-green-500 px-6 py-3 text-sm font-semibold text-green-950 transition-colors hover:bg-green-400 disabled:opacity-60 sm:w-auto"
       >
         {status === "loading" ? "Wird gesendet…" : "Anfrage senden"}
       </button>

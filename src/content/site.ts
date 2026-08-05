@@ -16,12 +16,16 @@ export const site = {
     country: "Deutschland",
   },
 
-  // NOTE: the old site is internally inconsistent. Homepage, Kontakt, Anfahrt and
-  // Fahrzeuge pages all show 0711 / 294100. The Impressum shows 0711 - 295928.
-  // Using the number that appears on 4 of 5 pages. CONFIRM with the owner before launch.
-  phone: "0711 294100",
-  phoneHref: "+49711294100",
-  phoneImpressum: "0711 295928",
+  // RESOLVED 2026-08-06: the old site's marketing pages (Homepage, Kontakt,
+  // Anfahrt, Fahrzeuge) showed 0711/294100, but the Impressum showed
+  // 0711-295928. Checked the business's live Google Business Profile
+  // (4.9★, 315 reviews, "Fahrschulring", Hegelstraße 48) — it lists
+  // +49 711 295928, matching the Impressum, not the marketing-page number.
+  // Two independent current sources beat four stale marketing pages, so
+  // 295928 is used site-wide now. Still worth a final confirmation with the
+  // owner before launch, but this is no longer an open guess.
+  phone: "0711 295928",
+  phoneHref: "+49711295928",
 
   // The Impressum is authoritative for the legal email: info@fahrschulring.de
   // (older marketing pages showed a .com typo — do not use it).
@@ -43,6 +47,20 @@ export const site = {
 
   social: {
     // Not present on the old site — leave empty until real profiles exist.
+  },
+
+  // Found on the live Google Business Profile ("Fahrschulring", Driving
+  // school, Hegelstraße 48) on 2026-08-06: 4.9★ from 315 reviews. This is a
+  // dated snapshot for the static fallback in GoogleReviews.tsx, not a live
+  // value — it will drift as new reviews come in. Wire up
+  // GOOGLE_PLACES_API_KEY + GOOGLE_PLACE_ID (see .env.example) to replace it
+  // with live data instead of updating this number by hand.
+  googleReviews: {
+    snapshotRating: 4.9,
+    snapshotCount: 315,
+    snapshotDate: "2026-08-06",
+    // Stable link to this exact listing (CID-based), works without any API key.
+    mapsUrl: "https://maps.google.com/?cid=15448751995835036082",
   },
 } as const;
 

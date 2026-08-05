@@ -1,18 +1,11 @@
+import Image from "next/image";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "./Button";
 import { team } from "@/content/team";
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2);
-}
-
 export function TeamPreview() {
   return (
-    <section className="bg-navy-50 py-20 sm:py-28">
+    <section className="bg-green-50 py-20 sm:py-28">
       <div className="container-page">
         <SectionHeading
           eyebrow="Unser Team"
@@ -23,13 +16,21 @@ export function TeamPreview() {
           {team.map((member) => (
             <div
               key={member.name}
-              className="flex flex-col items-center rounded-2xl border border-navy-100 bg-white p-6 text-center"
+              className="flex flex-col items-center rounded-2xl border border-green-100 bg-white p-6 text-center"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-navy-900 text-lg font-bold text-amber-400">
-                {initials(member.name)}
+              <div className="relative h-20 w-20 overflow-hidden rounded-full bg-green-900">
+                {member.photo && (
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    sizes="80px"
+                    className="object-cover"
+                  />
+                )}
               </div>
-              <h3 className="mt-4 text-sm font-bold text-navy-950">{member.name}</h3>
-              <p className="mt-1 text-xs text-navy-700">{member.role}</p>
+              <h3 className="mt-4 text-sm font-bold text-green-950">{member.name}</h3>
+              <p className="mt-1 text-xs text-green-700">{member.role}</p>
             </div>
           ))}
         </div>
