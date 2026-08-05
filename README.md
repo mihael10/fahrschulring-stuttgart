@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fahrschulring Stuttgart — Website Redesign
 
-## Getting Started
+Next.js 16 (App Router) + TypeScript + Tailwind CSS rebuild of fahrschulring.de,
+focused on modernizing the design and increasing sign-ups.
 
-First, run the development server:
+## Before launch — verify these
+
+The old site had a few internal inconsistencies. Confirm the correct values
+with the owner (Frank Eibl) before going live — they're centralized in
+`src/content/site.ts`:
+
+- **Phone number**: marketing pages showed `0711 / 294100`, the Impressum
+  showed `0711 - 295928`. The site currently uses `294100` everywhere except
+  the Impressum, which uses the legally-filed number.
+- **Office hours**: Impressum and Anfahrt agreed on 15:00–18:30; the old
+  Kontakt page alone said 18:00. Currently using 18:30.
+- **Testimonials** (`src/content/testimonials.ts`): intentionally empty, no
+  fake reviews were invented. Add real ones and the homepage section appears
+  automatically.
+- **Pricing**: not published anywhere on the old site, so none is invented
+  here. The whole site funnels to "request a quote" instead of listing prices.
+
+## Stack
+
+- Next.js 16 App Router, `output: "standalone"` for a small Docker image
+- Tailwind CSS v4 (theme tokens in `src/app/globals.css`)
+- Nodemailer-backed API route for the contact form (`src/app/api/contact`)
+- No database — all business content lives in `src/content/*.ts`
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Copy `.env.example` to `.env.local` and fill in SMTP credentials to test real
+email delivery; without them the contact form fails gracefully with a
+"call us instead" message and logs the submission to the server console.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Everything a non-developer might need to change lives in `src/content/`:
 
-## Learn More
+| File | What it controls |
+| --- | --- |
+| `site.ts` | Business name, address, phone, email, hours, legal/VAT info |
+| `classes.ts` | Führerscheinklassen shown on the homepage and `/klassen` |
+| `team.ts` | Instructor names/roles on the homepage and `/team` |
+| `fleet.ts` | Vehicles shown on `/fahrzeuge` |
+| `testimonials.ts` | Reviews — empty by design, see above |
+| `faq.ts` | FAQ accordion on the homepage |
 
-To learn more about Next.js, take a look at the following resources:
+## Deploying to DigitalOcean
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Option A — App Platform (recommended, least ops):**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push this repo to GitHub.
+2. In the DO dashboard: Create App → pick the repo → it will detect
+   `.do/app.yaml` and the `Dockerfile` automatically.
+3. Fill in `SMTP_HOST`, `SMTP_USER`, `SMTP_PASS` as encrypted env vars in the
+   dashboard (never commit real secrets into `app.yaml`).
+4. Point your domain at the app and update `NEXT_PUBLIC_SITE_URL`.
 
-## Deploy on Vercel
+**Option B — Droplet with Docker:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+docker build -t fahrschulring .
+docker run -p 3000:3000 --env-file .env.production fahrschulring
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Put a reverse proxy (Caddy/Nginx) in front for TLS.
+
+## Project scaffold for future Claude Code sessions
+
+See `CLAUDE.md` for the entry point, `knowledge/` for durable architecture
+and content-editing docs, and `.claude/skills/` for repo-specific workflows.
