@@ -2,8 +2,8 @@
 # Deploy with: doctl apps create --spec .do/app.yaml
 # Or via the DO dashboard: Create App -> pick this GitHub repo -> it auto-detects this file.
 #
-# Fill in <your-github-user>/<repo> below, and set SMTP_* / CONTACT_TO_EMAIL
-# as encrypted values in the dashboard (do not commit real secrets here).
+# Set SMTP_* / CONTACT_TO_EMAIL as encrypted values in the DO dashboard
+# (do not commit real secrets here).
 name: fahrschulring-stuttgart
 region: fra
 services:
@@ -11,7 +11,7 @@ services:
     dockerfile_path: Dockerfile
     source_dir: /
     github:
-      repo: <your-github-user>/<repo>
+      repo: mihael10/fahrschulring-stuttgart
       branch: main
       deploy_on_push: true
     http_port: 3000
