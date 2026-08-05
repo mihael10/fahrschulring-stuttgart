@@ -1,5 +1,10 @@
 import { Button } from "./Button";
 import { site } from "@/content/site";
+import { classes } from "@/content/classes";
+import { team } from "@/content/team";
+import { fleet } from "@/content/fleet";
+
+const electricCount = fleet.filter((v) => v.tag === "Elektro").length;
 
 export function Hero() {
   return (
@@ -44,9 +49,9 @@ export function Hero() {
         <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:w-80 lg:grid-cols-2">
           {[
             { value: `${site.yearsExperience}+`, label: "Jahre Erfahrung" },
-            { value: "18", label: "Führerscheinklassen" },
-            { value: "5", label: "Fahrlehrer:innen" },
-            { value: "3", label: "E-Fahrzeuge in der Flotte" },
+            { value: `${classes.length}`, label: "Führerscheinklassen" },
+            { value: `${team.length}`, label: "Fahrlehrer:innen" },
+            { value: `${electricCount}`, label: "E-Fahrzeuge in der Flotte" },
           ].map((stat) => (
             <div
               key={stat.label}

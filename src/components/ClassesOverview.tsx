@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "./Button";
+import { classes as licenseClasses } from "@/content/classes";
 
 const groups = [
   {
@@ -36,7 +37,7 @@ export function ClassesOverview() {
         <SectionHeading
           eyebrow="Führerscheinklassen"
           title="Für jedes Fahrzeug die passende Ausbildung"
-          description="18 Führerscheinklassen, ein Ansprechpartner. Wähle deinen Bereich – Details findest du auf unserer Klassen-Übersicht."
+          description={`${licenseClasses.length} Führerscheinklassen, ein Ansprechpartner. Wähle deinen Bereich – Details findest du auf unserer Klassen-Übersicht.`}
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {groups.map((group) => (

@@ -47,7 +47,7 @@ export default function KlassenPage() {
       <PageHero
         eyebrow="Führerscheinklassen"
         title="Für jedes Fahrzeug die passende Ausbildung"
-        description="18 Klassen, ein Ansprechpartner. Preise richten sich nach Klasse und individuellem Übungsbedarf – fordere ein unverbindliches Angebot an."
+        description={`${classes.length} Klassen, ein Ansprechpartner. Preise richten sich nach Klasse und individuellem Übungsbedarf – fordere ein unverbindliches Angebot an.`}
       />
       <div className="container-page py-16 sm:py-20">
         <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-navy-50 p-6 sm:p-8">

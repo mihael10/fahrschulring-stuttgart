@@ -17,7 +17,7 @@ export function TeamPreview() {
         <SectionHeading
           eyebrow="Unser Team"
           title="Wir sind für dich da"
-          description="Fünf erfahrene Fahrlehrer:innen begleiten dich persönlich durch deine gesamte Ausbildung."
+          description={`${team.length} erfahrene Fahrlehrer:innen begleiten dich persönlich durch deine gesamte Ausbildung.`}
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {team.map((member) => (

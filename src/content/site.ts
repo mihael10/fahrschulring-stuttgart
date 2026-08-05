@@ -20,7 +20,7 @@ export const site = {
   // Fahrzeuge pages all show 0711 / 294100. The Impressum shows 0711 - 295928.
   // Using the number that appears on 4 of 5 pages. CONFIRM with the owner before launch.
   phone: "0711 294100",
-  phoneHref: "+4971129410",
+  phoneHref: "+49711294100",
   phoneImpressum: "0711 295928",
 
   // The Impressum is authoritative for the legal email: info@fahrschulring.de
