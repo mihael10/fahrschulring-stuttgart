@@ -18,11 +18,11 @@ export function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover opacity-30"
+        className="object-cover opacity-60"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-green-950/80"
+        className="pointer-events-none absolute inset-0 bg-green-950/60"
       />
       <div
         aria-hidden
