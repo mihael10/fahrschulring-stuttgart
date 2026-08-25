@@ -7,7 +7,7 @@ export function VehicleCarousel() {
   const photos = [...vehiclePhotos, ...vehiclePhotos];
 
   return (
-    <section className="overflow-hidden bg-green-50 py-20 sm:py-28">
+    <section id="fuhrpark" className="overflow-hidden bg-green-50 py-20 sm:py-28">
       <div className="container-page">
         <SectionHeading eyebrow="Unser Fuhrpark" title="Unsere Fahrzeuge" />
       </div>

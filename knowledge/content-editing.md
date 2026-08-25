@@ -84,17 +84,23 @@ redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`:
   Setra, most motorcycles) intentionally stay text-only rather than
   guessing wrong. `galleryPhotos` in the same file holds the remaining
   unmapped shots.
-- The full set of vehicle photos lives in the auto-scrolling
-  `VehicleCarousel` on the homepage (`src/components/VehicleCarousel.tsx`),
-  fed by `vehiclePhotos` in `fleet.ts` (assigned `fleet[].image` values plus
-  the `/images/fleet/` entries of `galleryPhotos`). `/fahrzeuge` itself is
-  text-only (name + tag, no images) — don't reintroduce `<Image>` there;
-  add new vehicle shots to `vehiclePhotos`' sources instead. The carousel's
-  scroll animation (`.animate-vehicle-scroll` in `globals.css`) is disabled
-  under `prefers-reduced-motion: reduce`. Two of those same photos (the KTM
-  Duke, the VW Golf) also illustrate the matching homepage `Highlights`
-  cards (`src/components/Highlights.tsx`) — an intentional exception to
-  "carousel only" for visual balance in that grid, not an oversight.
+- There is no standalone `/fahrzeuge` page anymore — it was removed, and
+  `fleet` (per-vehicle name + tag) is no longer rendered as a list
+  anywhere. The full set of vehicle photos lives only in the auto-scrolling
+  `VehicleCarousel` on the homepage (`src/components/VehicleCarousel.tsx`,
+  `id="fuhrpark"`), fed by `vehiclePhotos` in `fleet.ts` (assigned
+  `fleet[].image` values plus the `/images/fleet/` entries of
+  `galleryPhotos`) — add new vehicle shots to those sources, not a
+  reintroduced page. The carousel's scroll animation
+  (`.animate-vehicle-scroll` in `globals.css`) is disabled under
+  `prefers-reduced-motion: reduce`. Two of those same photos (the KTM Duke,
+  the VW Golf) also illustrate the matching homepage `Highlights` cards
+  (`src/components/Highlights.tsx`) — an intentional exception to
+  "carousel only" for visual balance in that grid, not an oversight. The
+  simulator card's CTA links to `/#fuhrpark` (an anchor into the carousel
+  section), not a page — nav (`site.ts`) and that link are the only two
+  places `/fahrzeuge` needs to stay gone from if it's ever tempting to add
+  a route back.
 - `public/images/og-cover.jpg` is the OG/social share image, referenced by
   `layout.tsx`'s `openGraph.images` and JSON-LD `image` fields — not part of
   the original scrape (the old site had no dedicated share image), added

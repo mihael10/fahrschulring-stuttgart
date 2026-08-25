@@ -67,7 +67,6 @@ export const site = {
 export const navigation = [
   { href: "/", label: "Start" },
   { href: "/klassen", label: "Führerscheinklassen" },
-  { href: "/fahrzeuge", label: "Fuhrpark" },
   { href: "/team", label: "Team" },
   { href: "/anfahrt", label: "Anfahrt" },
   { href: "/kontakt", label: "Kontakt" },

@@ -27,7 +27,7 @@ const highlights = [
     description:
       "Erste Fahreindrücke, Gefahrensituationen und Routine üben wir gemeinsam im Simulator, bevor es auf die Straße geht.",
     cta: "Zum Fuhrpark",
-    href: "/fahrzeuge",
+    href: "/#fuhrpark",
     image: "/images/hero/simulator.jpg",
   },
 ];
