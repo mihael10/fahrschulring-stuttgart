@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Fahrschulring Stuttgart",
   },
   description:
-    "Fahrschulring Stuttgart bildet seit über 50 Jahren in allen Führerscheinklassen aus – moderne Flotte mit E-Autos, erfahrenes Team, zentral in Stuttgart-Mitte. Jetzt unverbindlich anmelden.",
+    "Fahrschulring Stuttgart bildet seit über 50 Jahren in allen Führerscheinklassen aus – moderne Flotte mit E-Autos, erfahrenes Team, zentral in Stuttgart-Mitte. Jetzt unverbindlich Kontakt aufnehmen.",
   openGraph: {
     title: "Fahrschulring Stuttgart",
     description:

@@ -35,6 +35,14 @@ dropping it. This is intentional graceful degradation, not a bug — verify
 it's not still in that state after deploy (check `CONTACT_TO_EMAIL` lands on
 a real inbox before pointing ads at `/kontakt`).
 
+**Currently disabled at the UI level**: none of these env vars are set yet,
+so `/kontakt` doesn't render `<ContactForm />` at all right now — it shows
+`tel:`/`mailto:` buttons instead, and `/datenschutz` section 3 was rewritten
+to match (see `knowledge/legal-compliance.md`). `ContactForm.tsx` and the
+route itself are untouched and ready — reinstating the form once GMX creds
+are set is a two-file change (`kontakt/page.tsx` + `datenschutz/page.tsx`),
+not a rebuild.
+
 `CONTACT_TO_EMAIL` defaults to `site.email` (`info@fahrschulring.de`) if
 unset — **the client's real inbox is a GMX address, not that domain
 address**, so `CONTACT_TO_EMAIL` must be set explicitly or leads go
@@ -66,16 +74,19 @@ check.
 
 - [ ] Get the client's actual GMX address and password (or app password),
       set `SMTP_USER`/`SMTP_PASS`/`CONTACT_TO_EMAIL`, enable POP3/IMAP
-      access in GMX settings, then send a real test lead through `/kontakt`
-      and confirm it arrives
+      access in GMX settings, reinstate `<ContactForm />` on `/kontakt` and
+      revert `/datenschutz` section 3 (see "Contact form is currently
+      disabled" in `knowledge/legal-compliance.md`), then send a real test
+      lead and confirm it arrives — until then the site is phone/email only
+      by design, not a bug
 - [ ] Confirm office hours with the owner (see `knowledge/content-editing.md`
       — phone number is resolved, hours are still a 2-vs-1 page guess)
 - [ ] Set `NEXT_PUBLIC_SITE_URL` to the real production domain
 - [ ] Optionally set `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` for live
       Google reviews instead of the dated static snapshot (see
       `knowledge/content-editing.md`)
-- [ ] Add an OG cover image at `public/images/og-cover.jpg` (see
-      `knowledge/content-editing.md`)
+- [x] OG cover image exists at `public/images/og-cover.jpg`, wired up in
+      `layout.tsx`
 - [ ] Decide whether Google Analytics or similar gets added — if so, update
       `src/app/datenschutz/page.tsx` section 5 (it currently states no
       tracking is in use, which must stay true or become false together)

@@ -55,3 +55,22 @@ body {
     padding-inline: 2rem;
   }
 }
+
+@keyframes vehicle-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-vehicle-scroll {
+  animation: vehicle-scroll 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-vehicle-scroll {
+    animation: none;
+  }
+}

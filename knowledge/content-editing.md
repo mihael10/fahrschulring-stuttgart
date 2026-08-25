@@ -83,10 +83,22 @@ redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`:
   without a confident source photo (Polo, X1, X2, Tesla, Sprinter, Actros,
   Setra, most motorcycles) intentionally stay text-only rather than
   guessing wrong. `galleryPhotos` in the same file holds the remaining
-  unmapped shots, rendered as a general "Impressionen" grid on `/fahrzeuge`.
-- Still missing: an OG/social share image at `public/images/og-cover.jpg`,
-  referenced by `layout.tsx`'s JSON-LD `image` field but not part of the
-  original scrape (the old site had no dedicated share image).
+  unmapped shots.
+- The full set of vehicle photos lives in the auto-scrolling
+  `VehicleCarousel` on the homepage (`src/components/VehicleCarousel.tsx`),
+  fed by `vehiclePhotos` in `fleet.ts` (assigned `fleet[].image` values plus
+  the `/images/fleet/` entries of `galleryPhotos`). `/fahrzeuge` itself is
+  text-only (name + tag, no images) — don't reintroduce `<Image>` there;
+  add new vehicle shots to `vehiclePhotos`' sources instead. The carousel's
+  scroll animation (`.animate-vehicle-scroll` in `globals.css`) is disabled
+  under `prefers-reduced-motion: reduce`. Two of those same photos (the KTM
+  Duke, the VW Golf) also illustrate the matching homepage `Highlights`
+  cards (`src/components/Highlights.tsx`) — an intentional exception to
+  "carousel only" for visual balance in that grid, not an oversight.
+- `public/images/og-cover.jpg` is the OG/social share image, referenced by
+  `layout.tsx`'s `openGraph.images` and JSON-LD `image` fields — not part of
+  the original scrape (the old site had no dedicated share image), added
+  separately.
 - `sharp` is a dependency — required for `next/image` optimization in the
   standalone Docker build; don't remove it.
 

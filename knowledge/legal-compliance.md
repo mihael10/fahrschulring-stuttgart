@@ -8,7 +8,7 @@ keywords: [impressum, datenschutz, dsgvo, gdpr, ddg, legal, consent, cookies]
 
 Germany requires a legally sufficient Impressum (§5 DDG) on any commercial
 site, and a Datenschutzerklärung describing actual data processing whenever
-personal data is collected (here: the contact form, plus whatever the
+personal data is collected (here: phone/email contact, plus whatever the
 hosting/embeds imply). Both exist at `/impressum` and `/datenschutz`.
 
 ## Impressum (`src/app/impressum/page.tsx`)
@@ -28,7 +28,9 @@ use. A privacy policy has to describe what the site *actually* does, so this
 one was written fresh against the real stack:
 
 - Hosting on DigitalOcean → server logfiles section
-- The contact form → what's collected, why, retention
+- Contact (phone/email) → what's collected, why, retention — section 3
+  currently describes phone/email only; the contact form is disabled (see
+  below), so don't describe form data collection while that's true
 - The Google Maps embed on `/anfahrt` → this is a real third-party call the
   old policy never disclosed for this iteration; keep this section if the
   map embed stays
@@ -39,9 +41,16 @@ from the contact form, a cookie banner, retargeting pixels — update this
 page in the same change.** A Datenschutzerklärung that doesn't match actual
 behavior is worse than none; don't let it drift.
 
-## Contact form consent
+## Contact form is currently disabled
 
-The DSGVO checkbox in `ContactForm.tsx` is a required field (server-side
-validated in `route.ts` via `consent === true`, not just client-side) — this
-is the legal basis (Art. 6 Abs. 1 lit. b/a DSGVO) for processing the
-submitted data. Don't make it optional or pre-checked.
+`ContactForm.tsx` and `/api/contact/route.ts` still exist on disk but
+`src/app/kontakt/page.tsx` doesn't render the form — SMTP/GMX credentials
+were never configured (see `knowledge/deployment.md`), so the form would
+otherwise fail with a 503 for every real visitor. `/kontakt` shows direct
+`tel:`/`mailto:` buttons instead. When GMX credentials are finally set:
+reinstate `<ContactForm />` on `/kontakt`, and put section 3 of
+`/datenschutz` back to describing form data collection (name, email, phone,
+Wunschklasse, message) instead of just phone/email correspondence — the two
+must change together. The DSGVO consent checkbox in `ContactForm.tsx` is
+still server-validated in `route.ts` (`consent === true`) and ready to go
+the moment the form is reinstated — don't make it optional or pre-checked.

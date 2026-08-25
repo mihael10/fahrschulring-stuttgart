@@ -43,7 +43,7 @@ export function Header() {
             {site.phone}
           </a>
           <Button href="/kontakt" variant="primary">
-            Jetzt anmelden
+            Kontakt aufnehmen
           </Button>
         </div>
 
@@ -83,7 +83,7 @@ export function Header() {
               {site.phone}
             </a>
             <Button href="/kontakt" variant="primary" className="mt-2" onClick={() => setOpen(false)}>
-              Jetzt anmelden
+              Kontakt aufnehmen
             </Button>
           </div>
         </div>

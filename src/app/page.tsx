@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { WhyUs } from "@/components/WhyUs";
 import { ClassesOverview } from "@/components/ClassesOverview";
 import { Highlights } from "@/components/Highlights";
+import { VehicleCarousel } from "@/components/VehicleCarousel";
 import { Process } from "@/components/Process";
 import { TeamPreview } from "@/components/TeamPreview";
 import { Testimonials } from "@/components/Testimonials";
@@ -16,6 +17,7 @@ export default function Home() {
       <WhyUs />
       <ClassesOverview />
       <Highlights />
+      <VehicleCarousel />
       <Process />
       <TeamPreview />
       <GoogleReviews />

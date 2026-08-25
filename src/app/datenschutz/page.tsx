@@ -37,15 +37,15 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-green-950">3. Kontaktformular</h2>
+          <h2 className="text-base font-bold text-green-950">3. Kontaktaufnahme</h2>
           <p className="mt-3">
-            Wenn du das Kontaktformular nutzt, verarbeiten wir die von dir angegebenen
-            Daten (Name, E-Mail-Adresse, optional Telefonnummer, gewünschte
-            Führerscheinklasse, Nachricht) ausschließlich zur Bearbeitung deiner Anfrage
-            und für den Fall von Anschlussfragen (Art. 6 Abs. 1 lit. b DSGVO). Die Daten
-            werden per E-Mail an unser Postfach übermittelt und nach abgeschlossener
-            Bearbeitung gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten
-            entgegenstehen.
+            Du erreichst uns derzeit ausschließlich telefonisch oder per E-Mail; ein
+            Online-Kontaktformular steht momentan nicht zur Verfügung. Wenn du uns per
+            E-Mail schreibst, verarbeiten wir die von dir mitgeteilten Daten (z. B. Name,
+            E-Mail-Adresse, Nachricht) ausschließlich zur Bearbeitung deiner Anfrage und
+            für den Fall von Anschlussfragen (Art. 6 Abs. 1 lit. b DSGVO) und löschen sie
+            nach abgeschlossener Bearbeitung, sofern keine gesetzlichen
+            Aufbewahrungspflichten entgegenstehen.
           </p>
         </section>
 

@@ -8,8 +8,8 @@ export function PageHero({
   description?: string;
 }) {
   return (
-    <section className="bg-green-950 py-16 sm:py-20">
-      <div className="container-page">
+    <section className="bg-green-950 py-16 text-center sm:py-20">
+      <div className="container-page flex flex-col items-center">
         <span className="text-xs font-bold uppercase tracking-wider text-green-400">
           {eyebrow}
         </span>

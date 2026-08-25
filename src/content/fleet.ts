@@ -31,8 +31,7 @@ export const fleet: Vehicle[] = [
 ];
 
 // Additional gallery photos from the same source that don't map to one
-// specific vehicle confidently — shown as a general "Impressionen" strip
-// on /fahrzeuge instead of guessed onto the wrong car.
+// specific vehicle confidently.
 export const galleryPhotos: string[] = [
   "/images/hero/simulator.jpg",
   "/images/hero/fz-start-1.png",
@@ -43,4 +42,14 @@ export const galleryPhotos: string[] = [
   "/images/fleet/gallery-06.jpg",
   "/images/fleet/gallery-misc-1.jpg",
   "/images/fleet/gallery-misc-2.jpg",
+];
+
+// Every vehicle photo we have — assigned vehicle shots plus the unmapped
+// gallery shots that are still vehicle photos (excludes the two general
+// hero/ shots, simulator + fz-start-1, which aren't of a vehicle). This is
+// the single source feeding the homepage vehicle carousel; vehicle photos
+// don't appear anywhere else on the site.
+export const vehiclePhotos: string[] = [
+  ...fleet.filter((v) => v.image).map((v) => v.image as string),
+  ...galleryPhotos.filter((src) => src.startsWith("/images/fleet/")),
 ];
