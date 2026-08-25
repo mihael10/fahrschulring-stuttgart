@@ -27,30 +27,30 @@ referenced Google Analytics/Adwords/social plugins that this rebuild doesn't
 use. A privacy policy has to describe what the site *actually* does, so this
 one was written fresh against the real stack:
 
-- Hosting on DigitalOcean → server logfiles section
+- Hosting → server logfiles section (currently describes GitHub Pages'
+  static hosting, not a self-managed server — update this section if the
+  deploy target changes again, see `knowledge/deployment.md`)
 - Contact (phone/email) → what's collected, why, retention — section 3
-  currently describes phone/email only; the contact form is disabled (see
-  below), so don't describe form data collection while that's true
+  describes phone/email only; there is no contact form (see below)
 - The Google Maps embed on `/anfahrt` → this is a real third-party call the
   old policy never disclosed for this iteration; keep this section if the
   map embed stays
 - No cookies/analytics currently → explicitly stated as such
 
-**If you add anything that changes data flows — analytics, a CRM webhook
-from the contact form, a cookie banner, retargeting pixels — update this
-page in the same change.** A Datenschutzerklärung that doesn't match actual
-behavior is worse than none; don't let it drift.
+**If you add anything that changes data flows — analytics, a contact form,
+a cookie banner, retargeting pixels — update this page in the same
+change.** A Datenschutzerklärung that doesn't match actual behavior is
+worse than none; don't let it drift.
 
-## Contact form is currently disabled
+## There is no contact form
 
-`ContactForm.tsx` and `/api/contact/route.ts` still exist on disk but
-`src/app/kontakt/page.tsx` doesn't render the form — SMTP/GMX credentials
-were never configured (see `knowledge/deployment.md`), so the form would
-otherwise fail with a 503 for every real visitor. `/kontakt` shows direct
-`tel:`/`mailto:` buttons instead. When GMX credentials are finally set:
-reinstate `<ContactForm />` on `/kontakt`, and put section 3 of
-`/datenschutz` back to describing form data collection (name, email, phone,
-Wunschklasse, message) instead of just phone/email correspondence — the two
-must change together. The DSGVO consent checkbox in `ContactForm.tsx` is
-still server-validated in `route.ts` (`consent === true`) and ready to go
-the moment the form is reinstated — don't make it optional or pre-checked.
+`ContactForm.tsx` and `src/app/api/contact/route.ts` were deleted (not just
+hidden) when the deploy target moved to GitHub Pages — a static export
+can't run a server-side POST handler at all, so keeping the form wasn't an
+option (see `knowledge/deployment.md`). `/kontakt` shows `tel:`/`mailto:`
+buttons instead, and `/datenschutz` section 3 was rewritten to match. If a
+working contact form matters enough to bring back, that's a hosting change
+(a third-party form backend, or moving off GitHub Pages) — see
+`knowledge/deployment.md`'s "Reviving the Docker/DigitalOcean path" — and
+section 3 needs rewriting again alongside it to describe form data
+collection (name, email, phone, Wunschklasse, message) once real.

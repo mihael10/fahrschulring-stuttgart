@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { navigation, site } from "@/content/site";
+import { basePath } from "@/lib/base-path";
 
 export function Footer() {
   return (
@@ -9,7 +10,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2">
             <Image
-              src="/images/logo/template-logo.jpg"
+              src={`${basePath}/images/logo/template-logo.jpg`}
               alt="Fahrschulring Stuttgart"
               width={157}
               height={68}

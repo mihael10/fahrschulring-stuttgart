@@ -26,7 +26,7 @@ export default function DatenschutzPage() {
         <section>
           <h2 className="text-base font-bold text-green-950">2. Hosting und Server-Logfiles</h2>
           <p className="mt-3">
-            Diese Website wird bei einem Cloud-Hosting-Anbieter (DigitalOcean) betrieben.
+            Diese Website wird über GitHub Pages (GitHub, Inc.) gehostet.
             Beim Aufruf der Website erhebt der Hosting-Provider automatisch technische
             Zugriffsdaten (Server-Logfiles), unter anderem IP-Adresse, Datum und Uhrzeit
             des Zugriffs, aufgerufene Seite, Browsertyp und Referrer-URL. Diese Daten

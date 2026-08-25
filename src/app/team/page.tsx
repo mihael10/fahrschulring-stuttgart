@@ -3,6 +3,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { ContactCta } from "@/components/ContactCta";
 import { team } from "@/content/team";
+import { basePath } from "@/lib/base-path";
 
 export const metadata: Metadata = {
   title: "Team",
@@ -27,7 +28,7 @@ export default function TeamPage() {
               <div className="relative h-24 w-24 overflow-hidden rounded-full bg-green-900">
                 {member.photo && (
                   <Image
-                    src={member.photo}
+                    src={`${basePath}${member.photo}`}
                     alt={member.name}
                     fill
                     sizes="96px"

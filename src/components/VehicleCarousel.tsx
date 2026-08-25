@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { SectionHeading } from "./SectionHeading";
 import { vehiclePhotos } from "@/content/fleet";
+import { basePath } from "@/lib/base-path";
 
 export function VehicleCarousel() {
   const photos = [...vehiclePhotos, ...vehiclePhotos];
@@ -20,7 +21,7 @@ export function VehicleCarousel() {
               className="relative h-48 w-72 shrink-0 overflow-hidden rounded-2xl border border-green-100 bg-white sm:h-56 sm:w-80"
             >
               <Image
-                src={src}
+                src={`${basePath}${src}`}
                 alt="Fahrzeug aus unserem Fuhrpark"
                 fill
                 sizes="320px"

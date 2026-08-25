@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { navigation, site } from "@/content/site";
+import { basePath } from "@/lib/base-path";
 import { Button } from "./Button";
 
 export function Header() {
@@ -14,7 +15,7 @@ export function Header() {
       <div className="container-page flex h-16 items-center justify-between sm:h-20">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/logo/template-logo.jpg"
+            src={`${basePath}/images/logo/template-logo.jpg`}
             alt="Fahrschulring Stuttgart"
             width={157}
             height={68}

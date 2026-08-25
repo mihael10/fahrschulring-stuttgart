@@ -1,7 +1,8 @@
 # Fahrschulring Stuttgart — Website
 
 Modern redesign of fahrschulring.de (Next.js 16 App Router, TypeScript,
-Tailwind CSS v4), built for conversion — every path leads to the contact form.
+Tailwind CSS v4), built for conversion — every path leads to a phone or
+email CTA (there is no contact form — see `knowledge/deployment.md`).
 
 Read `knowledge/index.md` first for anything beyond a trivial fix — it routes
 to the doc that actually covers what you're touching, so you don't have to
@@ -29,17 +30,22 @@ API works the way it used to.
   (`GoogleReviews.tsx`) show a dated real snapshot, with live data once
   `GOOGLE_PLACES_API_KEY`/`GOOGLE_PLACE_ID` are set — see
   `knowledge/content-editing.md`.
-- The contact form must deliver to the client's **GMX** mailbox — see
-  `knowledge/deployment.md` for the exact SMTP settings and the GMX account
-  setting that has to be enabled first.
-- Deployment target is DigitalOcean via Docker (`Dockerfile`, `.do/app.yaml`)
-  with the repo on GitHub.
+- There is no contact form — `ContactForm.tsx`/`api/contact` were deleted
+  when the deploy target moved to GitHub Pages (static hosting can't run
+  server code). `/kontakt` is `tel:`/`mailto:` buttons only — see
+  `knowledge/deployment.md` before adding one back.
+- Deployment target is **GitHub Pages**, built by GitHub Actions on every
+  push to `main` (`.github/workflows/deploy.yml`). Live at
+  `https://mihael10.github.io/fahrschulring-stuttgart/`. `next.config.ts`
+  uses `output: "export"` — see `knowledge/deployment.md` for the basePath/
+  trailingSlash gotchas before touching routing, images, or metadata URLs.
+  `Dockerfile`/`.do/app.yaml` are a retired alternate path, kept but
+  currently incompatible with the export config.
 
 ## Commands
 
 ```bash
 npm run dev      # local dev server
-npm run build    # production build (also run before considering work done)
+npm run build    # production build (also run before considering work done) — outputs static files to out/
 npm run lint     # eslint
-docker build -t fahrschulring .   # verify the deploy image still builds
 ```

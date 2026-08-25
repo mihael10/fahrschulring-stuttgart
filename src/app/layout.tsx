@@ -30,7 +30,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-cover.jpg",
+        // Absolute, not "/images/..." — metadataBase resolution treats a
+        // leading slash as domain-root, which would drop the GitHub Pages
+        // basePath (see next.config.ts).
+        url: `${siteUrl}/images/og-cover.jpg`,
         width: 1200,
         height: 630,
         alt: "Fahrschulring Stuttgart",

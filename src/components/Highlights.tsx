@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "./Button";
+import { basePath } from "@/lib/base-path";
 
 const highlights = [
   {
@@ -43,7 +44,7 @@ export function Highlights() {
             >
               <div className="relative h-40 w-full">
                 <Image
-                  src={item.image}
+                  src={`${basePath}${item.image}`}
                   alt={item.title}
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"

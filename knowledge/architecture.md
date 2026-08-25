@@ -1,30 +1,34 @@
 ---
 title: Architecture
 area: app-structure, components, styling, rendering
-keywords: [next.js, app router, tailwind, layout, components, standalone]
+keywords: [next.js, app router, tailwind, layout, components, static export]
 ---
 
 # Architecture
 
-Next.js 16 App Router, TypeScript, Tailwind CSS v4. `output: "standalone"` in
-`next.config.ts` — required for the Docker image to stay small (see
-`knowledge/deployment.md`). This also means the contact form **must** stay a
-server-rendered route (`/api/contact`), not a static export — don't switch
-`output` to `"export"` without removing that route first.
+Next.js 16 App Router, TypeScript, Tailwind CSS v4. `output: "export"` in
+`next.config.ts` — the site deploys to GitHub Pages (see
+`knowledge/deployment.md`), which only serves static files. This means
+**no server-side code is possible at all**: no route handlers, no
+`cookies()`/`headers()`, no ISR/ `revalidate` behavior beyond a build-time
+fetch. There used to be a server-rendered `/api/contact` route backing a
+contact form; both were deleted when the deploy target moved to GitHub
+Pages (see `knowledge/deployment.md`) — don't add a route handler back
+without first re-reading that doc's notes on what breaks the static export.
 
 ## Structure
 
 ```
 src/
   app/            route segments (page.tsx per route, layout.tsx = global chrome)
-    api/contact/  the one server route — nodemailer-backed form handler
   components/     presentational components, one per file, no barrel exports
   content/        *.ts data files — the only place business facts live
+  lib/            small runtime helpers (e.g. base-path.ts — see deployment.md)
 ```
 
 Pages are server components by default. Only components with local
-interactive state are `"use client"` (`Header`, `Faq`, `ContactForm`) — keep
-new interactive pieces client-only and leave everything else server-rendered;
+interactive state are `"use client"` (`Header`, `Faq`) — keep new
+interactive pieces client-only and leave everything else server-rendered;
 this is a marketing site, not an app, so client JS should stay minimal.
 
 ## Styling

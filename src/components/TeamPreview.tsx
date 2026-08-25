@@ -2,6 +2,7 @@ import Image from "next/image";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "./Button";
 import { team } from "@/content/team";
+import { basePath } from "@/lib/base-path";
 
 export function TeamPreview() {
   return (
@@ -21,7 +22,7 @@ export function TeamPreview() {
               <div className="relative h-20 w-20 overflow-hidden rounded-full bg-green-900">
                 {member.photo && (
                   <Image
-                    src={member.photo}
+                    src={`${basePath}${member.photo}`}
                     alt={member.name}
                     fill
                     sizes="80px"
