@@ -37,7 +37,7 @@ export function Hero() {
         alt="Gut betreut – Verbands-Fahrschule"
         width={90}
         height={95}
-        className="absolute right-5 top-5 z-10 h-16 w-auto drop-shadow-lg sm:right-8 sm:top-8 sm:h-20"
+        className="absolute right-5 top-5 z-10 hidden h-16 w-auto drop-shadow-lg sm:right-8 sm:top-8 sm:block sm:h-20"
       />
       <div className="container-page relative flex flex-col items-center gap-10 py-20 text-center sm:py-28 lg:py-32">
         <div className="max-w-2xl">
