@@ -1,14 +1,29 @@
+import Image from "next/image";
 import { Button } from "./Button";
 import { site } from "@/content/site";
 import { classes } from "@/content/classes";
 import { team } from "@/content/team";
 import { fleet } from "@/content/fleet";
+import { basePath } from "@/lib/base-path";
 
 const electricCount = fleet.filter((v) => v.tag === "Elektro").length;
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-green-950">
+      <Image
+        src={`${basePath}/images/fleet/gallery-03.jpg`}
+        alt=""
+        aria-hidden
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-30"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-green-950/80"
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-40"
@@ -16,6 +31,13 @@ export function Hero() {
           background:
             "radial-gradient(60rem 30rem at 80% -10%, rgba(74,222,128,0.25), transparent), radial-gradient(40rem 25rem at 0% 100%, rgba(21,128,61,0.5), transparent)",
         }}
+      />
+      <Image
+        src={`${basePath}/images/logo/vb-fs-logo.png`}
+        alt="Gut betreut – Verbands-Fahrschule"
+        width={90}
+        height={95}
+        className="absolute right-5 top-5 z-10 h-16 w-auto drop-shadow-lg sm:right-8 sm:top-8 sm:h-20"
       />
       <div className="container-page relative flex flex-col items-center gap-10 py-20 text-center sm:py-28 lg:py-32">
         <div className="max-w-2xl">

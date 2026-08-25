@@ -71,19 +71,26 @@ redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`:
 
 - `logo/template-logo.jpg` is the actual brand mark (green circle +
   "Fahrschul Ring" wordmark) — used in `Header.tsx` / `Footer.tsx`.
-  `logo/vb-fs-logo.png` is a separate "gut betreut" Verbands-Fahrschule
-  certification seal from the old site, downloaded but not currently placed
-  anywhere — add it near the footer if the association membership should be
-  displayed as a trust badge.
+  `logo/vb-fs-logo.png` is the "gut betreut" Verbands-Fahrschule
+  certification seal, from the old site — now shown as a corner badge on
+  the homepage `Hero` (`src/components/Hero.tsx`), top-right of the
+  section.
 - `team.ts` maps each of the 5 instructors to their real photo (`photo`
   field) — order was cross-checked against the old team page's HTML
   (name/image pairs), not assumed from array position.
 - `fleet.ts` maps a vehicle's `image` field only where the old site's own
   filename made the match confident (e.g. `Golf.jpg` → VW Golf). Vehicles
-  without a confident source photo (Polo, X1, X2, Tesla, Sprinter, Actros,
-  Setra, most motorcycles) intentionally stay text-only rather than
-  guessing wrong. `galleryPhotos` in the same file holds the remaining
-  unmapped shots.
+  without a confident source photo (X1, X2, Tesla, Sprinter, Actros, Setra,
+  most motorcycles) intentionally stay text-only rather than guessing
+  wrong. `galleryPhotos` in the same file holds the remaining unmapped
+  shots — this **does** include a confident match now identified by
+  filename inspection: `gallery-03.jpg` is the branded VW Polo
+  ("Fahrschulring.de" livery, plate S-E 3030) — it's used directly as the
+  `Hero` background photo (`src/components/Hero.tsx`, dark overlay at
+  `bg-green-950/80` plus the existing radial gradient, so text stays
+  legible) rather than reassigned onto the Polo's `fleet.ts` entry, since
+  nothing renders per-vehicle images anymore (see below) — reassigning it
+  wouldn't change anything except the comment.
 - There is no standalone `/fahrzeuge` page anymore — it was removed, and
   `fleet` (per-vehicle name + tag) is no longer rendered as a list
   anywhere. The full set of vehicle photos lives only in the auto-scrolling
@@ -93,10 +100,10 @@ redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`:
   `galleryPhotos`) — add new vehicle shots to those sources, not a
   reintroduced page. The carousel's scroll animation
   (`.animate-vehicle-scroll` in `globals.css`) is disabled under
-  `prefers-reduced-motion: reduce`. Two of those same photos (the KTM Duke,
-  the VW Golf) also illustrate the matching homepage `Highlights` cards
-  (`src/components/Highlights.tsx`) — an intentional exception to
-  "carousel only" for visual balance in that grid, not an oversight. The
+  `prefers-reduced-motion: reduce`. The homepage `Highlights`
+  (`src/components/Highlights.tsx`) is down to a single Fahrsimulator
+  card (`/images/hero/simulator.jpg`) — the B196/BF17 cards that used to
+  sit next to it were removed; that content still lives on `/klassen`. The
   simulator card's CTA links to `/#fuhrpark` (an anchor into the carousel
   section), not a page — nav (`site.ts`) and that link are the only two
   places `/fahrzeuge` needs to stay gone from if it's ever tempting to add
