@@ -8,6 +8,7 @@ import { basePath } from "@/lib/base-path";
 export const metadata: Metadata = {
   title: "Team",
   description: "Lerne das Fahrlehrer-Team von Fahrschulring Stuttgart kennen.",
+  alternates: { canonical: "/team/" },
 };
 
 export default function TeamPage() {

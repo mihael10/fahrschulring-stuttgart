@@ -10,7 +10,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2">
             <Image
-              src={`${basePath}/images/logo/template-logo.jpg`}
+              src={`${basePath}/images/logo/template-logo.webp`}
               alt="Fahrschulring Stuttgart"
               width={157}
               height={68}

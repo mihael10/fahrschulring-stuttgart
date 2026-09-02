@@ -5,6 +5,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Anfahrt",
   description: "So findest du zu Fahrschulring Stuttgart in der Hegelstraße 48.",
+  alternates: { canonical: "/anfahrt/" },
 };
 
 export default function AnfahrtPage() {

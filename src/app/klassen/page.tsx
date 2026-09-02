@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Führerscheinklassen",
   description:
     "Alle Führerscheinklassen bei Fahrschulring Stuttgart im Überblick: Motorrad, Auto, LKW & Bus sowie Sonderklassen.",
+  alternates: { canonical: "/klassen/" },
 };
 
 const groupSlugs: Record<(typeof classGroups)[number], string> = {

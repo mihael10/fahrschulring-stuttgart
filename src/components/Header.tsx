@@ -15,7 +15,7 @@ export function Header() {
       <div className="container-page flex h-16 items-center justify-between sm:h-20">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src={`${basePath}/images/logo/template-logo.jpg`}
+            src={`${basePath}/images/logo/template-logo.webp`}
             alt="Fahrschulring Stuttgart"
             width={157}
             height={68}

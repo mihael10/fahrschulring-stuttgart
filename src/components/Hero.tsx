@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-green-950">
       <Image
-        src={`${basePath}/images/fleet/gallery-03.jpg`}
+        src={`${basePath}/images/fleet/gallery-03.webp`}
         alt=""
         aria-hidden
         fill
@@ -33,7 +33,7 @@ export function Hero() {
         }}
       />
       <Image
-        src={`${basePath}/images/logo/vb-fs-logo.png`}
+        src={`${basePath}/images/logo/vb-fs-logo.webp`}
         alt="Gut betreut – Verbands-Fahrschule"
         width={90}
         height={95}
@@ -45,7 +45,7 @@ export function Hero() {
             Seit über {site.yearsExperience} Jahren in Stuttgart
           </span>
           <h1 className="mt-6 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
-            Dein Führerschein.
+            Deine Fahrschule in Stuttgart.
             <span className="block text-green-400">Sicher ans Ziel.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-green-100/80">

@@ -9,7 +9,7 @@ const highlight = {
     "Erste Fahreindrücke, Gefahrensituationen und Routine üben wir gemeinsam im Simulator, bevor es auf die Straße geht.",
   cta: "Zum Fuhrpark",
   href: "/#fuhrpark",
-  image: "/images/hero/simulator.jpg",
+  image: "/images/hero/simulator.webp",
 };
 
 export function Highlights() {

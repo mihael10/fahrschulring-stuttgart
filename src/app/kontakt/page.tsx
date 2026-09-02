@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Kontakt",
   description:
     "Kontaktiere Fahrschulring Stuttgart telefonisch oder per E-Mail – wir melden uns mit den nächsten Schritten.",
+  alternates: { canonical: "/kontakt/" },
 };
 
 export default function KontaktPage() {

@@ -53,6 +53,24 @@ it onto:
    resolution treats a leading `/` as domain-root and would silently drop
    the basePath segment. Keep this pattern for any new absolute metadata URL.
 
+## `robots.txt` / `sitemap.xml` are the one exception to basePath
+
+`src/app/robots.ts` and `src/app/sitemap.ts` (both `export const dynamic =
+"force-static"`, required under `output: "export"` or the build fails) emit
+to `out/robots.txt` and `out/sitemap.xml` at the **domain root**, not under
+`out/<basePath>/` like every other route — confirmed by building locally
+with `GITHUB_REPOSITORY` set and inspecting `out/`. That's actually correct
+here: robots.txt only has effect at the origin root per spec, and it's the
+only sane place for it on a domain shared with other GitHub Pages project
+sites under the same account. `sitemap.ts` builds its `<loc>` URLs from
+`NEXT_PUBLIC_SITE_URL` by hand (same fallback/production pattern as
+`layout.tsx`'s `siteUrl`), which already includes the basePath — so the
+listed page URLs are correct even though the sitemap file itself sits
+outside it. Sitemap entries use trailing slashes (`/klassen/`, not
+`/klassen`) to match `trailingSlash: true` below and avoid listing a
+redirect source as canonical. Noindex pages (Impressum, Datenschutz) are
+deliberately left out of the sitemap.
+
 ## `trailingSlash: true` — required, not cosmetic
 
 Without it, static export emits both `team.html` (the real page) and a
@@ -117,6 +135,11 @@ unused by the current static export but required again the moment
 
 - [x] Deploy pipeline live: GitHub Actions → GitHub Pages (private repo,
       GitHub Pro)
+- [x] `robots.txt` + `sitemap.xml` + per-page canonical URLs (see "robots.txt
+      / sitemap.xml are the one exception to basePath" above) — mind that
+      `robots.txt` governs the whole `mihael10.github.io` domain, not just
+      this repo's subpath, if another project Pages site is ever added under
+      the same account
 - [ ] Confirm office hours with the owner (see `knowledge/content-editing.md`
       — phone number is resolved, hours are still a 2-vs-1 page guess)
 - [ ] Optionally set `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` as repo

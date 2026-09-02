@@ -67,11 +67,14 @@ updating that map too.
 `public/images/` holds the business's own photos, pulled from the old
 fahrschulring.de (logo, team headshots, fleet/gallery shots, the simulator
 photo) — these are the business's own marketing assets, reused for its own
-redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`:
+redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`. Every file
+except `og-cover.jpg` is `.webp` (converted from the original `.jpg`/`.png`
+scrape for an SEO/performance pass — see "Image format is `.webp`" below);
+mentally substitute `.webp` for whatever extension a filename below implies.
 
-- `logo/template-logo.jpg` is the actual brand mark (green circle +
+- `logo/template-logo.webp` is the actual brand mark (green circle +
   "Fahrschul Ring" wordmark) — used in `Header.tsx` / `Footer.tsx`.
-  `logo/vb-fs-logo.png` is the "gut betreut" Verbands-Fahrschule
+  `logo/vb-fs-logo.webp` is the "gut betreut" Verbands-Fahrschule
   certification seal, from the old site — now shown as a corner badge on
   the homepage `Hero` (`src/components/Hero.tsx`), top-right of the
   section.
@@ -79,12 +82,12 @@ redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`:
   field) — order was cross-checked against the old team page's HTML
   (name/image pairs), not assumed from array position.
 - `fleet.ts` maps a vehicle's `image` field only where the old site's own
-  filename made the match confident (e.g. `Golf.jpg` → VW Golf). Vehicles
+  filename made the match confident (e.g. `golf.webp` → VW Golf). Vehicles
   without a confident source photo (X1, X2, Tesla, Sprinter, Actros, Setra,
   most motorcycles) intentionally stay text-only rather than guessing
   wrong. `galleryPhotos` in the same file holds the remaining unmapped
   shots — this **does** include a confident match now identified by
-  filename inspection: `gallery-03.jpg` is the branded VW Polo
+  filename inspection: `gallery-03.webp` is the branded VW Polo
   ("Fahrschulring.de" livery, plate S-E 3030) — it's used directly as the
   `Hero` background photo (`src/components/Hero.tsx`, dark overlay at
   `bg-green-950/80` plus the existing radial gradient, so text stays
@@ -102,7 +105,7 @@ redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`:
   (`.animate-vehicle-scroll` in `globals.css`) is disabled under
   `prefers-reduced-motion: reduce`. The homepage `Highlights`
   (`src/components/Highlights.tsx`) is down to a single Fahrsimulator
-  card (`/images/hero/simulator.jpg`) — the B196/BF17 cards that used to
+  card (`/images/hero/simulator.webp`) — the B196/BF17 cards that used to
   sit next to it were removed; that content still lives on `/klassen`. The
   simulator card's CTA links to `/#fuhrpark` (an anchor into the carousel
   section), not a page — nav (`site.ts`) and that link are the only two
@@ -112,8 +115,22 @@ redesign, organized into `logo/`, `team/`, `hero/`, `fleet/`:
   `layout.tsx`'s `openGraph.images` and JSON-LD `image` fields — not part of
   the original scrape (the old site had no dedicated share image), added
   separately.
+- **Image format is `.webp`, except `og-cover.jpg`.** `images.unoptimized:
+  true` (required for static export, see `knowledge/deployment.md`) means
+  `next/image` serves whatever file is on disk with no format/size
+  conversion at request time — so the source files themselves were
+  converted once, offline, with `sharp` (`.webp`, quality 82; the three
+  fleet photos that were 2000×1500 source scans — `mg4`, `kia-niro`,
+  `gallery-misc-2` — were also downsized to max-width 960, since they only
+  ever render in a 320px carousel slot). **Add any new photo as `.webp`
+  too** (`npx sharp -i input.jpg -o output.webp` or equivalent), not
+  `.jpg`/`.png` — an unconverted new image will still work but undoes the
+  page-weight win this pass made. `og-cover.jpg` was deliberately left as
+  JPEG: some social-platform link-preview crawlers still handle `.webp`
+  og:image inconsistently.
 - `sharp` is a dependency — required for `next/image` optimization in the
-  standalone Docker build; don't remove it.
+  standalone Docker build (and used ad hoc for the `.webp` conversion
+  above); don't remove it.
 
 ## Google reviews (`GoogleReviews.tsx`)
 
