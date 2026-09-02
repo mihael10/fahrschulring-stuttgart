@@ -15,7 +15,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.fahrschulring.d
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Fahrschulring Stuttgart – Führerschein mit über 50 Jahren Erfahrung",
+    default: "Fahrschulring Stuttgart – Führerschein mit 50+ Jahren Erfahrung",
     template: "%s | Fahrschulring Stuttgart",
   },
   description:
