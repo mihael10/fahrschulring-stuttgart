@@ -24,7 +24,7 @@ export const site = {
   // Two independent current sources beat four stale marketing pages, so
   // 295928 is used site-wide now. Still worth a final confirmation with the
   // owner before launch, but this is no longer an open guess.
-  phone: "0711 295928",
+  phone: "0711 294100 ",
   phoneHref: "+49711295928",
 
   // The Impressum is authoritative for the legal email: info@fahrschulring.de
