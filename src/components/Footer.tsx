@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { navigation, site } from "@/content/site";
 import { basePath } from "@/lib/base-path";
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 
 export function Footer() {
   return (
@@ -76,6 +77,7 @@ export function Footer() {
             <Link href="/datenschutz" className="hover:text-green-400">
               Datenschutz
             </Link>
+            <CookieSettingsButton />
           </div>
         </div>
       </div>

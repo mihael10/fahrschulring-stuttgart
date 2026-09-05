@@ -72,11 +72,37 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-green-950">5. Cookies und Tracking</h2>
+          <h2 className="text-base font-bold text-green-950">5. Cookies und Tracking (Google Analytics)</h2>
           <p className="mt-3">
-            Diese Website setzt derzeit keine Analyse- oder Marketing-Cookies ein. Sollte
-            sich das künftig ändern (z. B. durch Webanalyse), informieren wir dich an
-            dieser Stelle und holen, soweit erforderlich, vorab deine Einwilligung ein.
+            Diese Website nutzt Google Analytics, einen Webanalysedienst der Google
+            Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland
+            (&bdquo;Google&ldquo;). Google Analytics verwendet Cookies und ähnliche
+            Technologien, die eine Analyse der Websitenutzung ermöglichen (z. B.
+            aufgerufene Seiten, Verweildauer, ungefährer Standort, verwendetes Gerät).
+            Die dabei erzeugten Informationen werden an einen Server von Google
+            übertragen und dort gespeichert.
+          </p>
+          <p className="mt-3">
+            Google Analytics wird bei uns erst geladen und aktiv, nachdem du in dem
+            beim Seitenaufruf eingeblendeten Cookie-Banner ausdrücklich zugestimmt
+            hast. Rechtsgrundlage ist damit ausschließlich deine Einwilligung
+            (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TTDSG). Du kannst deine
+            Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem du
+            über den Link &bdquo;Cookie-Einstellungen&ldquo; im Footer deine Auswahl
+            änderst; ohne Zustimmung werden keine Analyse-Cookies gesetzt und keine
+            Nutzungsdaten an Google übertragen.
+          </p>
+          <p className="mt-3">
+            Weitere Informationen zur Datenverarbeitung durch Google findest du in der{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              Datenschutzerklärung von Google
+            </a>
+            .
           </p>
         </section>
 
@@ -101,7 +127,7 @@ export default function DatenschutzPage() {
           </p>
         </section>
 
-        <p className="text-xs text-green-500">Stand: August 2026</p>
+        <p className="text-xs text-green-500">Stand: September 2026</p>
       </div>
     </>
   );
