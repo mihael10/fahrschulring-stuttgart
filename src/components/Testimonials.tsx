@@ -9,7 +9,7 @@ export function Testimonials() {
   return (
     <section className="bg-green-50 py-20 sm:py-28">
       <div className="container-page">
-        <SectionHeading eyebrow="Stimmen unserer Fahrschüler:innen" title="Das sagen unsere Absolvent:innen" />
+        <SectionHeading eyebrow="Stimmen unserer Fahrschülerinnen" title="Das sagen unsere Absolvent:innen" />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t) => (
             <figure key={t.author} className="rounded-2xl border border-green-100 bg-white p-6">
