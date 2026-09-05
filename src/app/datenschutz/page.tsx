@@ -83,14 +83,14 @@ export default function DatenschutzPage() {
             übertragen und dort gespeichert.
           </p>
           <p className="mt-3">
-            Google Analytics wird bei uns erst geladen und aktiv, nachdem du in dem
-            beim Seitenaufruf eingeblendeten Cookie-Banner ausdrücklich zugestimmt
-            hast. Rechtsgrundlage ist damit ausschließlich deine Einwilligung
+            Google Analytics wird bei uns erst aktiviert, nachdem du in dem beim
+            Seitenaufruf eingeblendeten Cookie-Banner ausdrücklich zugestimmt hast.
+            Rechtsgrundlage ist damit ausschließlich deine Einwilligung
             (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TTDSG). Du kannst deine
             Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem du
-            über den Link &bdquo;Cookie-Einstellungen&ldquo; im Footer deine Auswahl
-            änderst; ohne Zustimmung werden keine Analyse-Cookies gesetzt und keine
-            Nutzungsdaten an Google übertragen.
+            über den Link &bdquo;Cookie-Einstellungen&ldquo; in der Fußzeile deine
+            Auswahl änderst; ohne Zustimmung werden keine Analyse-Cookies gesetzt und
+            keine Nutzungsdaten an Google übertragen.
           </p>
           <p className="mt-3">
             Weitere Informationen zur Datenverarbeitung durch Google findest du in der{" "}
