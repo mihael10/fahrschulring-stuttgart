@@ -6,6 +6,7 @@ import { team } from "@/content/team";
 import { fleet } from "@/content/fleet";
 import { basePath } from "@/lib/base-path";
 import { PhoneIcon } from "./icons";
+import { Counter } from "./Counter";
 
 const electricCount = fleet.filter((v) => v.tag === "Elektro").length;
 
@@ -72,20 +73,25 @@ export function Hero() {
 
         <dl className="grid w-full max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
           {[
-            { value: `${site.yearsExperience}+`, label: "Jahre Erfahrung" },
-            { value: `${classes.length}`, label: "Führerscheinklassen" },
-            { value: `${team.length}`, label: "Fahrlehrer" },
-            { value: `${electricCount}`, label: "E-Fahrzeuge in der Flotte" },
-          ].map((stat, i) => (
-            <div
-              key={stat.label}
-              style={{ animationDelay: `${400 + i * 90}ms` }}
-              className="animate-fade-up rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur transition-colors hover:bg-white/10"
-            >
-              <dt className="text-2xl font-extrabold text-white">{stat.value}</dt>
-              <dd className="mt-1 text-xs text-green-100/70">{stat.label}</dd>
-            </div>
-          ))}
+            { value: site.yearsExperience, suffix: "+", label: "Jahre Erfahrung" },
+            { value: classes.length, suffix: "", label: "Führerscheinklassen" },
+            { value: team.length, suffix: "", label: "Fahrlehrer" },
+            { value: electricCount, suffix: "", label: "E-Fahrzeuge in der Flotte" },
+          ].map((stat, i) => {
+            const delay = 400 + i * 90;
+            return (
+              <div
+                key={stat.label}
+                style={{ animationDelay: `${delay}ms` }}
+                className="animate-fade-up rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur transition-colors hover:bg-white/10"
+              >
+                <dt className="text-2xl font-extrabold text-white">
+                  <Counter value={stat.value} suffix={stat.suffix} delay={delay} />
+                </dt>
+                <dd className="mt-1 text-xs text-green-100/70">{stat.label}</dd>
+              </div>
+            );
+          })}
         </dl>
       </div>
     </section>

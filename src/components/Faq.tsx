@@ -11,7 +11,7 @@ export function Faq() {
     <section className="bg-white py-20 sm:py-28">
       <div className="container-page">
         <SectionHeading eyebrow="Häufige Fragen" title="Gut zu wissen" />
-        <div className="mx-auto mt-12 max-w-3xl divide-y divide-green-100 border-y border-green-100">
+        <div className="reveal mx-auto mt-12 max-w-3xl divide-y divide-green-100 border-y border-green-100">
           {faq.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
