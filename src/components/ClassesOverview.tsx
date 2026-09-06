@@ -44,14 +44,14 @@ export function ClassesOverview() {
             <Link
               key={group.slug}
               href={`/klassen#${group.slug}`}
-              className="group flex flex-col rounded-2xl border border-green-100 bg-white p-6 transition-shadow hover:shadow-lg hover:shadow-green-900/5"
+              className="reveal group flex flex-col rounded-2xl border border-green-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-900/5 motion-reduce:hover:translate-y-0"
             >
               <h3 className="text-lg font-bold text-green-950">{group.title}</h3>
               <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-green-600">
                 {group.classes}
               </p>
               <p className="mt-3 flex-1 text-sm text-green-700">{group.description}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-green-900 group-hover:text-green-600">
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-green-900 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-green-600">
                 Details ansehen →
               </span>
             </Link>

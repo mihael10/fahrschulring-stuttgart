@@ -33,7 +33,7 @@ export function Process() {
         />
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((item, idx) => (
-            <div key={item.step} className="relative">
+            <div key={item.step} className="reveal relative">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-950 text-lg font-extrabold text-green-400">
                 {item.step}
               </div>
@@ -42,7 +42,7 @@ export function Process() {
               {idx < steps.length - 1 && (
                 <div
                   aria-hidden
-                  className="absolute right-[-1rem] top-6 hidden h-px w-8 bg-green-100 lg:block"
+                  className="reveal-line absolute right-[-1rem] top-6 hidden h-px w-8 bg-green-300 lg:block"
                 />
               )}
             </div>

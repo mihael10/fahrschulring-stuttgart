@@ -46,7 +46,7 @@ export function WhyUs() {
           {points.map((point) => (
             <div
               key={point.title}
-              className="rounded-2xl border border-green-100 p-6 transition-shadow hover:shadow-lg hover:shadow-green-900/5"
+              className="reveal rounded-2xl border border-green-100 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-900/5 motion-reduce:hover:translate-y-0"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-100 text-green-600">
                 <span className="h-2.5 w-2.5 rounded-full bg-green-500" />

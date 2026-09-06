@@ -27,7 +27,7 @@ export async function GoogleReviews() {
       <div className="container-page">
         <SectionHeading eyebrow="Google Bewertungen" title="Das sagen unsere Fahrschüler:innen auf Google" />
 
-        <div className="mx-auto mt-8 flex max-w-md flex-col items-center gap-2 text-center">
+        <div className="reveal mx-auto mt-8 flex max-w-md flex-col items-center gap-2 text-center">
           <div className="text-4xl font-extrabold text-green-950">{rating.toFixed(1)}</div>
           <Stars rating={rating} />
           <p className="text-sm text-green-700">
@@ -51,7 +51,10 @@ export async function GoogleReviews() {
         {reviews.length > 0 && (
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {reviews.slice(0, 6).map((review) => (
-              <figure key={review.id} className="rounded-2xl border border-green-100 bg-white p-6">
+              <figure
+                key={review.id}
+                className="reveal rounded-2xl border border-green-100 bg-white p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-green-900/5"
+              >
                 <Stars rating={review.rating} />
                 {review.text && (
                   <blockquote className="mt-3 text-sm text-green-800">

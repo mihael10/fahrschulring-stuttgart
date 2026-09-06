@@ -12,7 +12,10 @@ export function Testimonials() {
         <SectionHeading eyebrow="Stimmen unserer Fahrschülerinnen" title="Das sagen unsere Absolvent:innen" />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t) => (
-            <figure key={t.author} className="rounded-2xl border border-green-100 bg-white p-6">
+            <figure
+              key={t.author}
+              className="reveal rounded-2xl border border-green-100 bg-white p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-green-900/5"
+            >
               <blockquote className="text-sm text-green-800">&ldquo;{t.quote}&rdquo;</blockquote>
               <figcaption className="mt-4 text-sm font-semibold text-green-950">
                 {t.author}

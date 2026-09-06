@@ -5,8 +5,11 @@ import Link from "next/link";
 import Script from "next/script";
 
 const GA_MEASUREMENT_ID = "G-2EZF4EWNP8";
-const STORAGE_KEY = "cookie-consent";
+export const COOKIE_CONSENT_STORAGE_KEY = "cookie-consent";
+export const COOKIE_CONSENT_DECIDED_EVENT = "cookie-consent-decided";
+const STORAGE_KEY = COOKIE_CONSENT_STORAGE_KEY;
 const REOPEN_EVENT = "open-cookie-settings";
+const DECIDED_EVENT = COOKIE_CONSENT_DECIDED_EVENT;
 
 type Consent = "granted" | "denied";
 
@@ -56,6 +59,7 @@ export function CookieConsent() {
     }
     setConsent(value);
     setShowBanner(false);
+    window.dispatchEvent(new Event(DECIDED_EVENT));
     if (value === "denied") {
       deleteGaCookies();
       // Unmounting the <Script> tags removes them from the DOM but can't

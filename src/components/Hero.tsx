@@ -5,6 +5,7 @@ import { classes } from "@/content/classes";
 import { team } from "@/content/team";
 import { fleet } from "@/content/fleet";
 import { basePath } from "@/lib/base-path";
+import { PhoneIcon } from "./icons";
 
 const electricCount = fleet.filter((v) => v.tag === "Elektro").length;
 
@@ -41,19 +42,19 @@ export function Hero() {
       />
       <div className="container-page relative flex flex-col items-center gap-10 py-20 text-center sm:py-28 lg:py-32">
         <div className="max-w-2xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-green-300 ring-1 ring-white/10">
+          <span className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-green-300 ring-1 ring-white/10">
             Seit über {site.yearsExperience} Jahren in Stuttgart
           </span>
-          <h1 className="mt-6 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="animate-fade-up mt-6 text-4xl font-extrabold leading-tight text-white [animation-delay:80ms] sm:text-5xl lg:text-6xl">
             Deine Fahrschule in Stuttgart.
             <span className="block text-green-400">Sicher ans Ziel.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-green-100/80">
+          <p className="animate-fade-up mx-auto mt-6 max-w-xl text-lg text-green-100/80 [animation-delay:160ms]">
             {site.claim} Moderne Flotte mit E-Autos, erfahrenes Fahrlehrer-Team
             und alle Führerscheinklassen – mitten in Stuttgart.
           </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <Button href="/kontakt" variant="primary">
+          <div className="animate-fade-up mt-9 flex flex-wrap justify-center gap-4 [animation-delay:240ms]">
+            <Button href="/kontakt" variant="primary" className="animate-cta-pulse">
               Jetzt Kontakt aufnehmen
             </Button>
             <Button href="/klassen" variant="ghost">
@@ -62,8 +63,9 @@ export function Hero() {
           </div>
           <a
             href={`tel:${site.phoneHref}`}
-            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white"
+            className="animate-fade-up mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white/80 [animation-delay:320ms] hover:text-white"
           >
+            <PhoneIcon className="animate-ring-wiggle h-4 w-4" />
             oder direkt anrufen: {site.phone}
           </a>
         </div>
@@ -74,10 +76,11 @@ export function Hero() {
             { value: `${classes.length}`, label: "Führerscheinklassen" },
             { value: `${team.length}`, label: "Fahrlehrer" },
             { value: `${electricCount}`, label: "E-Fahrzeuge in der Flotte" },
-          ].map((stat) => (
+          ].map((stat, i) => (
             <div
               key={stat.label}
-              className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur"
+              style={{ animationDelay: `${400 + i * 90}ms` }}
+              className="animate-fade-up rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur transition-colors hover:bg-white/10"
             >
               <dt className="text-2xl font-extrabold text-white">{stat.value}</dt>
               <dd className="mt-1 text-xs text-green-100/70">{stat.label}</dd>

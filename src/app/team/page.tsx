@@ -24,7 +24,7 @@ export default function TeamPage() {
           {team.map((member) => (
             <div
               key={member.name}
-              className="flex flex-col items-center rounded-2xl border border-green-100 bg-white p-8 text-center"
+              className="reveal group flex flex-col items-center rounded-2xl border border-green-100 bg-white p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-900/5 motion-reduce:hover:translate-y-0"
             >
               <div className="relative h-24 w-24 overflow-hidden rounded-full bg-green-900">
                 {member.photo && (
@@ -33,7 +33,7 @@ export default function TeamPage() {
                     alt={member.name}
                     fill
                     sizes="96px"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-300 group-hover:scale-110 motion-reduce:group-hover:scale-100"
                   />
                 )}
               </div>

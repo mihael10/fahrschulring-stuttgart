@@ -20,7 +20,7 @@ const groupSlugs: Record<(typeof classGroups)[number], string> = {
 function ClassCard({ item }: { item: LicenseClass }) {
   return (
     <div
-      className={`rounded-2xl border p-6 ${
+      className={`reveal rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-900/5 motion-reduce:hover:translate-y-0 ${
         item.featured ? "border-green-400 bg-green-50" : "border-green-100 bg-white"
       }`}
     >
@@ -51,7 +51,7 @@ export default function KlassenPage() {
         description={`${classes.length} Klassen, ein Ansprechpartner. Preise richten sich nach Klasse und individuellem Übungsbedarf – fordere ein unverbindliches Angebot an.`}
       />
       <div className="container-page py-16 sm:py-20">
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-green-50 p-6 sm:p-8">
+        <div className="animate-fade-up flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-green-50 p-6 sm:p-8">
           <p className="max-w-xl text-sm text-green-800">
             Nicht sicher, welche Klasse zu dir passt? Wir beraten dich gerne persönlich
             und erstellen ein individuelles Angebot.

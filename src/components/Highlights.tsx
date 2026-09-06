@@ -16,14 +16,14 @@ export function Highlights() {
   return (
     <section className="bg-green-950 py-20 sm:py-28">
       <div className="container-page">
-        <div className="mx-auto flex max-w-4xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:flex-row">
-          <div className="relative h-56 w-full sm:h-auto sm:w-1/2">
+        <div className="reveal group mx-auto flex max-w-4xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-shadow duration-300 hover:shadow-xl hover:shadow-black/20 sm:flex-row">
+          <div className="relative h-56 w-full overflow-hidden sm:h-auto sm:w-1/2">
             <Image
               src={`${basePath}${highlight.image}`}
               alt={highlight.title}
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
             />
           </div>
           <div className="flex flex-1 flex-col justify-center p-8 sm:p-10">

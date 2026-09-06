@@ -6,6 +6,7 @@ import { useState } from "react";
 import { navigation, site } from "@/content/site";
 import { basePath } from "@/lib/base-path";
 import { Button } from "./Button";
+import { PhoneIcon } from "./icons";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -39,8 +40,9 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={`tel:${site.phoneHref}`}
-            className="text-sm font-semibold text-green-800 hover:text-green-950"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-green-800 hover:text-green-950"
           >
+            <PhoneIcon className="animate-ring-wiggle h-4 w-4" />
             {site.phone}
           </a>
           <Button href="/kontakt" variant="primary">
@@ -65,7 +67,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-green-100 bg-white lg:hidden">
+        <div className="animate-fade-up border-t border-green-100 bg-white lg:hidden">
           <div className="container-page flex flex-col gap-1 py-4">
             {navigation.slice(1).map((item) => (
               <Link
@@ -79,8 +81,9 @@ export function Header() {
             ))}
             <a
               href={`tel:${site.phoneHref}`}
-              className="rounded-lg px-3 py-2.5 text-sm font-semibold text-green-800 hover:bg-green-50"
+              className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-semibold text-green-800 hover:bg-green-50"
             >
+              <PhoneIcon className="animate-ring-wiggle h-4 w-4" />
               {site.phone}
             </a>
             <Button href="/kontakt" variant="primary" className="mt-2" onClick={() => setOpen(false)}>

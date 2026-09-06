@@ -27,16 +27,22 @@ export function Faq() {
                   </span>
                   <span
                     aria-hidden
-                    className={`flex h-7 w-7 flex-none items-center justify-center rounded-full border border-green-200 text-green-700 transition-transform ${
+                    className={`flex h-7 w-7 flex-none items-center justify-center rounded-full border border-green-200 text-green-700 transition-transform duration-300 ${
                       isOpen ? "rotate-45" : ""
                     }`}
                   >
                     +
                   </span>
                 </button>
-                {isOpen && (
-                  <p className="pb-5 text-sm leading-relaxed text-green-700">{item.answer}</p>
-                )}
+                <div
+                  className="grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none"
+                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                  aria-hidden={!isOpen}
+                >
+                  <div className="overflow-hidden">
+                    <p className="pb-5 text-sm leading-relaxed text-green-700">{item.answer}</p>
+                  </div>
+                </div>
               </div>
             );
           })}

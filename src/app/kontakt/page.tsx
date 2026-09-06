@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/Button";
+import { PhoneIcon, MailIcon } from "@/components/icons";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -20,18 +21,24 @@ export default function KontaktPage() {
       />
       <div className="container-page py-16 sm:py-20">
         <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-2">
-          <div className="flex flex-col items-center gap-2 rounded-2xl border border-green-100 bg-white p-8 text-center">
-            <span className="text-xs font-bold uppercase tracking-wider text-green-600">
+          <div className="reveal flex flex-col items-center gap-2 rounded-2xl border border-green-100 bg-white p-8 text-center transition-shadow duration-300 hover:shadow-lg hover:shadow-green-900/5">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-green-600">
+              <PhoneIcon className="animate-ring-wiggle h-5 w-5" />
+            </span>
+            <span className="mt-2 text-xs font-bold uppercase tracking-wider text-green-600">
               Telefon
             </span>
             <span className="text-2xl font-extrabold text-green-950">{site.phone}</span>
-            <Button href={`tel:${site.phoneHref}`} variant="primary" className="mt-3">
+            <Button href={`tel:${site.phoneHref}`} variant="primary" className="animate-cta-pulse mt-3">
               Jetzt anrufen
             </Button>
           </div>
 
-          <div className="flex flex-col items-center gap-2 rounded-2xl border border-green-100 bg-white p-8 text-center">
-            <span className="text-xs font-bold uppercase tracking-wider text-green-600">
+          <div className="reveal flex flex-col items-center gap-2 rounded-2xl border border-green-100 bg-white p-8 text-center transition-shadow duration-300 hover:shadow-lg hover:shadow-green-900/5">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-green-600">
+              <MailIcon className="h-5 w-5" />
+            </span>
+            <span className="mt-2 text-xs font-bold uppercase tracking-wider text-green-600">
               E-Mail
             </span>
             <span className="text-2xl font-extrabold text-green-950">{site.email}</span>
@@ -41,7 +48,7 @@ export default function KontaktPage() {
           </div>
         </div>
 
-        <div className="mx-auto mt-12 max-w-3xl text-center">
+        <div className="reveal mx-auto mt-12 max-w-3xl text-center">
           <h2 className="text-xl font-bold text-green-950">{site.legalName}</h2>
           <address className="mt-3 not-italic text-green-700">
             {site.address.street}, {site.address.zip} {site.address.city}

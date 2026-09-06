@@ -10,7 +10,7 @@ export function SectionHeading({
   light?: boolean;
 }) {
   return (
-    <div className="mx-auto max-w-2xl text-center">
+    <div className="reveal mx-auto max-w-2xl text-center">
       {eyebrow && (
         <span
           className={`text-xs font-bold uppercase tracking-wider ${

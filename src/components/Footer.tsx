@@ -66,7 +66,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-green-800">
-        <div className="container-page flex flex-col gap-3 py-6 text-xs text-green-100/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-page flex flex-col gap-3 py-6 pb-24 text-xs text-green-100/60 sm:flex-row sm:items-center sm:justify-between lg:pb-6">
           <p>
             © {new Date().getFullYear()} {site.legalName}. Alle Rechte vorbehalten.
           </p>
