@@ -3,6 +3,7 @@ import Image from "next/image";
 import { navigation, site } from "@/content/site";
 import { basePath } from "@/lib/base-path";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
+import { FacebookIcon } from "@/components/icons";
 
 export function Footer() {
   return (
@@ -52,6 +53,17 @@ export function Footer() {
             <li>
               <a href={`mailto:${site.email}`} className="hover:text-green-400">
                 {site.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.social.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 hover:text-green-400"
+              >
+                <FacebookIcon className="h-4 w-4" />
+                Facebook
               </a>
             </li>
           </ul>

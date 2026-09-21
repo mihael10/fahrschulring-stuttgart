@@ -62,6 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     },
     openingHours: "Mo-Th 15:00-18:30",
     url: siteUrl,
+    sameAs: [site.social.facebook],
   };
 
   return (

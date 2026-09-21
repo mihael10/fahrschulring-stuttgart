@@ -46,7 +46,9 @@ export const site = {
   },
 
   social: {
-    // Not present on the old site — leave empty until real profiles exist.
+    // Supplied by the owner 2026-09-21. Facebook only — deliberately no other
+    // socials; don't add more without being asked.
+    facebook: "https://www.facebook.com/fahrschulring.stuttgart/",
   },
 
   // Found on the live Google Business Profile ("Fahrschulring", Driving

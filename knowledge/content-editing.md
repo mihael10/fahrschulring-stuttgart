@@ -1,7 +1,7 @@
 ---
 title: Content editing and the no-fabrication policy
-area: content, copy, testimonials, pricing, team, classes, fleet
-keywords: [testimonials, pricing, preise, team, klassen, fahrzeuge, content]
+area: content, copy, testimonials, pricing, team, classes, fleet, social links
+keywords: [testimonials, pricing, preise, team, klassen, fahrzeuge, content, social, facebook, instagram]
 ---
 
 # Content editing
@@ -61,6 +61,20 @@ values in `classGroups` — the homepage `ClassesOverview` links to
 `/klassen#<slug>` anchors that are derived from those exact group names in
 `src/app/klassen/page.tsx`'s `groupSlugs` map. Adding a fifth group requires
 updating that map too.
+
+## Social links
+
+Only Facebook (`site.social.facebook`, URL supplied by the owner) — the
+owner explicitly asked for no other socials, so don't add Instagram etc.
+unprompted. It's rendered as a footer link (`Footer.tsx`, Kontakt column,
+`FacebookIcon` in `icons.tsx`) and in the JSON-LD `sameAs` in `layout.tsx`.
+It's a plain outbound `<a href>`, not an embed/plugin: unlike the Google Maps
+embed (which got `/datenschutz` section 4 because it calls Google on page
+load), nothing is sent to Facebook until the visitor clicks and has already
+left the site. So no consent gating and no `/datenschutz` change — that page
+only has to describe what *this site* does (see `legal-compliance.md`). If
+this ever becomes an embed (Facebook feed, Like button, Pixel), that changes
+and the policy needs a section in the same change.
 
 ## Images
 
