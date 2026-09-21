@@ -100,14 +100,18 @@ mentally substitute `.webp` for whatever extension a filename below implies.
   without a confident source photo (X1, X2, Tesla, Sprinter, Actros, Setra,
   most motorcycles) intentionally stay text-only rather than guessing
   wrong. `galleryPhotos` in the same file holds the remaining unmapped
-  shots — this **does** include a confident match now identified by
-  filename inspection: `gallery-03.webp` is the branded VW Polo
-  ("Fahrschulring.de" livery, plate S-E 3030) — it's used directly as the
-  `Hero` background photo (`src/components/Hero.tsx`, dark overlay at
-  `bg-green-950/80` plus the existing radial gradient, so text stays
-  legible) rather than reassigned onto the Polo's `fleet.ts` entry, since
-  nothing renders per-vehicle images anymore (see below) — reassigning it
-  wouldn't change anything except the comment.
+  shots, including `gallery-03.webp` (the branded VW Polo,
+  "Fahrschulring.de" livery, plate S-E 3030) — not reassigned onto the
+  Polo's `fleet.ts` entry since nothing renders per-vehicle images anymore
+  (see below).
+- The `Hero` background photo (`src/components/Hero.tsx`) is
+  `images/hero/storefront.webp` — the Hegelstraße 48 storefront itself
+  (yellow "Fahrschulring" signage, matching the current phone number) with
+  the branded Touareg and Polo parked out front, chosen over the
+  single-car `gallery-03.webp` for showing the real premises and both
+  vehicles at once. Dark overlay is `bg-green-950/60` plus the existing
+  radial gradient so text stays legible; `object-bottom` keeps the
+  cars/signage (not the sky) in frame under `object-cover`.
 - There is no standalone `/fahrzeuge` page anymore — it was removed, and
   `fleet` (per-vehicle name + tag) is no longer rendered as a list
   anywhere. The full set of vehicle photos lives only in the auto-scrolling
