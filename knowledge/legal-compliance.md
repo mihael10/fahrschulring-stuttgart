@@ -15,10 +15,11 @@ hosting/embeds imply). Both exist at `/impressum` and `/datenschutz`.
 
 Sourced verbatim from the old site's own Impressum page — legal name
 (Fahrschulring GmbH), Handelsregister court/number, VAT ID, supervisory
-authority. This page intentionally mirrors the *old* Impressum's phone
-number (`0711 - 295928`) rather than the `294100` used elsewhere on the new
-site — the Impressum is the legally-filed contact, don't "fix" it to match
-the marketing number without the owner confirming which is current.
+authority. Phone number: the old Impressum showed `0711-295928` while the
+old marketing pages showed `294100`; that's now resolved site-wide to
+`295928` (matching both the old Impressum and the live Google Business
+Profile — see `knowledge/content-editing.md`), so `site.phone` /
+`site.phoneHref` and this page all agree.
 
 ## Datenschutzerklärung (`src/app/datenschutz/page.tsx`)
 
@@ -35,7 +36,12 @@ one was written fresh against the real stack:
 - The Google Maps embed on `/anfahrt` → this is a real third-party call the
   old policy never disclosed for this iteration; keep this section if the
   map embed stays
-- No cookies/analytics currently → explicitly stated as such
+- Google Analytics (GA4) → section 5 describes it; it's consent-gated behind
+  the cookie banner (`CookieConsent.tsx`) and only loads after the visitor
+  clicks "Akzeptieren", so the legal basis is consent (§25 TTDSG / Art. 6(1)(a)
+  DSGVO), not legitimate interest like the Maps embed. If GA is ever removed,
+  or a differently-gated analytics tool is added, section 5 needs to change
+  in the same commit.
 
 **If you add anything that changes data flows — analytics, a contact form,
 a cookie banner, retargeting pixels — update this page in the same

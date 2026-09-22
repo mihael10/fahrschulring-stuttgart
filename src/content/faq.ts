@@ -34,7 +34,7 @@ export const faq: FaqItem[] = [
   {
     question: "Was ist B196 und für wen lohnt es sich?",
     answer:
-      "Mit B196 darfst du auf Basis eines bestehenden Führerscheins Klasse B ein 125-cm³-Motorrad fahren – nach einer kompakten Zusatzausbildung, ohne neue Theorieprüfung. Ideal für alle, die unkompliziert in den Motorradfahren einsteigen wollen.",
+      "Mit B196 darfst du auf Basis eines bestehenden Führerscheins Klasse B ein 125-cm³-Motorrad fahren – nach einer kompakten Zusatzausbildung, ohne neue Theorieprüfung. Ideal für alle, die unkompliziert ins Motorradfahren einsteigen wollen.",
   },
   {
     question: "Was ist begleitetes Fahren ab 17 (BF17)?",

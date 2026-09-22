@@ -23,8 +23,9 @@ API works the way it used to.
   structural chrome and bright accents/CTAs. Don't reintroduce a second
   accent hue.
 - `public/images/` holds the business's real photos (logo, team, fleet)
-  pulled from the old site — see `knowledge/content-editing.md` for what's
-  mapped where and what's still missing (OG image).
+  pulled from the old site, plus a dedicated OG share image
+  (`og-cover.jpg`) — see `knowledge/content-editing.md` for what's mapped
+  where.
 - No fabricated content: `testimonials.ts` stays empty until real reviews
   exist, no prices are invented anywhere. Google reviews
   (`GoogleReviews.tsx`) show a dated real snapshot, with live data once
@@ -39,8 +40,10 @@ API works the way it used to.
   `https://mihael10.github.io/fahrschulring-stuttgart/`. `next.config.ts`
   uses `output: "export"` — see `knowledge/deployment.md` for the basePath/
   trailingSlash gotchas before touching routing, images, or metadata URLs.
-  `Dockerfile`/`.do/app.yaml` are a retired alternate path, kept but
-  currently incompatible with the export config.
+  `Dockerfile`/`.do/app.yaml` (an earlier DigitalOcean path) were removed
+  when the deploy target moved to GitHub Pages — recover them from git
+  history (`git log --all -- Dockerfile .do/app.yaml`) if that path is ever
+  revived; see `knowledge/deployment.md`.
 
 ## Commands
 

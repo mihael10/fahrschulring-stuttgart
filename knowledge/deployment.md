@@ -121,12 +121,15 @@ refreshing every 24h. Good enough for a marketing site; re-deploy (push to
 
 ## Reviving the Docker/DigitalOcean path
 
-`Dockerfile` and `.do/app.yaml` are untouched but **currently incompatible**
-with `next.config.ts` (`output: "export"` vs. the `"standalone"` output
-Docker needs — a build config can only be one or the other). To go back:
-revert `output` to `"standalone"`, drop `basePath`/`assetPrefix`/
-`images.unoptimized`, and restore `ContactForm.tsx` + `api/contact/route.ts`
-+ `nodemailer` from git history if the form should work again. `sharp`
+`Dockerfile` and `.do/app.yaml` were **deleted**, not kept around — they're
+incompatible with `next.config.ts` (`output: "export"` vs. the
+`"standalone"` output Docker needs — a build config can only be one or the
+other), so they were removed rather than left to silently rot. To go back:
+recover both from git history (`git log --all --diff-filter=D -- Dockerfile
+.do/app.yaml` finds the deleting commits), revert `output` to `"standalone"`,
+drop `basePath`/`assetPrefix`/`images.unoptimized`, and restore
+`ContactForm.tsx` + `api/contact/route.ts` + `nodemailer` from git history
+(search the log for `api/contact`) if the form should work again. `sharp`
 was deliberately left in `package.json` for exactly this scenario — it's
 unused by the current static export but required again the moment
 `output: "standalone"` comes back.
@@ -140,8 +143,9 @@ unused by the current static export but required again the moment
       `robots.txt` governs the whole `mihael10.github.io` domain, not just
       this repo's subpath, if another project Pages site is ever added under
       the same account
-- [ ] Confirm office hours with the owner (see `knowledge/content-editing.md`
-      — phone number is resolved, hours are still a 2-vs-1 page guess)
+- [x] Office hours confirmed with the owner 2026-09-22: 15:00–18:30 is
+      correct (matches the Impressum + Anfahrt page, not the lone Kontakt
+      page's 18:00)
 - [ ] Optionally set `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` as repo
       secrets for live Google reviews instead of the dated static snapshot
       (see `knowledge/content-editing.md`) — baked in at each deploy, not
@@ -149,8 +153,9 @@ unused by the current static export but required again the moment
 - [ ] Decide whether a working contact form matters enough to move off
       GitHub Pages, or whether phone/email + a third-party form backend is
       good enough long-term
-- [ ] Decide whether Google Analytics or similar gets added — if so, update
-      `src/app/datenschutz/page.tsx` section 5 (it currently states no
-      tracking is in use, which must stay true or become false together)
+- [x] Google Analytics (GA4) added, consent-gated behind a cookie banner
+      (`CookieConsent.tsx`) — `datenschutz` section 5 describes it. The
+      hardcoded measurement ID (`GA_MEASUREMENT_ID` in `CookieConsent.tsx`)
+      is confirmed as the owner's real GA4 property (2026-09-22).
 - [ ] If a custom domain (e.g. `www.fahrschulring.de`) ever points here,
       update `NEXT_PUBLIC_SITE_URL` in the workflow and add a `CNAME` file

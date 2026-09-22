@@ -1,13 +1,24 @@
 ---
 name: deploy-digitalocean
-description: Use when asked to deploy this site, update the DigitalOcean App Platform spec, or troubleshoot a failed build/deploy on DO. Covers the Docker path, env vars, and the pre-launch checklist.
+description: RETIRED path — only use if explicitly asked to revive the DigitalOcean/Docker deploy or update `.do/app.yaml`. The live site deploys via GitHub Pages/GitHub Actions instead (see `knowledge/deployment.md`); for an ordinary "deploy this site" or "is it ready to launch" request, use that path, not this one.
 ---
 
-# Deploying Fahrschulring Stuttgart to DigitalOcean
+# Reviving the DigitalOcean deploy path (currently retired)
 
-Read `knowledge/deployment.md` first — it has the full picture (why
-`output: "standalone"`, the two deploy paths, contact-form env vars). This
-skill is the quick-action version.
+**This path is not how the site deploys today.** The live deploy is GitHub
+Pages via `.github/workflows/deploy.yml` on push to `main` — see
+`knowledge/deployment.md`. `Dockerfile` and `.do/app.yaml` were deleted when
+the deploy target moved to GitHub Pages (`output: "export"` and
+`output: "standalone"` are mutually exclusive in `next.config.ts`), along
+with the contact form (`ContactForm.tsx`, `api/contact/route.ts`,
+`nodemailer`) that needed a real server to run. Everything below only
+applies if someone deliberately decides to move off GitHub Pages back onto
+DigitalOcean — don't follow it for a routine deploy or launch check.
+
+Read `knowledge/deployment.md`'s "Reviving the Docker/DigitalOcean path"
+section first — it has the full picture (why `output: "standalone"`, what
+needs restoring from git history). This skill is the quick-action version
+once that decision is made.
 
 ## Before touching deploy config
 
