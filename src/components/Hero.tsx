@@ -14,13 +14,13 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-green-950">
       <Image
-        src={`${basePath}/images/fleet/gallery-03.webp`}
+        src={`${basePath}/images/hero/storefront.webp`}
         alt=""
         aria-hidden
         fill
         priority
         sizes="100vw"
-        className="object-cover opacity-60"
+        className="object-cover object-bottom opacity-60"
       />
       <div
         aria-hidden
