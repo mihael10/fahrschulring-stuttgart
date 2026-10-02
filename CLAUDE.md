@@ -30,7 +30,8 @@ API works the way it used to.
 - No fabricated content: `testimonials.ts` stays empty until real reviews
   exist, no prices are invented anywhere. Google reviews
   (`GoogleReviews.tsx`) show a dated real snapshot, with live data once
-  `GOOGLE_PLACES_API_KEY`/`GOOGLE_PLACE_ID` are set — see
+  `GOOGLE_PLACES_API_KEY`/`GOOGLE_PLACE_ID` are set; until then it shows
+  three real, verbatim quotes from `google-review-quotes.ts` — see
   `knowledge/content-editing.md`.
 - The `/kontakt` contact form (`ContactForm.tsx`) can't send mail from
   GitHub Pages itself — it POSTs to `alfahosting/kontakt.php`, uploaded to

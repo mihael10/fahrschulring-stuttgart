@@ -1,6 +1,8 @@
 import { SectionHeading } from "./SectionHeading";
 import { site } from "@/content/site";
+import { googleReviewQuotes } from "@/content/google-review-quotes";
 import { getGoogleReviews } from "@/lib/google-reviews";
+import { ReviewText } from "./ReviewText";
 
 const formatRating = (rating: number) =>
   rating.toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
@@ -34,7 +36,14 @@ export async function GoogleReviews() {
 
   const rating = live?.rating ?? site.googleReviews.snapshotRating;
   const totalReviews = live?.totalReviews ?? site.googleReviews.snapshotCount;
-  const reviews = (live?.reviews ?? []).filter((r) => r.text).slice(0, 6);
+  // Live reviews when the Places API is configured, otherwise the hand-copied
+  // real quotes from src/content/google-review-quotes.ts.
+  const reviews = live
+    ? live.reviews
+        .filter((r) => r.text)
+        .slice(0, 6)
+        .map((r) => ({ id: r.id, authorName: r.authorName, rating: r.rating, text: r.text ?? "", meta: r.relativeTime }))
+    : googleReviewQuotes.map((q) => ({ id: q.author, authorName: q.author, rating: q.rating, text: q.text, meta: "Google-Bewertung" }));
 
   return (
     <section className="bg-white py-20 sm:py-28">
@@ -68,7 +77,7 @@ export async function GoogleReviews() {
         </div>
 
         {reviews.length > 0 && (
-          <div className="mx-auto mt-10 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3">
             {reviews.map((review) => (
               <figure
                 key={review.id}
@@ -78,9 +87,7 @@ export async function GoogleReviews() {
                   <Stars rating={review.rating} />
                   <GoogleLogo className="h-5 w-5" />
                 </div>
-                <blockquote className="mt-4 line-clamp-6 flex-1 text-sm leading-relaxed text-green-800">
-                  &bdquo;{review.text}&ldquo;
-                </blockquote>
+                <ReviewText text={review.text} />
                 <figcaption className="mt-5 flex items-center gap-3">
                   <span
                     aria-hidden="true"
@@ -90,7 +97,7 @@ export async function GoogleReviews() {
                   </span>
                   <span className="text-sm">
                     <span className="block font-semibold text-green-950">{review.authorName}</span>
-                    <span className="text-green-600">{review.relativeTime}</span>
+                    <span className="text-green-600">{review.meta}</span>
                   </span>
                 </figcaption>
               </figure>

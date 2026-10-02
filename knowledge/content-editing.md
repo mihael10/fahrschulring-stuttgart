@@ -182,6 +182,13 @@ Layout (redesigned 2026-10-02 at the owner's request): a single rating card
 "Bewertungen lesen" button linking to `site.googleReviews.reviewsUrl`, the
 owner's own share link). The snapshot date is deliberately **not** shown
 (owner's request) — it stays in `site.ts` only, so update the rating/count
-there every few months by hand (or set up the API key). Live reviews, when configured, render below it as up to 6
+there every few months by hand (or set up the API key). Below it: three real reviews
+(Jasmin, Hatem Ali, Nic) from `src/content/google-review-quotes.ts`, copied
+verbatim from the owner's screenshots of the expanded reviews on 2026-10-02.
+A review by Mihael Josifovski (who built this site) is deliberately left
+out, as is Mika Renger's (only seen truncated mid-criticism: "allerdings
+kann…"). Long text clamps to 9 lines with a "Weiterlesen" toggle
+(`ReviewText.tsx`, shown only when the text actually overflows). Live
+reviews, when configured, replace these quotes as up to 6
 cards (only reviews with text, clamped to 6 lines, initial-letter avatar —
 no remote author photos, so no extra third-party image requests).
