@@ -176,3 +176,10 @@ developers.google.com/maps/documentation/places/web-service/place-id — search
 The API key needs "Places API (New)" enabled in Google Cloud Console and a
 billing account attached (it has a free monthly quota, but requires billing
 to be enabled regardless).
+
+Layout (redesigned 2026-10-02 at the owner's request): a single rating card
+(Google "G", the rating in German format `4,9`, stars, review count, the
+snapshot date as `06.08.2026` when not live, and a "Bewertungen lesen" link
+to the listing). Live reviews, when configured, render below it as up to 6
+cards (only reviews with text, clamped to 6 lines, initial-letter avatar —
+no remote author photos, so no extra third-party image requests).
