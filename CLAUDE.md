@@ -2,7 +2,8 @@
 
 Modern redesign of fahrschulring.de (Next.js 16 App Router, TypeScript,
 Tailwind CSS v4), built for conversion — every path leads to a phone or
-email CTA (there is no contact form — see `knowledge/deployment.md`).
+email CTA (the contact form posts to a PHP script on Alfahosting — see
+`knowledge/deployment.md`).
 
 Read `knowledge/index.md` first for anything beyond a trivial fix — it routes
 to the doc that actually covers what you're touching, so you don't have to
@@ -31,10 +32,11 @@ API works the way it used to.
   (`GoogleReviews.tsx`) show a dated real snapshot, with live data once
   `GOOGLE_PLACES_API_KEY`/`GOOGLE_PLACE_ID` are set — see
   `knowledge/content-editing.md`.
-- There is no contact form — `ContactForm.tsx`/`api/contact` were deleted
-  when the deploy target moved to GitHub Pages (static hosting can't run
-  server code). `/kontakt` is `tel:`/`mailto:` buttons only — see
-  `knowledge/deployment.md` before adding one back.
+- The `/kontakt` contact form (`ContactForm.tsx`) can't send mail from
+  GitHub Pages itself — it POSTs to `alfahosting/kontakt.php`, uploaded to
+  the business's Alfahosting webspace, set via the `CONTACT_ENDPOINT` repo
+  variable; unset, it falls back to a pre-filled `mailto:`. See
+  `knowledge/deployment.md`.
 - Deployment target is **GitHub Pages**, built by GitHub Actions on every
   push to `main` (`.github/workflows/deploy.yml`). Live at
   `https://mihael10.github.io/fahrschulring-stuttgart/`. `next.config.ts`
