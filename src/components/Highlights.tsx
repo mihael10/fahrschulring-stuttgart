@@ -6,10 +6,11 @@ const highlight = {
   tag: "Modern ausgestattet",
   title: "Fahrsimulator für den risikofreien Einstieg",
   description:
-    "Erste Fahreindrücke, Gefahrensituationen und Routine üben wir gemeinsam im Simulator, bevor es auf die Straße geht.",
+    "Im Simulator sammelst du erste Fahreindrücke und übst gemeinsam mit uns Gefahrensituationen und Abläufe, bevor es auf die Straße geht.",
   cta: "Zum Fuhrpark",
   href: "/#fuhrpark",
   image: "/images/hero/simulator.webp",
+  imageAlt: "Fahrsimulator mit Sportsitz, Lenkrad, Pedalen, Schaltung und drei Bildschirmen in unserer Fahrschule",
 };
 
 export function Highlights() {
@@ -20,7 +21,7 @@ export function Highlights() {
           <div className="relative h-56 w-full overflow-hidden sm:h-auto sm:w-1/2">
             <Image
               src={`${basePath}${highlight.image}`}
-              alt={highlight.title}
+              alt={highlight.imageAlt}
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"

@@ -4,7 +4,7 @@ const steps = [
   {
     step: "1",
     title: "Anfragen",
-    description: "Formular ausfüllen oder anrufen – wir klären deine Wunschklasse und Fragen.",
+    description: "Anrufen oder E-Mail schreiben – wir klären deine Wunschklasse und deine Fragen.",
   },
   {
     step: "2",
@@ -19,7 +19,7 @@ const steps = [
   {
     step: "4",
     title: "Prüfung",
-    description: "Bestens vorbereitet zur Theorie- und Praxisprüfung – dein Führerschein in der Tasche.",
+    description: "Bestens vorbereitet auf die Theorie- und Praxisprüfung – dein Führerschein in der Tasche.",
   },
 ];
 

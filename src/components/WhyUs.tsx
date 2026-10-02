@@ -20,7 +20,7 @@ const points = [
   {
     title: "Fahrsimulator",
     description:
-      "Erste Fahreindrücke und kritische Situationen übst du risikofrei im Simulator, bevor es auf die Straße geht.",
+      "Im Simulator sammelst du erste Fahreindrücke und übst kritische Situationen risikofrei, bevor es auf die Straße geht.",
   },
   {
     title: "Zentrale Lage",
