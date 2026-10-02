@@ -160,8 +160,8 @@ mentally substitute `.webp` for whatever extension a filename below implies.
 
 Same no-fabrication pattern as testimonials, but with a twist: rather than
 render nothing until configured, the section shows a **dated static
-snapshot** (4.9★, 315 reviews, fetched from the live Google Business Profile
-on 2026-08-06 — see `site.googleReviews`) plus a real link to the listing,
+snapshot** (4.9★, 325 reviews as of 2026-10-02, from the live Google Business
+Profile — see `site.googleReviews`) plus a real link to the listing,
 because that's honestly-sourced aggregate data, not an invented quote.
 Individual review text only ever appears when `GOOGLE_PLACES_API_KEY` and
 `GOOGLE_PLACE_ID` are set (`src/lib/google-reviews.ts`) — fetched live via

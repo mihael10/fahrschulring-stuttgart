@@ -52,17 +52,18 @@ export const site = {
   },
 
   // Found on the live Google Business Profile ("Fahrschulring", Driving
-  // school, Hegelstraße 48) on 2026-08-06: 4.9★ from 315 reviews. This is a
+  // school, Hegelstraße 48); last updated 2026-10-02 from the owner's
+  // screenshot of the listing: 4.9★ from 325 reviews. This is a
   // dated snapshot for the static fallback in GoogleReviews.tsx, not a live
   // value — it will drift as new reviews come in. Wire up
   // GOOGLE_PLACES_API_KEY + GOOGLE_PLACE_ID (see .env.example) to replace it
   // with live data instead of updating this number by hand.
   googleReviews: {
     snapshotRating: 4.9,
-    snapshotCount: 315,
+    snapshotCount: 325,
     // Not shown on the site (owner asked for no date, 2026-10-02) — kept here
     // so whoever updates the numbers knows how old they are.
-    snapshotDate: "2026-08-06",
+    snapshotDate: "2026-10-02",
     // Stable link to this exact listing (CID-based), works without any API key.
     mapsUrl: "https://maps.google.com/?cid=15448751995835036082",
     // Share link to the reviews on the Google listing, supplied by the owner
