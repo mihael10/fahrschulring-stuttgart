@@ -160,8 +160,8 @@ mentally substitute `.webp` for whatever extension a filename below implies.
 
 Same no-fabrication pattern as testimonials, but with a twist: rather than
 render nothing until configured, the section shows a **dated static
-snapshot** (4.9★, 315 reviews, fetched from the live Google Business Profile
-on 2026-08-06 — see `site.googleReviews`) plus a real link to the listing,
+snapshot** (4.9★, 325 reviews as of 2026-10-02, from the live Google Business
+Profile — see `site.googleReviews`) plus a real link to the listing,
 because that's honestly-sourced aggregate data, not an invented quote.
 Individual review text only ever appears when `GOOGLE_PLACES_API_KEY` and
 `GOOGLE_PLACE_ID` are set (`src/lib/google-reviews.ts`) — fetched live via
@@ -176,3 +176,19 @@ developers.google.com/maps/documentation/places/web-service/place-id — search
 The API key needs "Places API (New)" enabled in Google Cloud Console and a
 billing account attached (it has a free monthly quota, but requires billing
 to be enabled regardless).
+
+Layout (redesigned 2026-10-02 at the owner's request): a single rating card
+(Google "G", the rating in German format `4,9`, stars, review count, and a
+"Bewertungen lesen" button linking to `site.googleReviews.reviewsUrl`, the
+owner's own share link). The snapshot date is deliberately **not** shown
+(owner's request) — it stays in `site.ts` only, so update the rating/count
+there every few months by hand (or set up the API key). Below it: three real reviews
+(Jasmin, Hatem Ali, Nic) from `src/content/google-review-quotes.ts`, copied
+verbatim from the owner's screenshots of the expanded reviews on 2026-10-02.
+A review by Mihael Josifovski (who built this site) is deliberately left
+out, as is Mika Renger's (only seen truncated mid-criticism: "allerdings
+kann…"). Long text clamps to 9 lines with a "Weiterlesen" toggle
+(`ReviewText.tsx`, shown only when the text actually overflows). Live
+reviews, when configured, replace these quotes as up to 6
+cards (only reviews with text, clamped to 6 lines, initial-letter avatar —
+no remote author photos, so no extra third-party image requests).

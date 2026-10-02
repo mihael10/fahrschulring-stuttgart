@@ -4,7 +4,7 @@ const steps = [
   {
     step: "1",
     title: "Anfragen",
-    description: "Anrufen oder E-Mail schreiben – wir klären deine Wunschklasse und deine Fragen.",
+    description: "Kontaktformular ausfüllen oder anrufen – wir klären deine Wunschklasse und deine Fragen.",
   },
   {
     step: "2",
