@@ -60,9 +60,14 @@ export const site = {
   googleReviews: {
     snapshotRating: 4.9,
     snapshotCount: 315,
+    // Not shown on the site (owner asked for no date, 2026-10-02) — kept here
+    // so whoever updates the numbers knows how old they are.
     snapshotDate: "2026-08-06",
     // Stable link to this exact listing (CID-based), works without any API key.
     mapsUrl: "https://maps.google.com/?cid=15448751995835036082",
+    // Share link to the reviews on the Google listing, supplied by the owner
+    // 2026-10-02 — used for the "Bewertungen lesen" button.
+    reviewsUrl: "https://share.google/3yHxiSzMldqovc0XM",
   },
 } as const;
 

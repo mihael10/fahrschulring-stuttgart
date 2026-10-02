@@ -5,9 +5,6 @@ import { getGoogleReviews } from "@/lib/google-reviews";
 const formatRating = (rating: number) =>
   rating.toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
-// "2026-08-06" -> "06.08.2026"
-const formatDate = (iso: string) => iso.split("-").reverse().join(".");
-
 function Stars({ rating, className = "h-4 w-4" }: { rating: number; className?: string }) {
   const rounded = Math.round(rating);
   return (
@@ -57,13 +54,10 @@ export async function GoogleReviews() {
             <p className="text-sm font-semibold text-green-950">
               aus {totalReviews.toLocaleString("de-DE")} Bewertungen auf Google
             </p>
-            {!live && (
-              <p className="text-xs text-green-600">Stand: {formatDate(site.googleReviews.snapshotDate)}</p>
-            )}
           </div>
 
           <a
-            href={site.googleReviews.mapsUrl}
+            href={site.googleReviews.reviewsUrl}
             target="_blank"
             rel="noreferrer"
             className="inline-flex shrink-0 items-center gap-2 rounded-full border border-green-200 px-5 py-2.5 text-sm font-semibold text-green-900 transition-colors hover:border-green-400 hover:bg-green-50"
