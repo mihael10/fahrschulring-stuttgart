@@ -123,9 +123,11 @@ mentally substitute `.webp` for whatever extension a filename below implies.
   (`.animate-vehicle-scroll` in `globals.css`) is disabled under
   `prefers-reduced-motion: reduce`. The homepage `Highlights`
   (`src/components/Highlights.tsx`) is down to a single Fahrsimulator
-  card (`/images/hero/simulator.webp` — replaced 2026-10-02 with a
-  higher-res photo of the simulator supplied by the owner, 960×1280, in
-  place of the tiny 203×270 scrape) — the B196/BF17 cards that used to
+  card showing two owner-supplied photos side by side (added 2026-10-02):
+  `/images/hero/simulator.webp` (the empty simulator, replacing the tiny
+  203×270 scrape) and `/images/hero/simulator-training.webp` (an
+  instructor coaching a student at the simulator; the student is only seen
+  from behind) — the B196/BF17 cards that used to
   sit next to it were removed; that content still lives on `/klassen`. The
   simulator card's CTA links to `/#fuhrpark` (an anchor into the carousel
   section), not a page — nav (`site.ts`) and that link are the only two
