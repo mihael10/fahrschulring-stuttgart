@@ -24,7 +24,7 @@ export const faq: FaqItem[] = [
   {
     question: "Wie lange dauert die Führerscheinausbildung?",
     answer:
-      "Das hängt von der Klasse, der Anzahl der Theorie- und Fahrstunden sowie deinem persönlichen Übungsbedarf ab – realistisch sind einige Wochen bis wenige Monate. Ruf uns an oder schreib uns eine E-Mail, dann sprechen wir über einen realistischen Zeitrahmen für dich.",
+      "Das hängt von der Klasse, der Anzahl der Theorie- und Fahrstunden sowie deinem persönlichen Übungsbedarf ab – realistisch sind einige Wochen bis wenige Monate. Ruf uns an oder schreib uns eine E-Mail, dann sprechen wir über einen konkreten Zeitrahmen für dich.",
   },
   {
     question: "Bietet ihr Automatik-Ausbildung an?",
@@ -44,6 +44,6 @@ export const faq: FaqItem[] = [
   {
     question: "Habt ihr einen Fahrsimulator?",
     answer:
-      "Ja, wir setzen einen Fahrsimulator ergänzend zur praktischen Ausbildung ein, um erste Fahreindrücke und Gefahrensituationen risikofrei zu üben.",
+      "Ja, wir setzen einen Fahrsimulator ergänzend zur praktischen Ausbildung ein, damit du erste Fahreindrücke sammeln und Gefahrensituationen risikofrei üben kannst.",
   },
 ];

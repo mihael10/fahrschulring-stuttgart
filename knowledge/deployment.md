@@ -22,7 +22,8 @@ Set in `next.config.ts`. GitHub Pages only serves static files — no Node
 server — so the whole app is prerendered at build time into `out/`, which
 the workflow uploads as the Pages artifact. This is only possible because
 the site has **no server-side behavior left**: `/api/contact` was deleted
-(see "The contact form was removed, not disabled" below) and nothing else
+(the contact form now posts to a PHP script on Alfahosting instead — see
+"The contact form posts to a PHP script on Alfahosting" below) and nothing else
 in the app uses `cookies()`/`headers()`/dynamic route handlers — check for
 those before ever adding server logic back, since any of them breaks a
 static export.
@@ -81,22 +82,34 @@ Python's `http.server` before this was set. `trailingSlash: true` makes
 every route emit an unambiguous `team/index.html` instead, and `<Link>`
 hrefs get the trailing slash to match. Don't remove this.
 
-## The contact form was removed, not disabled
+## The contact form posts to a PHP script on Alfahosting
 
-`ContactForm.tsx` and `src/app/api/contact/route.ts` are **deleted**, not
-hidden — a static export can't run a POST route handler at all, so keeping
-it around wasn't an option once GitHub Pages was chosen. `/kontakt` shows
-`tel:`/`mailto:` buttons instead, and `/datenschutz` section 3 describes
-phone/email contact (see `knowledge/legal-compliance.md`). `nodemailer` /
-`@types/nodemailer` were removed from `package.json` since nothing imports
-them anymore.
+`/kontakt` has a contact form again (`src/components/ContactForm.tsx`,
+added 2026-10-02), but GitHub Pages still runs no server code, so the form
+doesn't send anything itself. It POSTs (`FormData`, CORS) to
+`alfahosting/kontakt.php`, a small PHP script that lives on the business's
+existing **Alfahosting** webspace (the same host that runs the
+fahrschulring.de mail server/MX and the old `.php` site). The script
+validates the fields, drops bot submissions (the hidden `company` honeypot),
+and sends a plain-text email to `info@fahrschulring.de` via PHP `mail()`
+with `Reply-To` set to the visitor. The site itself stays on GitHub Pages.
 
-**If a working contact form is wanted again**, it needs either: (a) a
-third-party form backend (Formspree, Web3Forms, etc. — a `<form>` posting
-to their endpoint works fine from a static page), or (b) moving off GitHub
-Pages to a host that runs a server (Vercel, Netlify Functions, or reviving
-the Docker/DigitalOcean path below) and rebuilding the route from the old
-implementation in git history (search the log for `api/contact`).
+To switch it on:
+
+1. Upload `alfahosting/kontakt.php` to the Alfahosting webspace, e.g. as
+   `https://www.fahrschulring.de/kontakt.php`.
+2. If the site moves to a custom domain, add that origin to
+   `ALLOWED_ORIGINS` in the script (it only answers
+   `mihael10.github.io` and `fahrschulring.de`/`www.` requests).
+3. In GitHub → repo Settings → Secrets and variables → Actions →
+   **Variables**, set `CONTACT_ENDPOINT` to that URL and re-run the deploy.
+   `deploy.yml` passes it in as `NEXT_PUBLIC_CONTACT_ENDPOINT`.
+4. Send a test message from the live site.
+
+Until `CONTACT_ENDPOINT` is set, the form falls back to opening the
+visitor's mail app with a pre-filled `mailto:` (subject + all fields), so
+it's never a dead end. `alfahosting/` is outside `src/` and isn't part of
+the Next.js build.
 
 ## GitHub Actions workflow (`.github/workflows/deploy.yml`)
 
@@ -150,9 +163,9 @@ unused by the current static export but required again the moment
       secrets for live Google reviews instead of the dated static snapshot
       (see `knowledge/content-editing.md`) — baked in at each deploy, not
       truly live (see above)
-- [ ] Decide whether a working contact form matters enough to move off
-      GitHub Pages, or whether phone/email + a third-party form backend is
-      good enough long-term
+- [ ] Upload `alfahosting/kontakt.php` and set the `CONTACT_ENDPOINT`
+      repo variable (see "The contact form posts to a PHP script on
+      Alfahosting") — until then the form falls back to `mailto:`
 - [x] Google Analytics (GA4) added, consent-gated behind a cookie banner
       (`CookieConsent.tsx`) — `datenschutz` section 5 describes it. The
       hardcoded measurement ID (`GA_MEASUREMENT_ID` in `CookieConsent.tsx`)

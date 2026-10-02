@@ -34,6 +34,7 @@ export const fleet: Vehicle[] = [
 // specific vehicle confidently.
 export const galleryPhotos: string[] = [
   "/images/hero/simulator.webp",
+  "/images/hero/simulator-training.webp",
   "/images/hero/fz-start-1.webp",
   "/images/fleet/moto.webp",
   "/images/fleet/motor-1.webp",
@@ -45,8 +46,8 @@ export const galleryPhotos: string[] = [
 ];
 
 // Every vehicle photo we have — assigned vehicle shots plus the unmapped
-// gallery shots that are still vehicle photos (excludes the two general
-// hero/ shots, simulator + fz-start-1, which aren't of a vehicle). This is
+// gallery shots that are still vehicle photos (excludes the general
+// hero/ shots — the two simulator photos + fz-start-1 — which aren't of a vehicle). This is
 // the single source feeding the homepage vehicle carousel; vehicle photos
 // don't appear anywhere else on the site.
 export const vehiclePhotos: string[] = [

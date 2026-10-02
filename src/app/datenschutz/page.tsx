@@ -39,13 +39,16 @@ export default function DatenschutzPage() {
         <section>
           <h2 className="text-base font-bold text-green-950">3. Kontaktaufnahme</h2>
           <p className="mt-3">
-            Du erreichst uns derzeit ausschließlich telefonisch oder per E-Mail; ein
-            Online-Kontaktformular steht momentan nicht zur Verfügung. Wenn du uns per
-            E-Mail schreibst, verarbeiten wir die von dir mitgeteilten Daten (z. B. Name,
-            E-Mail-Adresse, Nachricht) ausschließlich zur Bearbeitung deiner Anfrage und
-            für den Fall von Anschlussfragen (Art. 6 Abs. 1 lit. b DSGVO) und löschen sie
-            nach abgeschlossener Bearbeitung, sofern keine gesetzlichen
-            Aufbewahrungspflichten entgegenstehen.
+            Wenn du uns über das Kontaktformular, per E-Mail oder telefonisch
+            kontaktierst, verarbeiten wir die von dir mitgeteilten Daten (z. B. Name,
+            E-Mail-Adresse, Telefonnummer, gewünschte Führerscheinklasse, Nachricht)
+            ausschließlich zur Bearbeitung deiner Anfrage und für den Fall von
+            Anschlussfragen (Art. 6 Abs. 1 lit. b DSGVO). Die Angaben aus dem
+            Kontaktformular werden über ein Skript auf dem Webspace unseres E-Mail- und
+            Webhosting-Anbieters (Alfahosting GmbH, Ankerstraße 3b, 06108 Halle (Saale))
+            als E-Mail an uns übermittelt und dort nicht dauerhaft gespeichert. Wir
+            löschen deine Daten nach abgeschlossener Bearbeitung, sofern keine
+            gesetzlichen Aufbewahrungspflichten entgegenstehen.
           </p>
         </section>
 

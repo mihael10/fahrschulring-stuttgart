@@ -6,36 +6,59 @@ const highlight = {
   tag: "Modern ausgestattet",
   title: "Fahrsimulator für den risikofreien Einstieg",
   description:
-    "Erste Fahreindrücke, Gefahrensituationen und Routine üben wir gemeinsam im Simulator, bevor es auf die Straße geht.",
+    "Im Simulator sammelst du erste Fahreindrücke und übst gemeinsam mit uns Gefahrensituationen und Abläufe, bevor es auf die Straße geht.",
   cta: "Zum Fuhrpark",
   href: "/#fuhrpark",
-  image: "/images/hero/simulator.webp",
+  images: [
+    {
+      src: "/images/hero/simulator.webp",
+      alt: "Fahrsimulator mit Sportsitz, Lenkrad, Pedalen, Schaltung und drei Bildschirmen in unserer Fahrschule",
+      caption: "Unser Fahrsimulator",
+    },
+    {
+      src: "/images/hero/simulator-training.webp",
+      alt: "Fahrlehrer erklärt einer Fahrschülerin am Fahrsimulator eine Verkehrssituation",
+      caption: "Üben mit dem Fahrlehrer",
+    },
+  ],
 };
 
 export function Highlights() {
   return (
     <section className="bg-green-950 py-20 sm:py-28">
       <div className="container-page">
-        <div className="reveal group mx-auto flex max-w-4xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-shadow duration-300 hover:shadow-xl hover:shadow-black/20 sm:flex-row">
-          <div className="relative h-56 w-full overflow-hidden sm:h-auto sm:w-1/2">
-            <Image
-              src={`${basePath}${highlight.image}`}
-              alt={highlight.title}
-              fill
-              sizes="(min-width: 640px) 50vw, 100vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
-            />
-          </div>
-          <div className="flex flex-1 flex-col justify-center p-8 sm:p-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-green-400">
-              {highlight.tag}
-            </span>
-            <h3 className="mt-3 text-xl font-bold text-white">{highlight.title}</h3>
-            <p className="mt-3 text-sm text-green-100/75">{highlight.description}</p>
-            <Button href={highlight.href} variant="ghost" className="mt-6 self-start">
-              {highlight.cta}
-            </Button>
-          </div>
+        <div className="reveal mx-auto max-w-2xl text-center">
+          <span className="text-xs font-bold uppercase tracking-wider text-green-400">
+            {highlight.tag}
+          </span>
+          <h3 className="mt-3 text-2xl font-bold text-white sm:text-3xl">{highlight.title}</h3>
+          <p className="mt-4 text-green-100/75">{highlight.description}</p>
+          <Button href={highlight.href} variant="ghost" className="mt-6">
+            {highlight.cta}
+          </Button>
+        </div>
+
+        {/* Both photos are 3:4 portraits — shown whole, not cropped. */}
+        <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2">
+          {highlight.images.map((image) => (
+            <figure
+              key={image.src}
+              className="reveal overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+            >
+              <div className="relative aspect-[3/4]">
+                <Image
+                  src={`${basePath}${image.src}`}
+                  alt={image.alt}
+                  fill
+                  sizes="(min-width: 640px) 28rem, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="px-5 py-4 text-sm font-semibold text-white">
+                {image.caption}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
