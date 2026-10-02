@@ -1,0 +1,11 @@
+<!-- @dsCard group="Content" height=230 -->
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{margin:0;font-family:var(--font-sans);background:var(--background)}#root{padding:24px}</style></head>
+<body><div id="root"></div>
+<script>
+var h = React.createElement, F = window.Fahrschulring;
+ReactDOM.createRoot(document.getElementById("root")).render(h("div",{style:{borderTop:"1px solid var(--color-green-100)",maxWidth:720}},
+  h(F.FaqItem,{defaultOpen:true,question:"Was kostet der Führerschein bei euch?",answer:"Das hängt von Klasse, Vorkenntnissen und Übungsbedarf ab. Fordere unverbindlich ein Angebot an – wir melden uns kurzfristig mit einer individuellen Kalkulation."}),
+  h(F.FaqItem,{question:"Wie melde ich mich an?",answer:"Telefonisch, per E-Mail oder direkt vor Ort während unserer Bürozeiten. Wir klären mit dir die passende Klasse und die nächsten Schritte zu Sehtest, Erste-Hilfe-Kurs und Antrag."})
+));
+</script></body></html>

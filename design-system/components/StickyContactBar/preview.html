@@ -1,0 +1,10 @@
+<!-- @dsCard group="Actions" height=110 -->
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{margin:0;font-family:var(--font-sans);background:var(--color-green-50)}#root{padding:24px}</style></head>
+<body><div id="root"></div>
+<script>
+var h = React.createElement, F = window.Fahrschulring;
+ReactDOM.createRoot(document.getElementById("root")).render(h("div",{style:{maxWidth:380}},
+  h(F.StickyContactBar,{fixed:false,phoneHref:"+49711295928",email:"info@fahrschulring.de"})
+));
+</script></body></html>

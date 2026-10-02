@@ -1,0 +1,12 @@
+<!-- @dsCard group="Content" height=200 -->
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{margin:0;font-family:var(--font-sans);background:var(--background)}#root{padding:24px}</style></head>
+<body><div id="root"></div>
+<script>
+var h = React.createElement, F = window.Fahrschulring;
+ReactDOM.createRoot(document.getElementById("root")).render(h("div",{},
+  h(F.SectionHeading,{eyebrow:"Führerscheinklassen",title:"Für jedes Fahrzeug die passende Ausbildung",description:"18 Führerscheinklassen, ein Ansprechpartner. Wähle deinen Bereich – Details findest du auf unserer Klassen-Übersicht."}),
+  h("div",{style:{marginTop:24,padding:"32px 16px",borderRadius:16,background:"var(--color-green-950)"}},
+    h(F.SectionHeading,{light:true,eyebrow:"Modern ausgestattet",title:"Gut zu wissen"}))
+));
+</script></body></html>
