@@ -34,7 +34,7 @@ one was written fresh against the real stack:
 - Contact (form/phone/email) → what's collected, why, retention, and that
   form submissions go through Alfahosting — section 3 (see "Contact form"
   below)
-- The Google Maps embed on `/anfahrt` → this is a real third-party call the
+- The Google Maps embed (`LocationSection.tsx` on the landing page and `/anfahrt`) → this is a real third-party call the
   old policy never disclosed for this iteration; keep this section if the
   map embed stays
 - Google Analytics (GA4) → section 5 describes it; it's consent-gated behind

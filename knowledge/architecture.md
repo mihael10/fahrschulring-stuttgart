@@ -31,6 +31,20 @@ interactive state are `"use client"` (`Header`, `Faq`) — keep new
 interactive pieces client-only and leave everything else server-rendered;
 this is a marketing site, not an app, so client JS should stay minimal.
 
+## Landing page is the whole site
+
+`src/app/page.tsx` is a single scrolling page that carries the content of
+the former menu pages inline: `ClassesOverview` (`#klassen`, all classes by
+group), `TeamPreview` (`#team`), `LocationSection` (`#anfahrt`, address,
+hours, map) and `ContactSection` (`#kontakt`, `ContactForm` + phone card).
+The `navigation` array in `site.ts`, the header CTA and the hero buttons
+point at those anchors (`/#klassen` etc.), not at routes. The separate
+pages `/klassen`, `/team`, `/anfahrt`, `/kontakt` still exist (direct URLs,
+sitemap) but are no longer linked from the menu — when changing content in
+one of these sections, check whether the standalone page duplicates it.
+`Impressum` and `Datenschutz` stay separate pages. Sections that are
+anchor targets use `scroll-mt-20` to clear the sticky header.
+
 ## Styling
 
 Tailwind v4's CSS-based theme, not a `tailwind.config.js` — tokens are

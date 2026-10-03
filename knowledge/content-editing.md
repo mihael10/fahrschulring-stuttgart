@@ -57,10 +57,11 @@ because the sources disagree, not because one is obviously right.
 
 Straightforward — append to the relevant array in `team.ts` / `fleet.ts` /
 `classes.ts`. For `classes.ts`, keep the `group` field one of the four
-values in `classGroups` — the homepage `ClassesOverview` links to
-`/klassen#<slug>` anchors that are derived from those exact group names in
-`src/app/klassen/page.tsx`'s `groupSlugs` map. Adding a fifth group requires
-updating that map too.
+values in `classGroups` — the homepage `ClassesOverview` and
+`src/app/klassen/page.tsx` both render every class grouped by it (via the
+shared `ClassCard.tsx`) and derive their `id="<slug>"` anchors from those
+exact group names in a `groupSlugs` map. Adding a fifth group requires
+updating that map in **both** files.
 
 ## Social links
 
