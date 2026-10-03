@@ -1,0 +1,16 @@
+<!-- @dsCard group="Actions" height=150 -->
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{margin:0;font-family:var(--font-sans);background:var(--background)}#root{padding:24px}</style></head>
+<body><div id="root"></div>
+<script>
+var h = React.createElement, F = window.Fahrschulring;
+ReactDOM.createRoot(document.getElementById("root")).render(h("div",{style:{display:"flex",flexDirection:"column",gap:16}},
+  h("div",{style:{display:"flex",flexWrap:"wrap",gap:16,alignItems:"center"}},
+    h(F.Button,{href:"#",variant:"primary",pulse:true},"Jetzt Kontakt aufnehmen"),
+    h(F.Button,{href:"#",variant:"secondary"},"Klassen ansehen")),
+  h("div",{style:{display:"flex",flexWrap:"wrap",gap:16,padding:16,borderRadius:16,background:"var(--color-green-950)"}},
+    h(F.Button,{href:"#",variant:"ghost"},"Klassen & Angebot ansehen")),
+  h("div",{style:{display:"flex",flexWrap:"wrap",gap:16,padding:16,borderRadius:16,background:"var(--color-green-500)"}},
+    h(F.Button,{href:"#",variant:"dark",pulse:true},"Jetzt Kontakt aufnehmen"))
+));
+</script></body></html>

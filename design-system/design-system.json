@@ -1,0 +1,112 @@
+{
+ "v": 3,
+ "assetGroups": {
+  "Icons": {
+   "files": {
+    "facebook.svg": {
+     "blob": "8f4c2892af2630667705a0df9c9a5ebb",
+     "name": "facebook.svg",
+     "size": 529,
+     "type": "image/svg+xml"
+    },
+    "mail.svg": {
+     "blob": "0227c4a0423ab4d63eada3aea9484670",
+     "name": "mail.svg",
+     "size": 281,
+     "type": "image/svg+xml"
+    },
+    "phone.svg": {
+     "blob": "932f0ba87d9412a259c523f0ee24d8bf",
+     "name": "phone.svg",
+     "size": 345,
+     "type": "image/svg+xml"
+    },
+    "star.svg": {
+     "blob": "6a005bbcf60ebf441b521262251577ee",
+     "name": "star.svg",
+     "size": 168,
+     "type": "image/svg+xml"
+    }
+   },
+   "name": "Icons",
+   "order": [
+    "phone.svg",
+    "mail.svg",
+    "facebook.svg",
+    "star.svg"
+   ],
+   "tile": "s"
+  },
+  "Logos": {
+   "files": {
+    "template-logo.webp": {
+     "blob": "aad14620d702dfddbbd311e50c7a921c",
+     "name": "template-logo.webp",
+     "size": 4078,
+     "type": "image/webp"
+    },
+    "vb-fs-logo.webp": {
+     "blob": "ce97306ff7948bd2588fc6d6e021a446",
+     "name": "vb-fs-logo.webp",
+     "size": 6328,
+     "type": "image/webp"
+    }
+   },
+   "name": "Logos",
+   "order": [
+    "template-logo.webp",
+    "vb-fs-logo.webp"
+   ],
+   "tile": "l"
+  },
+  "Imagery": {
+   "name": "Imagery",
+   "tile": "l",
+   "order": [
+    "storefront.webp"
+   ],
+   "files": {
+    "storefront.webp": {
+     "name": "storefront.webp",
+     "blob": "ae268fe906ea95e26b11306e65df98bc",
+     "size": 207944,
+     "type": "image/webp"
+    }
+   }
+  }
+ },
+ "blobs": {},
+ "createdOnFiles": {
+  "at": "2026-10-02T11:40:00Z",
+  "v": 1
+ },
+ "docs": {
+  "readme": "project/README.md",
+  "sections": []
+ },
+ "groups": [
+  "Logos",
+  "Icons",
+  "Imagery"
+ ],
+ "lastChange": {
+  "by": "Mihael",
+  "at": "2026-10-02T12:05:00Z",
+  "via": "GitHub · mihael10/fahrschulring-stuttgart@1f0f9bd",
+  "note": "Added Header, Hero, ContactCta and Footer as static section previews; storefront photo under Imagery."
+ },
+ "layout": "files",
+ "libraries": [
+  {
+   "name": "react",
+   "version": "18"
+  },
+  {
+   "name": "react-dom",
+   "version": "18"
+  }
+ ],
+ "namespace": "Fahrschulring",
+ "sections": {},
+ "title": "Fahrschulring Stuttgart"
+}

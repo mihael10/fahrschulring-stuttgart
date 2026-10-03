@@ -1,0 +1,13 @@
+<!-- @dsCard group="Content" height=140 -->
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{margin:0;font-family:var(--font-sans);background:var(--color-green-950)}#root{padding:24px}</style></head>
+<body><div id="root"></div>
+<script>
+var h = React.createElement, F = window.Fahrschulring;
+ReactDOM.createRoot(document.getElementById("root")).render(h("dl",{style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,margin:0}},
+  h(F.StatTile,{value:50,suffix:"+",label:"Jahre Erfahrung"}),
+  h(F.StatTile,{value:18,label:"Führerscheinklassen"}),
+  h(F.StatTile,{value:6,label:"Fahrlehrer"}),
+  h(F.StatTile,{value:3,label:"E-Fahrzeuge in der Flotte"})
+));
+</script></body></html>

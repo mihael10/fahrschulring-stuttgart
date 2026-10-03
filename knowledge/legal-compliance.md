@@ -31,8 +31,9 @@ one was written fresh against the real stack:
 - Hosting → server logfiles section (currently describes GitHub Pages'
   static hosting, not a self-managed server — update this section if the
   deploy target changes again, see `knowledge/deployment.md`)
-- Contact (phone/email) → what's collected, why, retention — section 3
-  describes phone/email only; there is no contact form (see below)
+- Contact (form/phone/email) → what's collected, why, retention, and that
+  form submissions go through Alfahosting — section 3 (see "Contact form"
+  below)
 - The Google Maps embed on `/anfahrt` → this is a real third-party call the
   old policy never disclosed for this iteration; keep this section if the
   map embed stays
@@ -48,15 +49,15 @@ a cookie banner, retargeting pixels — update this page in the same
 change.** A Datenschutzerklärung that doesn't match actual behavior is
 worse than none; don't let it drift.
 
-## There is no contact form
+## Contact form
 
-`ContactForm.tsx` and `src/app/api/contact/route.ts` were deleted (not just
-hidden) when the deploy target moved to GitHub Pages — a static export
-can't run a server-side POST handler at all, so keeping the form wasn't an
-option (see `knowledge/deployment.md`). `/kontakt` shows `tel:`/`mailto:`
-buttons instead, and `/datenschutz` section 3 was rewritten to match. If a
-working contact form matters enough to bring back, that's a hosting change
-(a third-party form backend, or moving off GitHub Pages) — see
-`knowledge/deployment.md`'s "Reviving the Docker/DigitalOcean path" — and
-section 3 needs rewriting again alongside it to describe form data
-collection (name, email, phone, Wunschklasse, message) once real.
+`/kontakt` has a form (`ContactForm.tsx`) that posts to
+`alfahosting/kontakt.php` on the business's Alfahosting webspace, which
+emails the fields (name, email, phone, Wunschklasse, message) to
+`info@fahrschulring.de` and stores nothing — see `knowledge/deployment.md`.
+`/datenschutz` section 3 describes this, naming Alfahosting as the
+processor (legal basis Art. 6 Abs. 1 lit. b DSGVO, so there's an info line
+under the form rather than a consent checkbox). The owner should have a
+data processing agreement (AV-Vertrag) with Alfahosting — they offer one in
+their customer panel. If the endpoint ever moves to another provider,
+update section 3 in the same change.

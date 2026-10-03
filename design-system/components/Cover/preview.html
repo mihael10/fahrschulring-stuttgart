@@ -1,0 +1,41 @@
+<!-- @dsCard height=336 -->
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--background); font-family: var(--font-sans); }
+  .cover { position: relative; width: 960px; height: 336px; overflow: hidden; background: var(--background); }
+  svg { position: absolute; left: 0; top: 0; }
+  .b-deep { fill: var(--color-green-950); }
+  .b-cta { fill: var(--color-green-500); }
+  .b-bright { fill: var(--color-green-400); }
+  .b-tint { fill: var(--color-green-100); }
+  .blk { rx: var(--radius-2xl); ry: var(--radius-2xl); }
+  .ring { fill: none; stroke: var(--background); stroke-width: var(--space-2); }
+  .name { position: absolute; left: 48px; top: 148px; margin: 0; font-size: 64px; line-height: .95; font-weight: 800; letter-spacing: -0.01em; color: var(--color-green-950); }
+  .tag { position: absolute; left: 48px; top: 286px; margin: 0; font-size: 14px; line-height: 20px; color: var(--color-green-700); }
+</style></head>
+<body>
+<div class="cover">
+  <svg width="960" height="120" viewBox="0 0 960 120" aria-hidden="true">
+    <!--
+      blocks: color-green-950 slab 440w, color-green-500 216w, color-green-400 96w (space-24), color-green-100 tint bleeding right; all 120 tall (space-28 + space-2), bottom corners radius-2xl, gaps space-2, bleeding off the top
+      arrangement: top-band skeleton (name too wide for the 440px zone) — one wide dark slab then narrowing bright bands, like the site's dark hero giving way to the green CTA
+      pattern: literal motif — the logo's ring swoosh / a curving road: three concentric arcs cut from the white ground across the slab and the CTA block; chosen because the mark is literally a ring and the brand is driving
+      scales: arc radii space-12 / space-20 / space-28, stroke space-2, block radius radius-2xl, gaps space-2
+    -->
+    <defs><clipPath id="band"><rect x="0" y="-16" width="668" height="136" rx="16"/></clipPath></defs>
+    <rect class="b-deep blk" x="0" y="-16" width="440" height="136"/>
+    <rect class="b-cta blk" x="448" y="-16" width="216" height="136"/>
+    <rect class="b-bright blk" x="672" y="-16" width="96" height="136"/>
+    <rect class="b-tint blk" x="776" y="-16" width="200" height="136"/>
+    <g clip-path="url(#band)">
+      <circle class="ring" cx="392" cy="148" r="48"/>
+      <circle class="ring" cx="392" cy="148" r="80"/>
+      <circle class="ring" cx="392" cy="148" r="112"/>
+    </g>
+  </svg>
+  <h1 class="name">Fahrschulring<br>Stuttgart</h1>
+  <p class="tag">Führerschein in allen Klassen – moderne Flotte, erfahrenes Team, zentral in Stuttgart.</p>
+</div>
+</body></html>

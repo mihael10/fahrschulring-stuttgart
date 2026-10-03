@@ -1,0 +1,11 @@
+<!-- @dsCard group="Content" height=230 -->
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{margin:0;font-family:var(--font-sans);background:var(--color-green-50)}#root{padding:24px}</style></head>
+<body><div id="root"></div>
+<script>
+var h = React.createElement, F = window.Fahrschulring;
+ReactDOM.createRoot(document.getElementById("root")).render(h("div",{style:{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:24}},
+  h(F.ClassCard,{href:"#",title:"Auto",classes:"B · BF17 · BE · B96",description:"Vom ersten begleiteten Kilometer mit 17 bis zum Anhänger."}),
+  h(F.ClassCard,{href:"#",title:"Motorrad",classes:"AM · A1 · A2 · A · B196",description:"Roller, Leichtkrafträder und alle Motorradklassen."})
+));
+</script></body></html>
