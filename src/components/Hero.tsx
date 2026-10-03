@@ -55,10 +55,10 @@ export function Hero() {
             und alle Führerscheinklassen – mitten in Stuttgart.
           </p>
           <div className="animate-fade-up mt-9 flex flex-wrap justify-center gap-4 [animation-delay:240ms]">
-            <Button href="/kontakt" variant="primary" className="animate-cta-pulse">
+            <Button href="#kontakt" variant="primary" className="animate-cta-pulse">
               Jetzt Kontakt aufnehmen
             </Button>
-            <Button href="/klassen" variant="ghost">
+            <Button href="#klassen" variant="ghost">
               Klassen &amp; Angebot ansehen
             </Button>
           </div>

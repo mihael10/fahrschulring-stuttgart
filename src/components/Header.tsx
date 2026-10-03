@@ -70,7 +70,7 @@ export function Header() {
             <PhoneIcon className="animate-ring-wiggle h-4 w-4" />
             {site.phone}
           </a>
-          <Button href="/kontakt" variant="primary">
+          <Button href="/#kontakt" variant="primary">
             Kontakt aufnehmen
           </Button>
         </div>
@@ -123,7 +123,7 @@ export function Header() {
               <PhoneIcon className="animate-ring-wiggle h-4 w-4" />
               {site.phone}
             </a>
-            <Button href="/kontakt" variant="primary" className="mt-2" onClick={() => setOpen(false)}>
+            <Button href="/#kontakt" variant="primary" className="mt-2" onClick={() => setOpen(false)}>
               Kontakt aufnehmen
             </Button>
           </div>

@@ -68,8 +68,8 @@ export const site = {
 
 export const navigation = [
   { href: "/", label: "Start" },
-  { href: "/klassen", label: "Führerscheinklassen" },
-  { href: "/team", label: "Team" },
-  { href: "/anfahrt", label: "Anfahrt" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/#klassen", label: "Führerscheinklassen" },
+  { href: "/#team", label: "Team" },
+  { href: "/#anfahrt", label: "Anfahrt" },
+  { href: "/#kontakt", label: "Kontakt" },
 ] as const;

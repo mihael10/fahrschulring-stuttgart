@@ -9,7 +9,8 @@ import { TeamPreview } from "@/components/TeamPreview";
 import { Testimonials } from "@/components/Testimonials";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { Faq } from "@/components/Faq";
-import { ContactCta } from "@/components/ContactCta";
+import { LocationSection } from "@/components/LocationSection";
+import { ContactSection } from "@/components/ContactSection";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -28,7 +29,8 @@ export default function Home() {
       <GoogleReviews />
       <Testimonials />
       <Faq />
-      <ContactCta />
+      <LocationSection />
+      <ContactSection />
     </>
   );
 }

@@ -1,64 +1,38 @@
-import Link from "next/link";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "./Button";
-import { classes as licenseClasses } from "@/content/classes";
+import { ClassCard } from "./ClassCard";
+import { classes, classGroups } from "@/content/classes";
 
-const groups = [
-  {
-    slug: "auto",
-    title: "Auto",
-    classes: "B · BF17 · BE · B96",
-    description: "Vom ersten begleiteten Kilometer mit 17 bis zum Anhänger.",
-  },
-  {
-    slug: "motorrad",
-    title: "Motorrad",
-    classes: "AM · A1 · A2 · A · B196",
-    description: "Roller, Leichtkrafträder und alle Motorradklassen.",
-  },
-  {
-    slug: "lkw-bus",
-    title: "LKW & Bus",
-    classes: "C1 · C · CE · D1 · D",
-    description: "Für den Einstieg in die Berufskraftfahrt.",
-  },
-  {
-    slug: "sonderklassen",
-    title: "Sonderklassen",
-    classes: "L · T",
-    description: "Zugmaschinen und Arbeitsmaschinen für Land- und Forstwirtschaft.",
-  },
-];
+const groupSlugs: Record<(typeof classGroups)[number], string> = {
+  Motorrad: "motorrad",
+  Auto: "auto",
+  "LKW & Bus": "lkw-bus",
+  Sonderklassen: "sonderklassen",
+};
 
 export function ClassesOverview() {
   return (
-    <section className="bg-green-50 py-20 sm:py-28">
+    <section id="klassen" className="scroll-mt-20 bg-green-50 py-20 sm:py-28">
       <div className="container-page">
         <SectionHeading
           eyebrow="Führerscheinklassen"
           title="Für jedes Fahrzeug die passende Ausbildung"
-          description={`${licenseClasses.length} Führerscheinklassen, ein Ansprechpartner. Wähle deinen Bereich – Details findest du auf unserer Klassen-Übersicht.`}
+          description={`${classes.length} Führerscheinklassen, ein Ansprechpartner. Preise richten sich nach Klasse und individuellem Übungsbedarf – fordere ein unverbindliches Angebot an.`}
         />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {groups.map((group) => (
-            <Link
-              key={group.slug}
-              href={`/klassen#${group.slug}`}
-              className="reveal group flex flex-col rounded-2xl border border-green-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-900/5 motion-reduce:hover:translate-y-0"
-            >
-              <h3 className="text-lg font-bold text-green-950">{group.title}</h3>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-green-600">
-                {group.classes}
-              </p>
-              <p className="mt-3 flex-1 text-sm text-green-700">{group.description}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-green-900 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-green-600">
-                Details ansehen →
-              </span>
-            </Link>
-          ))}
-        </div>
-        <div className="mt-10 flex justify-center">
-          <Button href="/kontakt" variant="primary">
+        {classGroups.map((group) => (
+          <div key={group} id={groupSlugs[group]} className="scroll-mt-24 pt-14">
+            <h3 className="text-2xl font-extrabold text-green-950">{group}</h3>
+            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {classes
+                .filter((c) => c.group === group)
+                .map((item) => (
+                  <ClassCard key={item.id} item={item} />
+                ))}
+            </div>
+          </div>
+        ))}
+        <div className="mt-14 flex justify-center">
+          <Button href="#kontakt" variant="primary">
             Individuelles Angebot anfordern
           </Button>
         </div>

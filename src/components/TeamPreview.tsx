@@ -1,12 +1,11 @@
 import Image from "next/image";
 import { SectionHeading } from "./SectionHeading";
-import { Button } from "./Button";
 import { team } from "@/content/team";
 import { basePath } from "@/lib/base-path";
 
 export function TeamPreview() {
   return (
-    <section className="bg-green-50 py-20 sm:py-28">
+    <section id="team" className="scroll-mt-20 bg-green-50 py-20 sm:py-28">
       <div className="container-page">
         <SectionHeading
           eyebrow="Unser Team"
@@ -34,11 +33,6 @@ export function TeamPreview() {
               <p className="mt-1 text-xs text-green-700">{member.role}</p>
             </div>
           ))}
-        </div>
-        <div className="mt-10 flex justify-center">
-          <Button href="/team" variant="secondary">
-            Ganzes Team kennenlernen
-          </Button>
         </div>
       </div>
     </section>
