@@ -1,5 +1,6 @@
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "./Button";
+import { ContactForm } from "./ContactForm";
 import { PhoneIcon, MailIcon } from "./icons";
 import { site } from "@/content/site";
 
@@ -10,34 +11,33 @@ export function ContactSection() {
         <SectionHeading
           eyebrow="Kontakt"
           title="Lass uns starten"
-          description="Ruf uns direkt an oder schreib uns eine E-Mail – wir melden uns mit den nächsten Schritten und einem individuellen Angebot."
+          description="Schreib uns über das Formular oder ruf uns direkt an – wir melden uns mit den nächsten Schritten und einem individuellen Angebot."
         />
-        <div className="mx-auto mt-14 grid max-w-3xl gap-6 sm:grid-cols-2">
-          <div className="reveal flex flex-col items-center gap-2 rounded-2xl border border-green-100 bg-white p-8 text-center transition-shadow duration-300 hover:shadow-lg hover:shadow-green-900/5">
+        <div className="mx-auto mt-14 grid max-w-5xl gap-8 lg:grid-cols-[1fr_20rem]">
+          <div className="reveal rounded-2xl border border-green-100 bg-white p-6 sm:p-10">
+            <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-green-600">
+              <MailIcon className="h-4 w-4" />
+              Nachricht schreiben
+            </span>
+            <h3 className="mt-2 text-2xl font-extrabold text-green-950">Schreib uns</h3>
+            <p className="mt-2 text-sm text-green-700">
+              Füll das Formular aus – wir antworten dir per E-Mail oder rufen dich zurück.
+            </p>
+            <div className="mt-8">
+              <ContactForm />
+            </div>
+          </div>
+
+          <div className="reveal flex flex-col items-center gap-2 self-start rounded-2xl border border-green-100 bg-white p-8 text-center transition-shadow duration-300 hover:shadow-lg hover:shadow-green-900/5">
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-green-600">
               <PhoneIcon className="animate-ring-wiggle h-5 w-5" />
             </span>
             <span className="mt-2 text-xs font-bold uppercase tracking-wider text-green-600">
-              Telefon
+              Lieber telefonisch?
             </span>
             <span className="text-2xl font-extrabold text-green-950">{site.phone}</span>
             <Button href={`tel:${site.phoneHref}`} variant="primary" className="animate-cta-pulse mt-3">
               Jetzt anrufen
-            </Button>
-          </div>
-
-          <div className="reveal flex flex-col items-center gap-2 rounded-2xl border border-green-100 bg-white p-8 text-center transition-shadow duration-300 hover:shadow-lg hover:shadow-green-900/5">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-green-600">
-              <MailIcon className="h-5 w-5" />
-            </span>
-            <span className="mt-2 text-xs font-bold uppercase tracking-wider text-green-600">
-              E-Mail
-            </span>
-            <span className="break-all text-xl font-extrabold text-green-950 sm:text-2xl">
-              {site.email}
-            </span>
-            <Button href={`mailto:${site.email}`} variant="secondary" className="mt-3">
-              E-Mail schreiben
             </Button>
           </div>
         </div>
