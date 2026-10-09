@@ -58,6 +58,8 @@ export function ContactForm() {
       }
       setStatus("success");
       form.reset();
+      // Picked up by AnalyticsEvents.tsx (GA4 "form_submit", consent-gated).
+      window.dispatchEvent(new Event("contact-form-sent"));
     } catch (err) {
       setStatus("error");
       setErrorMessage(err instanceof Error ? err.message : "Der Versand ist fehlgeschlagen.");

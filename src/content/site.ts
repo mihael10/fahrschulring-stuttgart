@@ -13,6 +13,10 @@ export const site = {
     street: "Hegelstraße 48",
     zip: "70174",
     city: "Stuttgart",
+    // Stadtbezirk per the 70174 postcode / Hegelstraße (Stuttgart-Mitte,
+    // at the border to Stuttgart-West) — used in copy, not as a separate
+    // address line.
+    district: "Stuttgart-Mitte",
     country: "Deutschland",
   },
 
@@ -26,6 +30,8 @@ export const site = {
   // owner before launch, but this is no longer an open guess.
   phone: "0711 295928",
   phoneHref: "+49711295928",
+  // E.164 with spaces, the format schema.org/Google recommend for `telephone`.
+  phoneE164: "+49 711 295928",
 
   // The Impressum is authoritative for the legal email: info@fahrschulring.de
   // (older marketing pages showed a .com typo — do not use it).

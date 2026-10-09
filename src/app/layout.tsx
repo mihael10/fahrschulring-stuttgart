@@ -5,6 +5,11 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
 import { StickyContactBar } from "@/components/StickyContactBar";
+import { AnalyticsEvents } from "@/components/AnalyticsEvents";
+import { JsonLd } from "@/components/JsonLd";
+import { graph, organizationNode, websiteNode } from "@/lib/schema";
+import { isProduction, servedUrl } from "@/lib/site-url";
+import { OG_IMAGE } from "@/lib/metadata";
 import { site } from "@/content/site";
 
 const manrope = Manrope({
@@ -12,71 +17,44 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.fahrschulring.de";
-
+// Page-level metadata (title, description, canonical, og:url, robots) is set
+// per page through src/lib/metadata.ts → pageMetadata(). This root block
+// only holds the defaults a page can't or shouldn't repeat. metadataBase is
+// the *served* host so relative asset URLs resolve on previews too; the
+// canonical host is always production (see src/lib/site-url.ts).
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(servedUrl),
   title: {
-    default: "Fahrschulring Stuttgart – Führerschein mit 50+ Jahren Erfahrung",
+    default: `Fahrschule in ${site.address.district} – alle Führerscheinklassen | Fahrschulring`,
     template: "%s | Fahrschulring Stuttgart",
   },
   description:
-    "Fahrschulring Stuttgart bildet seit über 50 Jahren in allen Führerscheinklassen aus – moderne Flotte mit E-Autos, erfahrenes Team, zentral in Stuttgart-Mitte. Jetzt unverbindlich Kontakt aufnehmen.",
+    "Fahrschulring: Fahrschule in Stuttgart-Mitte (Hegelstraße 48) für Auto, Motorrad, Anhänger, LKW und Bus. Seit über 50 Jahren, E-Autos und Automatik, Fahrsimulator. Jetzt anrufen: 0711 295928.",
+  // Staging protection: every page is noindex unless this is the production
+  // build. Pages call pageMetadata() which sets this explicitly as well.
+  robots: isProduction ? { index: true, follow: true } : { index: false, follow: false },
   openGraph: {
-    title: "Fahrschulring Stuttgart",
-    description:
-      "Führerschein in allen Klassen – moderne Flotte, erfahrenes Team, zentral in Stuttgart.",
-    url: siteUrl,
-    siteName: "Fahrschulring Stuttgart",
+    siteName: site.name,
     locale: "de_DE",
     type: "website",
-    images: [
-      {
-        // Absolute, not "/images/..." — metadataBase resolution treats a
-        // leading slash as domain-root, which would drop the GitHub Pages
-        // basePath (see next.config.ts).
-        url: `${siteUrl}/images/og-cover.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Fahrschulring Stuttgart",
-      },
-    ],
+    images: [OG_IMAGE],
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "DrivingSchool",
-    name: site.name,
-    legalName: site.legalName,
-    image: `${siteUrl}/images/og-cover.jpg`,
-    telephone: site.phone,
-    email: site.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: site.address.street,
-      postalCode: site.address.zip,
-      addressLocality: site.address.city,
-      addressCountry: "DE",
-    },
-    openingHours: "Mo-Th 15:00-18:30",
-    url: siteUrl,
-    sameAs: [site.social.facebook],
-  };
-
   return (
     <html lang="de" className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {/* Entity graph shared by every page: the business + the website.
+            Pages add their own WebPage/BreadcrumbList/FAQPage/Service nodes
+            that reference these by @id. */}
+        <JsonLd data={graph([organizationNode(), websiteNode()])} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
         <StickyContactBar />
         <CookieConsent />
+        <AnalyticsEvents />
       </body>
     </html>
   );

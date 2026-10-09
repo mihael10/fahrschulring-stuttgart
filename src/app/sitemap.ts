@@ -1,22 +1,19 @@
 import type { MetadataRoute } from "next";
+import { routes } from "@/content/routes";
+import { productionUrl } from "@/lib/site-url";
 
 // Required for output: "export" — see next.config.ts and knowledge/deployment.md.
 export const dynamic = "force-static";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.fahrschulring.de";
-
-// Impressum and Datenschutz carry `robots: { index: false }` (legally
-// required pages, not marketing content) so they're deliberately left out —
-// a sitemap should only list indexable URLs.
-//
-// Trailing slashes match the actual served paths (next.config.ts sets
-// trailingSlash: true — see knowledge/deployment.md) so these URLs are the
-// canonical ones, not a redirect source.
-const routes = ["/", "/klassen/", "/team/", "/anfahrt/", "/kontakt/"];
-
+// One entry per indexable route in src/content/routes.ts, always on the
+// production host (a preview build is noindex anyway, and must never
+// advertise github.io URLs as canonical). Impressum/Datenschutz are noindex
+// and not in the registry. `lastModified` is the hand-maintained content
+// date from the registry, not the build time.
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
-    url: `${siteUrl}${route}`,
-    lastModified: new Date(),
+    url: productionUrl(route.path),
+    lastModified: new Date(route.lastModified),
+    priority: route.path === "/" ? 1 : route.parent ? 0.8 : 0.7,
   }));
 }

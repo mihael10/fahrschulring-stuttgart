@@ -1,25 +1,31 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ContactCta } from "@/components/ContactCta";
+import { JsonLd } from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
 import { team } from "@/content/team";
+import { site } from "@/content/site";
 import { basePath } from "@/lib/base-path";
 
-export const metadata: Metadata = {
-  title: "Team",
-  description: "Lerne das Fahrlehrer-Team von Fahrschulring Stuttgart kennen.",
-  alternates: { canonical: "/team/" },
-};
+const path = "/team/" as const;
+const title = "Fahrlehrer-Team der Fahrschule Fahrschulring in Stuttgart";
+const description = `Die ${team.length} Fahrlehrerinnen und Fahrlehrer von Fahrschulring in Stuttgart-Mitte – mit den Führerscheinklassen, die sie unterrichten. Inhaber: ${site.owner}, Fahrlehrer aller Klassen.`;
+
+export const metadata = pageMetadata({ path, title, description });
 
 export default function TeamPage() {
   return (
     <>
+      <JsonLd data={graph([webPageNode({ path, title, description }), breadcrumbNode(path)])} />
       <PageHero
         eyebrow="Team"
-        title="Wir sind für dich da"
-        description={`${team.length} erfahrene Fahrlehrer begleiten dich persönlich durch deine gesamte Ausbildung.`}
+        title="Unser Fahrlehrer-Team in Stuttgart"
+        description={`${team.length} erfahrene Fahrlehrerinnen und Fahrlehrer begleiten dich persönlich durch deine gesamte Ausbildung – inhabergeführt von ${site.owner}.`}
       />
-      <div className="container-page py-16 sm:py-20">
+      <Breadcrumbs path={path} />
+      <div className="container-page py-12 sm:py-16">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
             <div
@@ -30,7 +36,7 @@ export default function TeamPage() {
                 {member.photo && (
                   <Image
                     src={`${basePath}${member.photo}`}
-                    alt={member.name}
+                    alt={`${member.name}, ${member.role} bei Fahrschulring Stuttgart`}
                     fill
                     sizes="96px"
                     className="object-cover transition-transform duration-300 group-hover:scale-110 motion-reduce:group-hover:scale-100"

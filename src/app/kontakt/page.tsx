@@ -1,26 +1,30 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Button } from "@/components/Button";
+import { JsonLd } from "@/components/JsonLd";
 import { PhoneIcon, MailIcon } from "@/components/icons";
 import { ContactForm } from "@/components/ContactForm";
+import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Kontakt",
-  description:
-    "Kontaktiere Fahrschulring Stuttgart über das Kontaktformular oder telefonisch – wir melden uns mit den nächsten Schritten.",
-  alternates: { canonical: "/kontakt/" },
-};
+const path = "/kontakt/" as const;
+const title = "Kontakt & Anmeldung – Fahrschulring, Fahrschule in Stuttgart-Mitte";
+const description = `Fahrschule Fahrschulring in Stuttgart kontaktieren: Telefon ${site.phone}, E-Mail ${site.email} oder Kontaktformular. Bürozeiten ${site.hours.office}, ${site.address.street}, ${site.address.zip} ${site.address.city}.`;
+
+export const metadata = pageMetadata({ path, title, description });
 
 export default function KontaktPage() {
   return (
     <>
+      <JsonLd data={graph([webPageNode({ path, title, description }), breadcrumbNode(path)])} />
       <PageHero
         eyebrow="Kontakt"
-        title="Lass uns starten"
+        title="Kontakt zur Fahrschule Fahrschulring in Stuttgart"
         description="Schreib uns über das Formular oder ruf uns direkt an – wir melden uns mit den nächsten Schritten und einem individuellen Angebot."
       />
-      <div className="container-page py-16 sm:py-20">
+      <Breadcrumbs path={path} />
+      <div className="container-page py-12 sm:py-16">
         <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1fr_20rem]">
           <div className="reveal rounded-2xl border border-green-100 bg-white p-6 sm:p-10">
             <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-green-600">

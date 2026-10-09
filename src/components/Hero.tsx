@@ -47,7 +47,7 @@ export function Hero() {
             Seit über {site.yearsExperience} Jahren in Stuttgart
           </span>
           <h1 className="animate-fade-up mt-6 text-4xl font-extrabold leading-tight text-white [animation-delay:80ms] sm:text-5xl lg:text-6xl">
-            Deine Fahrschule in Stuttgart.
+            Deine Fahrschule in Stuttgart-Mitte.
             <span className="block text-green-400">Sicher ans Ziel.</span>
           </h1>
           <p className="animate-fade-up mx-auto mt-6 max-w-xl text-lg text-green-100/80 [animation-delay:160ms]">

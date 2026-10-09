@@ -16,6 +16,33 @@ This replaced an earlier Docker/DigitalOcean plan (`Dockerfile`, `.do/app.yaml`
 still exist, see "Reviving the Docker/DigitalOcean path" below) — GitHub Pages
 was chosen instead so the deploy needs nothing but a GitHub account.
 
+## Preview vs. production builds (added 2026-10-09)
+
+`deploy.yml` has two modes, chosen by the `PRODUCTION_DOMAIN` repo
+variable (Settings → Secrets and variables → Actions → Variables):
+
+- **unset — preview (today):** served under `/fahrschulring-stuttgart/` on
+  github.io; every page `noindex, nofollow`, no canonical, `robots.txt`
+  `Disallow: /`. Safe to leave online indefinitely; never indexable.
+- **set (e.g. `www.fahrschulring.de`) — production:** `SITE_IS_PRODUCTION=true`
+  → no basePath, pages indexable, canonical/sitemap/JSON-LD on
+  `https://www.fahrschulring.de`, `out/CNAME` written.
+
+Regardless of mode, canonical URLs always point at the production host
+(`src/lib/site-url.ts`) — see `seo-strategy.md`.
+
+**Where production should be served — decision pending (owner):**
+
+(a) **Alfahosting webspace** (recommended): upload `out/` next to
+`kontakt.php`, plus `alfahosting/.htaccess` (301s for the old `/pages/*.php`
+URLs, apex/http → www, caching). Real redirects, same-origin form, no
+CORS. Deploy by FTP/SFTP from Actions (add a job with an FTP action and the
+Alfahosting credentials as secrets) or by hand after each release.
+(b) **GitHub Pages custom domain:** point DNS at Pages, set
+`PRODUCTION_DOMAIN`; simplest, but GitHub cannot send 301s, so the old
+`.php` URLs 404 (their link equity is low, but the Impressum URL ranks for
+the brand query today). The form still needs the Alfahosting endpoint.
+
 ## Why `output: "export"`
 
 Set in `next.config.ts`. GitHub Pages only serves static files — no Node
@@ -54,23 +81,19 @@ it onto:
    resolution treats a leading `/` as domain-root and would silently drop
    the basePath segment. Keep this pattern for any new absolute metadata URL.
 
-## `robots.txt` / `sitemap.xml` are the one exception to basePath
+## `robots.txt` / `sitemap.xml`
 
 `src/app/robots.ts` and `src/app/sitemap.ts` (both `export const dynamic =
-"force-static"`, required under `output: "export"` or the build fails) emit
-to `out/robots.txt` and `out/sitemap.xml` at the **domain root**, not under
-`out/<basePath>/` like every other route — confirmed by building locally
-with `GITHUB_REPOSITORY` set and inspecting `out/`. That's actually correct
-here: robots.txt only has effect at the origin root per spec, and it's the
-only sane place for it on a domain shared with other GitHub Pages project
-sites under the same account. `sitemap.ts` builds its `<loc>` URLs from
-`NEXT_PUBLIC_SITE_URL` by hand (same fallback/production pattern as
-`layout.tsx`'s `siteUrl`), which already includes the basePath — so the
-listed page URLs are correct even though the sitemap file itself sits
-outside it. Sitemap entries use trailing slashes (`/klassen/`, not
-`/klassen`) to match `trailingSlash: true` below and avoid listing a
-redirect source as canonical. Noindex pages (Impressum, Datenschutz) are
-deliberately left out of the sitemap.
+"force-static"`, required under `output: "export"` or the build fails) are
+emitted into `out/` and — on a *project* Pages site — served under the
+repo sub-path (`/fahrschulring-stuttgart/robots.txt`), where crawlers never
+look for robots.txt (it only has effect at the origin root). On the
+preview that doesn't matter: the per-page `noindex` is what keeps it out of
+the index. On production (served from the domain root) both files sit at
+the root as intended. The sitemap lists the routes from
+`src/content/routes.ts` on the production host with trailing slashes
+(`trailingSlash: true`) and hand-maintained `lastModified`; noindex pages
+(Impressum, Datenschutz) are deliberately left out.
 
 ## `trailingSlash: true` — required, not cosmetic
 
@@ -170,5 +193,7 @@ unused by the current static export but required again the moment
       (`CookieConsent.tsx`) — `datenschutz` section 5 describes it. The
       hardcoded measurement ID (`GA_MEASUREMENT_ID` in `CookieConsent.tsx`)
       is confirmed as the owner's real GA4 property (2026-09-22).
-- [ ] If a custom domain (e.g. `www.fahrschulring.de`) ever points here,
-      update `NEXT_PUBLIC_SITE_URL` in the workflow and add a `CNAME` file
+- [ ] Going live on `www.fahrschulring.de`: choose hosting path (a)/(b)
+      above, set the `PRODUCTION_DOMAIN` variable, upload `.htaccess` (a),
+      verify 301s and canonicals, submit the sitemap in Search Console
+      (checklist: `seo-final-qa.md` §Not verifiable here)

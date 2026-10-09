@@ -5,8 +5,13 @@ import type { NextConfig } from "next";
 // <user>.github.io user/org page) are served from a /<repo> sub-path, so
 // every internal link/asset needs that as a base path — but only when
 // actually building for Pages; local dev doesn't set this env var.
+//
+// A production build (SITE_IS_PRODUCTION=true, set by deploy.yml when the
+// PRODUCTION_DOMAIN repo variable exists) is served from the root of its own
+// domain, so it must NOT get the repo sub-path — see src/lib/site-url.ts.
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1];
-const basePath = repoName ? `/${repoName}` : undefined;
+const isProduction = process.env.SITE_IS_PRODUCTION === "true";
+const basePath = repoName && !isProduction ? `/${repoName}` : undefined;
 
 // Mirror into a NEXT_PUBLIC_ var so client components can prefix hardcoded
 // <Image src="/..."> strings with it too — see src/lib/base-path.ts for why.
