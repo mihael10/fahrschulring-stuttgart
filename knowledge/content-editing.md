@@ -53,6 +53,18 @@ The old fahrschulring.de was internally inconsistent.
 Don't "fix" the hours by picking a number without checking — it's flagged
 because the sources disagree, not because one is obviously right.
 
+## Topic pages, FAQs and sources (added 2026-10-09)
+
+The per-topic FAQs (`faqAuto`, `faqMotorrad`, … in `faq.ts`) and the
+official sources (`src/content/sources.ts`) feed the topic pages under
+`/klassen/*` and `/fuehrerschein-*`. Every legal fact there needs a source
+entry; every business fact must already exist in a content file. Rules and
+the page skeleton: `seo-strategy.md`. New indexable pages are registered in
+`src/content/routes.ts` (sitemap + footer + breadcrumbs).
+
+Carousel photos get their alt text from `photoAlt` in `fleet.ts` — add an
+entry for every new photo, written from what the picture shows.
+
 ## Adding a team member / vehicle / class
 
 Straightforward — append to the relevant array in `team.ts` / `fleet.ts` /

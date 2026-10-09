@@ -34,3 +34,10 @@ route the user to `/kontakt` instead, same as every other CTA on the site.
    anchor link to it will 404-scroll to nothing.
 3. Run `npm run build` — these pages are statically generated, so a typo in
    content data still gets caught at build time.
+
+## Topic pages (added 2026-10-09)
+
+For FAQ entries on `/klassen/*` or `/fuehrerschein-*` pages: legal facts
+need a dated source in `src/content/sources.ts` (official/reputable); the
+page's `Sources` list must include it. Business facts must already be in
+`site.ts`/`classes.ts`/`team.ts`/`fleet.ts`. See `knowledge/seo-strategy.md`.

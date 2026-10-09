@@ -1,0 +1,14 @@
+old_url,new_url,status,traffic_value,backlink_value,index_status,redirect_required,notes
+https://www.fahrschulring.de/,https://www.fahrschulring.de/,keep,high,high (all directories link here),indexed,no (same URL; apex/http → www/https 301),"host decision: www stays canonical"
+https://www.fahrschulring.de/pages/klassen.php,https://www.fahrschulring.de/klassen/,changed,medium,low-medium,indexed,yes 301,"hub page; class detail pages below it"
+https://www.fahrschulring.de/pages/team.php,https://www.fahrschulring.de/team/,changed,low,low,indexed,yes 301,
+https://www.fahrschulring.de/pages/fahrzeuge.php,https://www.fahrschulring.de/#fuhrpark,changed,low,low,indexed,yes 301,"no standalone fleet page in redesign (owner decision); carousel anchor on homepage"
+https://www.fahrschulring.de/pages/kontakt.php,https://www.fahrschulring.de/kontakt/,changed,medium,low,indexed,yes 301,
+https://www.fahrschulring.de/pages/anfahrt.php,https://www.fahrschulring.de/anfahrt/,changed (URL inferred),low,low,not indexed,yes 301 (harmless if URL never existed),
+https://www.fahrschulring.de/pages/impressum.php,https://www.fahrschulring.de/impressum/,changed,low,low,indexed (ranks for brand query!),yes 301,"new page is noindex — the brand query must be won by / instead"
+https://www.fahrschulring.de/pages/datenschutz.php,https://www.fahrschulring.de/datenschutz/,changed,low,low,indexed,yes 301,
+https://www.fahrschulring.de/kontakt.php,(form endpoint),keep,none,none,not indexed,no,"alfahosting/kontakt.php POST endpoint — must NOT be redirected"
+https://www.fahrschulring.de/pages/index.php,https://www.fahrschulring.de/,changed (URL inferred),none,none,not indexed,yes 301,catch-all
+https://www.fahrschulring.de/pages/*.php (any other),https://www.fahrschulring.de/,changed,none,none,unknown,yes 301 catch-all,"RedirectMatch in alfahosting/.htaccess"
+http://fahrschulring.de/* and http(s)://fahrschulring.de/*,https://www.fahrschulring.de/*,host,medium,medium (Yelp/Cylex link to apex),—,yes 301 (host + scheme),"one canonical host"
+https://mihael10.github.io/fahrschulring-stuttgart/*,—,staging,none,none,noindex since 2026-10-09,no (noindex; optionally remove after launch),"preview build; never canonical"

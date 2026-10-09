@@ -4,7 +4,8 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Impressum",
-  robots: { index: false },
+  description: "Impressum der Fahrschulring GmbH, Hegelstraße 48, 70174 Stuttgart.",
+  robots: { index: false, follow: false },
 };
 
 export default function ImpressumPage() {

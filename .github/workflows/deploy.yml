@@ -28,12 +28,42 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Two build modes, decided by the PRODUCTION_DOMAIN repo variable
+      # (Settings → Secrets and variables → Actions → Variables):
+      #
+      # - unset (today): PREVIEW build. Served under the repo sub-path on
+      #   github.io, every page noindex/nofollow, robots.txt disallows all,
+      #   no canonical tags. Safe to leave online forever.
+      # - set to e.g. "www.fahrschulring.de": PRODUCTION build. No basePath,
+      #   indexable, canonical/sitemap/JSON-LD on https://www.fahrschulring.de,
+      #   plus a CNAME file so GitHub Pages serves the custom domain. Only
+      #   set this once DNS for that hostname points at GitHub Pages (or the
+      #   out/ folder is uploaded to Alfahosting instead) — see
+      #   knowledge/deployment.md and knowledge/seo-strategy.md.
+      - name: Resolve build mode
+        id: mode
+        run: |
+          if [ -n "${{ vars.PRODUCTION_DOMAIN }}" ]; then
+            echo "production=true" >> "$GITHUB_OUTPUT"
+            echo "site_url=https://${{ vars.PRODUCTION_DOMAIN }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "production=false" >> "$GITHUB_OUTPUT"
+            echo "site_url=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          SITE_IS_PRODUCTION: ${{ steps.mode.outputs.production }}
+          NEXT_PUBLIC_SITE_URL: ${{ steps.mode.outputs.site_url }}
           # URL of alfahosting/kontakt.php once uploaded (repo variable); empty = mailto fallback
           NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ vars.CONTACT_ENDPOINT }}
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+
+      - name: Add CNAME for the custom domain
+        if: steps.mode.outputs.production == 'true'
+        run: echo "${{ vars.PRODUCTION_DOMAIN }}" > out/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

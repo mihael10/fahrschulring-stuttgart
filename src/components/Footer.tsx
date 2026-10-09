@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { navigation, site } from "@/content/site";
+import { site } from "@/content/site";
+import { routes } from "@/content/routes";
 import { basePath } from "@/lib/base-path";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { FacebookIcon } from "@/components/icons";
@@ -26,11 +27,11 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-white">Navigation</h3>
+          <h3 className="text-sm font-semibold text-white">Seiten</h3>
           <ul className="mt-4 space-y-2 text-sm">
-            {navigation.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="text-green-100/70 hover:text-green-400">
+            {routes.map((item) => (
+              <li key={item.path}>
+                <Link href={item.path} className="text-green-100/70 hover:text-green-400">
                   {item.label}
                 </Link>
               </li>

@@ -1,19 +1,21 @@
 import type { MetadataRoute } from "next";
+import { isProduction, PRODUCTION_URL } from "@/lib/site-url";
 
 // Required for output: "export" — see next.config.ts and knowledge/deployment.md.
 export const dynamic = "force-static";
 
-// Same fallback/override pattern as layout.tsx: unset locally, set by the
-// GitHub Actions workflow to the deployed Pages URL (which already includes
-// the basePath, e.g. https://mihael10.github.io/fahrschulring-stuttgart).
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.fahrschulring.de";
-
+// Production: everything crawlable + sitemap. Staging (GitHub Pages
+// preview): disallow all. Note that on a *project* Pages site this file is
+// emitted under the repo sub-path, where crawlers never look for it — the
+// per-page noindex from src/lib/metadata.ts is what actually keeps the
+// preview out of the index; this is belt-and-braces for the production host.
 export default function robots(): MetadataRoute.Robots {
+  if (!isProduction) {
+    return { rules: { userAgent: "*", disallow: "/" } };
+  }
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: `${siteUrl}/sitemap.xml`,
+    rules: { userAgent: "*", allow: "/" },
+    sitemap: `${PRODUCTION_URL}/sitemap.xml`,
+    host: PRODUCTION_URL,
   };
 }

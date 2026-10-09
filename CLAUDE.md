@@ -38,8 +38,14 @@ API works the way it used to.
   the business's Alfahosting webspace, set via the `CONTACT_ENDPOINT` repo
   variable; unset, it falls back to a pre-filled `mailto:`. See
   `knowledge/deployment.md`.
+- SEO: the production/canonical host is `https://www.fahrschulring.de`;
+  the GitHub Pages URL is a **noindex preview**. Pages set metadata via
+  `pageMetadata()` and are listed in `src/content/routes.ts`; topic pages
+  cite official sources and never invent prices/facts — rules in
+  `knowledge/seo-strategy.md`, research + roadmap in
+  `knowledge/seo-master-roadmap.md`.
 - Deployment target is **GitHub Pages**, built by GitHub Actions on every
-  push to `main` (`.github/workflows/deploy.yml`). Live at
+  push to `main` (`.github/workflows/deploy.yml`). Preview at
   `https://mihael10.github.io/fahrschulring-stuttgart/`. `next.config.ts`
   uses `output: "export"` — see `knowledge/deployment.md` for the basePath/
   trailingSlash gotchas before touching routing, images, or metadata URLs.

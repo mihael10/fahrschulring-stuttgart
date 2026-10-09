@@ -31,7 +31,7 @@ export function Highlights() {
           <span className="text-xs font-bold uppercase tracking-wider text-green-400">
             {highlight.tag}
           </span>
-          <h3 className="mt-3 text-2xl font-bold text-white sm:text-3xl">{highlight.title}</h3>
+          <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl">{highlight.title}</h2>
           <p className="mt-4 text-green-100/75">{highlight.description}</p>
           <Button href={highlight.href} variant="ghost" className="mt-6">
             {highlight.cta}

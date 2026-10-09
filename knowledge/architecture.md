@@ -27,7 +27,10 @@ src/
 ```
 
 Pages are server components by default. Only components with local
-interactive state are `"use client"` (`Header`, `Faq`) — keep new
+interactive state are `"use client"` (`Header`, `ContactForm`,
+`CookieConsent`, `StickyContactBar`, `Counter`, `ReviewText`,
+`AnalyticsEvents`; the FAQ accordion is a server component on native
+`<details>`, `FaqList.tsx`) — keep new
 interactive pieces client-only and leave everything else server-rendered;
 this is a marketing site, not an app, so client JS should stay minimal.
 
@@ -44,6 +47,15 @@ sitemap) but are no longer linked from the menu — when changing content in
 one of these sections, check whether the standalone page duplicates it.
 `Impressum` and `Datenschutz` stay separate pages. Sections that are
 anchor targets use `scroll-mt-20` to clear the sticky header.
+
+Since 2026-10-09 the landing page is complemented by **topic pages** built
+on `TopicPage.tsx` (`/klassen/auto/`, `/klassen/motorrad/`,
+`/klassen/anhaenger/`, `/klassen/lkw-bus/`, `/fuehrerschein-ablauf/`,
+`/fuehrerschein-kosten/`, `/fuehrerschein-umschreiben/`) and `/klassen/`
+became a hub linking to them. They are reachable from the homepage class
+groups, the footer (generated from `src/content/routes.ts`) and
+breadcrumbs — the header keeps the owner's anchor-only menu. See
+`seo-strategy.md` for the metadata/schema/content conventions they follow.
 
 ## Styling
 

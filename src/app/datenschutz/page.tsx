@@ -4,7 +4,8 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
-  robots: { index: false },
+  description: "Datenschutzerklärung der Fahrschulring GmbH, Stuttgart.",
+  robots: { index: false, follow: false },
 };
 
 export default function DatenschutzPage() {
