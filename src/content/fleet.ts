@@ -26,7 +26,7 @@ export const fleet: Vehicle[] = [
   { name: "Honda Hornet 750", category: "Motorrad", tag: "A" },
   { name: "BMW F900R", category: "Motorrad", tag: "A", image: "/images/fleet/bmw-motorrad.webp" },
   { name: "Mercedes Sprinter", category: "LKW & Bus", tag: "C1" },
-  { name: "Mercedes Actros (Sattelzug)", category: "LKW & Bus", tag: "C/CE" },
+  { name: "Mercedes Actros (Gliederzug)", category: "LKW & Bus", tag: "C/CE" },
   { name: "Setra Bus", category: "LKW & Bus", tag: "D" },
 ];
 

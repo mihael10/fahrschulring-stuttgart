@@ -75,6 +75,7 @@ export function Footer() {
           <p className="mt-4 text-sm text-green-100/70">{site.hours.office}</p>
           <h3 className="mt-6 text-sm font-semibold text-white">Theorieunterricht</h3>
           <p className="mt-4 text-sm text-green-100/70">{site.hours.theory}</p>
+          <p className="mt-2 text-sm text-green-100/70">{site.hours.theoryNote}</p>
         </div>
       </div>
 

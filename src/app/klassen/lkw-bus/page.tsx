@@ -10,7 +10,7 @@ import { site } from "@/content/site";
 const path = "/klassen/lkw-bus/" as const;
 const metaTitle = "LKW- und Busführerschein Stuttgart: C1, C, CE, D1, D | Fahrschulring";
 const metaDescription =
-  "LKW-Führerschein (C1, C1E, C, CE) und Busführerschein (D1, D1E, D, DE) in Stuttgart-Mitte: Fahrschulring bildet in allen Klassen aus – mit Sprinter, Actros-Sattelzug und Setra-Bus. Voraussetzungen und Mindestalter.";
+  "LKW-Führerschein (C1, C1E, C, CE) und Busführerschein (D1, D1E, D, DE) in Stuttgart-Mitte: Fahrschulring bildet in allen Klassen aus – mit Sprinter, Actros-Gliederzug und Setra-Bus. Voraussetzungen und Mindestalter.";
 
 export const metadata = pageMetadata({ path, title: metaTitle, description: metaDescription });
 
@@ -23,7 +23,7 @@ export default function LkwBusPage() {
       path={path}
       eyebrow="LKW & Bus"
       title="LKW- und Busführerschein in Stuttgart: Klassen C1 bis DE"
-      description="Eine der wenigen Fahrschulen in Stuttgart, die vom Roller bis zum Sattelzug und Reisebus alle Klassen unter einem Dach ausbildet."
+      description="Eine der wenigen Fahrschulen in Stuttgart, die vom Roller bis zum Gliederzug und Reisebus alle Klassen unter einem Dach ausbildet."
       metaTitle={metaTitle}
       metaDescription={metaDescription}
       lead={
@@ -31,7 +31,7 @@ export default function LkwBusPage() {
           <strong>Fahrschulring</strong> in Stuttgart-Mitte bildet in allen LKW- und Busklassen aus:{" "}
           <strong>C1, C1E, C, CE</strong> sowie <strong>D1, D1E, D, DE</strong>, dazu die Zugmaschinenklassen{" "}
           <strong>T und L</strong>. Ausbildungsfahrzeuge sind ein Mercedes Sprinter (C1), ein Mercedes Actros als
-          Sattelzug (C/CE) und ein Setra-Bus (D). Inhaber {site.owner} ist Fahrlehrer aller Klassen.
+          Gliederzug (C/CE) und ein Setra-Bus (D). Inhaber {site.owner} ist Fahrlehrer aller Klassen.
         </>
       }
       faq={faqLkwBus}

@@ -22,7 +22,7 @@ export default function TeamPage() {
       <PageHero
         eyebrow="Team"
         title="Unser Fahrlehrer-Team in Stuttgart"
-        description={`${team.length} erfahrene Fahrlehrerinnen und Fahrlehrer begleiten dich persönlich durch deine gesamte Ausbildung – inhabergeführt von ${site.owner}.`}
+        description="Wir sind ein professionelles und verantwortungsbewusstes Team."
       />
       <Breadcrumbs path={path} />
       <div className="container-page py-12 sm:py-16">

@@ -3,7 +3,7 @@ import { WhyUs } from "@/components/WhyUs";
 import { ClassesOverview } from "@/components/ClassesOverview";
 import { Highlights } from "@/components/Highlights";
 import { VehicleCarousel } from "@/components/VehicleCarousel";
-import { Process } from "@/components/Process";
+import { Services } from "@/components/Services";
 import { TeamPreview } from "@/components/TeamPreview";
 import { Testimonials } from "@/components/Testimonials";
 import { GoogleReviews } from "@/components/GoogleReviews";
@@ -31,7 +31,7 @@ export default function Home() {
       <ClassesOverview />
       <Highlights />
       <VehicleCarousel />
-      <Process />
+      <Services />
       <TeamPreview />
       <GoogleReviews />
       <Testimonials />

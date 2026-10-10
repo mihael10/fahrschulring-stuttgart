@@ -27,7 +27,7 @@ const groupSlugs: Record<(typeof classGroups)[number], string> = {
 const detailPages: Record<(typeof classGroups)[number], { href: `/${string}`; label: string; blurb: string }> = {
   Auto: { href: "/klassen/auto/", label: "Klasse B, BF17 & Automatik (B197)", blurb: "PKW-Führerschein ab 17 oder 18, Automatik mit B197, Ausbildung auf E-Autos." },
   Motorrad: { href: "/klassen/motorrad/", label: "Motorradführerschein AM, A1, A2, A & B196", blurb: "Alle Zweiradklassen und die 125er-Erweiterung für Autofahrer." },
-  "LKW & Bus": { href: "/klassen/lkw-bus/", label: "LKW & Bus: C1 bis DE", blurb: "Sprinter, Actros-Sattelzug und Setra-Bus – alle Nutzfahrzeugklassen." },
+  "LKW & Bus": { href: "/klassen/lkw-bus/", label: "LKW & Bus: C1 bis DE", blurb: "Sprinter, Actros-Gliederzug und Setra-Bus – alle Nutzfahrzeugklassen." },
   Sonderklassen: { href: "/klassen/lkw-bus/", label: "Zugmaschinen T & L", blurb: "Land- und forstwirtschaftliche Zugmaschinen – Details auf der LKW-&-Bus-Seite." },
 };
 
@@ -38,18 +38,18 @@ export default function KlassenPage() {
       <PageHero
         eyebrow="Führerscheinklassen"
         title="Alle Führerscheinklassen in Stuttgart – an einem Ort"
-        description={`${classes.length} Klassen, ein Ansprechpartner in Stuttgart-Mitte. Preise richten sich nach Klasse und individuellem Übungsbedarf – fordere ein unverbindliches Angebot an.`}
+        description="Ausbildung in allen Klassen – Mindestalter, Voraussetzungen und eingeschlossene Klassen im Überblick."
       />
       <Breadcrumbs path={path} />
       <div className="container-page py-12 sm:py-16">
         <div className="animate-fade-up flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-green-50 p-6 sm:p-8">
           <p className="max-w-xl text-sm text-green-800">
-            Nicht sicher, welche Klasse zu dir passt? Wir beraten dich gerne persönlich und erstellen ein
-            individuelles Angebot. Den Weg von der Anmeldung bis zur Prüfung erklärt die Seite{" "}
+            Fragen zu einer Klasse? Hinterlass uns eine Nachricht – wir melden uns schnellstmöglich
+            zurück. Den Weg von der Anmeldung bis zur Prüfung erklärt die Seite{" "}
             <Link href="/fuehrerschein-ablauf/" className="font-semibold underline">Ablauf &amp; Voraussetzungen</Link>.
           </p>
           <Button href="/kontakt/" variant="primary">
-            Angebot anfordern
+            Kontakt aufnehmen
           </Button>
         </div>
 

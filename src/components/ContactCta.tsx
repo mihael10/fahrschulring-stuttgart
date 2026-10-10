@@ -10,8 +10,7 @@ export function ContactCta() {
           Bereit für deinen Führerschein?
         </h2>
         <p className="max-w-xl text-green-900/80">
-          Schreib uns kurz, was du vorhast – wir melden uns mit deinem individuellen
-          Angebot und den nächsten Schritten.
+          Hinterlass uns eine Nachricht – wir melden uns schnellstmöglich zurück.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button href="/kontakt" variant="dark" className="animate-cta-pulse-dark">

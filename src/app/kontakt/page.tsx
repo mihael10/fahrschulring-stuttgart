@@ -21,7 +21,7 @@ export default function KontaktPage() {
       <PageHero
         eyebrow="Kontakt"
         title="Kontakt zur Fahrschule Fahrschulring in Stuttgart"
-        description="Schreib uns über das Formular oder ruf uns direkt an – wir melden uns mit den nächsten Schritten und einem individuellen Angebot."
+        description="Hier kannst du uns eine Nachricht hinterlassen oder direkt anrufen. Wir melden uns schnellstmöglich zurück."
       />
       <Breadcrumbs path={path} />
       <div className="container-page py-12 sm:py-16">
@@ -70,6 +70,7 @@ export default function KontaktPage() {
                 <div>
                   <dt className="font-semibold text-green-900">Theorieunterricht</dt>
                   <dd className="text-green-700">{site.hours.theory}</dd>
+                  <dd className="text-green-700">{site.hours.theoryNote}</dd>
                 </div>
               </dl>
             </div>

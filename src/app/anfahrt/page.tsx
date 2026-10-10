@@ -63,7 +63,11 @@ export default function AnfahrtPage() {
           <p className="mt-3 text-green-700">{site.hours.office}</p>
 
           <h2 className="mt-8 text-xl font-bold text-green-950">Theorieunterricht</h2>
-          <p className="mt-3 text-green-700">{site.hours.theory}</p>
+          <p className="mt-3 text-green-700">
+            {site.hours.theory}
+            <br />
+            {site.hours.theoryNote}
+          </p>
 
           <h2 className="mt-8 text-xl font-bold text-green-950">Kontakt</h2>
           <p className="mt-3 text-green-700">

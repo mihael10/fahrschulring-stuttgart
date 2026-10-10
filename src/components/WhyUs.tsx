@@ -20,41 +20,42 @@ const iconPaths: Record<string, string[]> = {
   clock: ["M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z", "M12 7v5l3 2"],
 };
 
+// Every card restates something the old fahrschulring.de said (welcome
+// text, "Unsere Vorteile", vehicle list) — no claims beyond that.
 const points = [
   {
-    title: "Moderne Flotte",
+    title: "Automatik, Schaltung & Elektro",
     icon: "car",
     description:
-      "Elektroautos (VW ID.3, MG4, Tesla Model S), Automatik und Schaltung – du übst im Fahrzeug, das zu dir passt.",
+      "VW ID.3, MG4 Elektro und Tesla S, VW Golf und Kia Niro Automatik, VW Polo und VW T-Roc Schaltung.",
   },
   {
-    title: `${site.yearsExperience}+ Jahre Erfahrung`,
+    title: `Seit über ${site.yearsExperience} Jahren`,
     icon: "award",
     description:
-      "Fahrschulring bildet seit über einem halben Jahrhundert in Stuttgart aus – inhabergeführt von Frank Eibl.",
+      "Wir sind dein kompetenter Ansprechpartner rund um den Führerschein.",
   },
   {
-    title: "Alle Klassen unter einem Dach",
+    title: "Ausbildung in allen Klassen",
     icon: "layers",
     description:
-      "Vom Roller bis zum Sattelzug: Motorrad, PKW, LKW und Bus – wir begleiten dich über deine gesamte Fahrkarriere.",
+      "Vom Roller über Motorrad und PKW bis zu Gliederzug und Bus – wir bilden in allen Klassen aus.",
   },
   {
-    title: "Fahrsimulator",
+    title: "Individuelle Ausbildung",
     icon: "wheel",
     description:
-      "Im Simulator sammelst du erste Fahreindrücke und übst kritische Situationen risikofrei, bevor es auf die Straße geht.",
+      "Wir sind ein professionelles und verantwortungsbewusstes Team und garantieren dir eine moderne und individuelle Ausbildung in stressfreier und entspannter Atmosphäre.",
   },
   {
-    title: "Zentrale Lage",
-    icon: "pin",
-    description: `${site.address.street}, mitten in Stuttgart – gut erreichbar für Theorie und Praxis.`,
-  },
-  {
-    title: "Flexible Zeiten",
+    title: "Unterricht auch vormittags",
     icon: "clock",
-    description:
-      "Theorieunterricht am Nachmittag und Abend, Praxistermine nach Absprache – auch neben Schule oder Job.",
+    description: `Theorieunterricht ${site.hours.theory} in der ${site.address.street}. ${site.hours.theoryNote}`,
+  },
+  {
+    title: "Komm einfach vorbei",
+    icon: "pin",
+    description: `Anmelden kannst du dich jederzeit während unserer Bürozeiten (${site.hours.office}) oder über das Kontaktformular.`,
   },
 ];
 
@@ -64,8 +65,8 @@ export function WhyUs() {
       <div className="container-page">
         <SectionHeading
           eyebrow="Warum Fahrschulring"
-          title="Fahrschule, die zu deinem Leben passt"
-          description="Wir verbinden jahrzehntelange Erfahrung mit moderner Ausstattung – für eine Ausbildung, auf die du dich verlassen kannst."
+          title="Herzlich willkommen in unserer Fahrschule!"
+          description="Du suchst eine professionelle und zuverlässige Fahrschule? Dann bist du bei uns genau richtig!"
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {points.map((point) => (

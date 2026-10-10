@@ -1,7 +1,7 @@
 ---
 title: Content editing and the no-fabrication policy
-area: content, copy, testimonials, pricing, team, classes, fleet, social links
-keywords: [testimonials, pricing, preise, team, klassen, fahrzeuge, content, social, facebook, instagram]
+area: content, copy, services, testimonials, pricing, team, classes, fleet, social links
+keywords: [services, leistungen, old-site sourcing, testimonials, pricing, preise, team, klassen, fahrzeuge, content, social, facebook, instagram]
 ---
 
 # Content editing
@@ -10,12 +10,40 @@ All business content lives in `src/content/*.ts`, typed, one file per
 domain (`site.ts`, `classes.ts`, `team.ts`, `fleet.ts`, `testimonials.ts`,
 `faq.ts`). Pages import from these; don't hardcode business facts into JSX.
 
+## Copy must trace to the old site
+
+Since 2026-10-10 (owner's instruction: "only information from this site"),
+marketing copy restates what the old fahrschulring.de said — its welcome
+text, "Was wir Ihnen bieten", "Unsere Vorteile", team, vehicle and class
+pages — in the new site's du-register. Don't add claims the old site doesn't
+make (no "Beliebt" badges, no "zentrale Lage", no process steps, no
+afternoon theory).
+
+- `src/content/services.ts` holds the old homepage's five "Was wir Ihnen
+  bieten" bullets verbatim, rendered by `Services.tsx` on the homepage
+  (it replaced the unsourced four-step `Process` section). The old site
+  gives no descriptions for them, so the cards are title-only.
+- `site.hours.theoryNote` ("Theorie auch vormittags nach Absprache
+  möglich.") is shown next to `site.hours.theory` everywhere that renders.
+- The Actros is a **Gliederzug** on the old site, not a Sattelzug.
+- `WhyUs.tsx` cards and the `Hero` headline/intro are the old welcome text.
+
+Deliberate exceptions, all owner-supplied or already resolved, so they stay:
+the FAQ (`faq.ts`, owner asked to keep it as is — it is the only place that
+still describes what the simulator is used for), Google reviews, the
+Facebook link, the two simulator photos (the `Highlights` section around
+them is now just "Unsere Vorteile" / "Unser Fahrsimulator", no claims), and
+the phone/email/hours values resolved below (don't revert them to the old
+homepage's `294100` / `.com` / `18:00`). Class `B196` stays too: the old
+Klassen table omits it, but the old Fahrzeuge page lists "KTM Duke 125
+(B196)".
+
 ## Why there's no pricing anywhere
 
 The original fahrschulring.de published no prices. Rather than invent
 figures (which for a driving school is a real legal exposure — advertised
 price claims are regulated), every CTA on this site is a lead-gen ask
-("Angebot anfordern") instead of a price list. If real pricing becomes
+("Kontakt aufnehmen") instead of a price list. If real pricing becomes
 available, it still shouldn't go into static marketing copy verbatim unless
 the owner confirms it's current — driving lesson costs change often enough
 that a stale number on the homepage is worse than no number.

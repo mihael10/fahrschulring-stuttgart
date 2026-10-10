@@ -48,18 +48,18 @@ export function Hero() {
           </span>
           <h1 className="animate-fade-up mt-6 text-4xl font-extrabold leading-tight text-white [animation-delay:80ms] sm:text-5xl lg:text-6xl">
             Deine Fahrschule in Stuttgart-Mitte.
-            <span className="block text-green-400">Sicher ans Ziel.</span>
+            <span className="block text-green-400">{site.claim}</span>
           </h1>
           <p className="animate-fade-up mx-auto mt-6 max-w-xl text-lg text-green-100/80 [animation-delay:160ms]">
-            {site.claim} Moderne Flotte mit E-Autos, erfahrenes Fahrlehrer-Team
-            und alle Führerscheinklassen – mitten in Stuttgart.
+            Seit über {site.yearsExperience} Jahren sind wir kompetenter Ansprechpartner
+            rund um den Führerschein.
           </p>
           <div className="animate-fade-up mt-9 flex flex-wrap justify-center gap-4 [animation-delay:240ms]">
             <Button href="#kontakt" variant="primary" className="animate-cta-pulse">
               Jetzt Kontakt aufnehmen
             </Button>
             <Button href="#klassen" variant="ghost">
-              Klassen &amp; Angebot ansehen
+              Klassen ansehen
             </Button>
           </div>
           <a
@@ -76,7 +76,7 @@ export function Hero() {
             { value: site.yearsExperience, suffix: "+", label: "Jahre Erfahrung" },
             { value: classes.length, suffix: "", label: "Führerscheinklassen" },
             { value: team.length, suffix: "", label: "Fahrlehrer" },
-            { value: electricCount, suffix: "", label: "E-Fahrzeuge in der Flotte" },
+            { value: electricCount, suffix: "", label: "E-Modelle in der Flotte" },
           ].map((stat, i) => {
             const delay = 400 + i * 90;
             return (

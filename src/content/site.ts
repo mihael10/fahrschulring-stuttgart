@@ -42,6 +42,8 @@ export const site = {
     office: "Montag – Donnerstag, 15:00 – 18:30 Uhr",
     officeDays: ["Montag", "Dienstag", "Mittwoch", "Donnerstag"],
     theory: "Montag & Mittwoch, 18:30 – 20:00 Uhr",
+    // Old homepage, verbatim ("Unsere Vorteile": "Unterricht auch Vormittags").
+    theoryNote: "Theorie auch vormittags nach Absprache möglich.",
   },
 
   legal: {

@@ -3,10 +3,8 @@ import { Button } from "./Button";
 import { basePath } from "@/lib/base-path";
 
 const highlight = {
-  tag: "Modern ausgestattet",
-  title: "Fahrsimulator für den risikofreien Einstieg",
-  description:
-    "Im Simulator sammelst du erste Fahreindrücke und übst gemeinsam mit uns Gefahrensituationen und Abläufe, bevor es auf die Straße geht.",
+  tag: "Unsere Vorteile",
+  title: "Unser Fahrsimulator",
   cta: "Zum Fuhrpark",
   href: "/#fuhrpark",
   images: [
@@ -32,7 +30,6 @@ export function Highlights() {
             {highlight.tag}
           </span>
           <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl">{highlight.title}</h2>
-          <p className="mt-4 text-green-100/75">{highlight.description}</p>
           <Button href={highlight.href} variant="ghost" className="mt-6">
             {highlight.cta}
           </Button>

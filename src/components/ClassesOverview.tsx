@@ -28,7 +28,7 @@ export function ClassesOverview() {
         <SectionHeading
           eyebrow="Führerscheinklassen"
           title="Alle Führerscheinklassen in Stuttgart-Mitte"
-          description={`${classes.length} Führerscheinklassen, ein Ansprechpartner – vom Roller über Auto, Motorrad und Anhänger bis zu LKW und Bus. Preise richten sich nach Klasse und individuellem Übungsbedarf – fordere ein unverbindliches Angebot an.`}
+          description="Ausbildung in allen Klassen – vom Roller über Auto, Motorrad und Anhänger bis zu LKW und Bus."
         />
         {classGroups.map((group) => {
           const link = groupLinks[group];
@@ -54,7 +54,7 @@ export function ClassesOverview() {
         })}
         <div className="mt-14 flex flex-wrap justify-center gap-4">
           <Button href="#kontakt" variant="primary">
-            Individuelles Angebot anfordern
+            Kontakt aufnehmen
           </Button>
           <Button href="/klassen/anhaenger/" variant="secondary">
             Anhänger: BE &amp; B96

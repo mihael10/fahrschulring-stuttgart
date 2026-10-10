@@ -52,7 +52,6 @@ export const classes: LicenseClass[] = [
     summary:
       "125-cm³-Motorrad fahren mit vorhandenem Auto-Führerschein Klasse B – kompakte Zusatzausbildung ohne neue Theorieprüfung.",
     requires: "Führerschein Klasse B",
-    featured: true,
   },
   {
     id: "B-BF17",
@@ -61,7 +60,6 @@ export const classes: LicenseClass[] = [
     minAge: "18 Jahre (BF17: ab 17 Jahren, begleitetes Fahren)",
     summary: "PKW bis 3.500 kg zulässiger Gesamtmasse, bis 8 Sitzplätze plus Fahrer.",
     includes: "schließt AM, L ein",
-    featured: true,
   },
   {
     id: "B96",

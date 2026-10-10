@@ -10,8 +10,8 @@ export function ContactSection() {
       <div className="container-page">
         <SectionHeading
           eyebrow="Kontakt"
-          title="Lass uns starten"
-          description="Schreib uns über das Formular oder ruf uns direkt an – wir melden uns mit den nächsten Schritten und einem individuellen Angebot."
+          title="Schreib uns oder ruf an"
+          description="Hier kannst du uns eine Nachricht hinterlassen oder direkt anrufen. Wir melden uns schnellstmöglich zurück."
         />
         <div className="mx-auto mt-14 grid max-w-5xl gap-8 lg:grid-cols-[1fr_20rem]">
           <div className="reveal rounded-2xl border border-green-100 bg-white p-6 sm:p-10">
