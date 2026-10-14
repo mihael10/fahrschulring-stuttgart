@@ -82,30 +82,6 @@ export const sources = {
     label: "Deutscher Bundestag: Erste Lesung Fahrlehrergesetz-Reform (24.09.2026)",
     href: "https://www.bundestag.de/dokumente/textarchiv/2026/kw39-de-fahrlehrergesetz-1211282",
   },
-  fev12: {
-    label: "§ 12 FeV – Sehvermögen (Sehtest für den Führerscheinantrag)",
-    href: "https://www.gesetze-im-internet.de/fev_2010/__12.html",
-  },
-  fev19: {
-    label: "§ 19 FeV – Schulung in Erster Hilfe",
-    href: "https://www.gesetze-im-internet.de/fev_2010/__19.html",
-  },
-  stuttgartErweiterung: {
-    label: "stuttgart.de: Führerschein-Erweiterung beantragen",
-    href: "https://www.stuttgart.de/organigramm/leistungen/fuehrerschein-erweiterung",
-  },
-  stuttgartFuehrerscheinstelle: {
-    label: "stuttgart.de: Kfz-Zulassungs- und Führerscheinstelle (Kontakt, Öffnungszeiten)",
-    href: "https://www.stuttgart.de/organigramm/verwaltungseinheit/kfz-zulassungs-und-fuehrerscheinstelle",
-  },
-  b196Bw: {
-    label: "Stadt Karlsruhe (Baden-Württemberg): Eintragung der Schlüsselzahl 196 – Voraussetzungen und Frist",
-    href: "https://web1.karlsruhe.de/service/Buergerdienste/leistung.php?id=6002741",
-  },
-  drkStuttgart: {
-    label: "DRK-Kreisverband Stuttgart: Erste-Hilfe-Kurse (Termine und Online-Buchung)",
-    href: "https://www.drk-stuttgart.de/",
-  },
   sprachen: {
     label: "FIM-Portal (Bund): Theorieprüfung – zugelassene Fremdsprachen",
     href: "https://www.fimportal.de/api/v0/leistung-stammtexte/S100003/S1000030000009347/pvog/de/pdf",

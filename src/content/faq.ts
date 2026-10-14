@@ -250,26 +250,3 @@ export const faqUmschreiben: FaqItem[] = [
       "Bei der Führerscheinstelle der Stadt Stuttgart (Löwentorbogen 11, 70376 Stuttgart) mit Termin. Welche Unterlagen genau nötig sind (Übersetzung, Meldebescheinigung, Passfoto, Sehtest, Erste-Hilfe-Kurs), hängt vom Herkunftsland ab und wird dort im Einzelfall geklärt.",
   },
 ];
-
-export const faqAnmeldung: FaqItem[] = [
-  {
-    question: "Kann ich das Anmeldeformular online abschicken?",
-    answer:
-      "Noch nicht. Du kannst das PDF am PC, Tablet oder Handy ausfüllen (in jedem PDF-Programm, z. B. Adobe Acrobat Reader oder der Vorschau-App) oder ausdrucken und von Hand ausfüllen. Abgegeben und unterschrieben wird der Vertrag persönlich bei uns im Büro, Hegelstraße 48.",
-  },
-  {
-    question: "Werden meine Angaben beim Ausfüllen an euch übertragen?",
-    answer:
-      "Nein. Das PDF wird nur heruntergeladen – was du einträgst, bleibt auf deinem Gerät, bis du den ausgedruckten Vertrag bei uns abgibst.",
-  },
-  {
-    question: "Ich bin noch nicht volljährig – was muss ich beachten?",
-    answer:
-      "Dann unterschreibt zusätzlich ein Erziehungsberechtigter als gesetzlicher Vertreter. Am einfachsten kommt er oder sie zur Anmeldung mit ins Büro.",
-  },
-  {
-    question: "Für meine Klasse gibt es hier kein Formular – was nun?",
-    answer:
-      "Online gibt es bisher die Verträge für B197, Klasse A und B196. Für alle anderen Klassen bekommst du den Vertrag während der Bürozeiten bei uns – die Unterlagen für den Antrag bei der Führerscheinstelle sind meist dieselben.",
-  },
-];
