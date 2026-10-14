@@ -5,8 +5,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { faqAuto } from "@/content/faq";
 import { sources } from "@/content/sources";
 import { site } from "@/content/site";
-import { formsFor } from "@/content/forms";
-import { FormDownloadBox } from "@/components/FormDownloads";
 import { fleet } from "@/content/fleet";
 
 const path = "/klassen/auto/" as const;
@@ -108,8 +106,6 @@ export default function AutoPage() {
           Fünf Fahrlehrerinnen und Fahrlehrer begleiten dich in der Klasse B – wer welche Klassen unterrichtet,
           siehst du auf der <Link href="/team/">Team-Seite</Link>.
         </p>
-        <h3>Anmeldung</h3>
-        <FormDownloadBox forms={formsFor("/klassen/auto/")} />
       </Section>
     </TopicPage>
   );

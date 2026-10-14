@@ -7,8 +7,6 @@ import { sources } from "@/content/sources";
 import { classes } from "@/content/classes";
 import { fleet } from "@/content/fleet";
 import { site } from "@/content/site";
-import { formsFor } from "@/content/forms";
-import { FormDownloadBox } from "@/components/FormDownloads";
 
 const path = "/klassen/motorrad/" as const;
 const metaTitle = "Motorradführerschein Stuttgart: Klasse A, A2, A1, AM & B196 | Fahrschulring";
@@ -88,8 +86,6 @@ export default function MotorradPage() {
           {site.hours.theory}. Wie Antrag, Sehtest und Erste-Hilfe-Kurs ablaufen, steht unter{" "}
           <Link href="/fuehrerschein-ablauf/">Ablauf &amp; Voraussetzungen</Link>.
         </p>
-        <h3>Anmeldung</h3>
-        <FormDownloadBox forms={formsFor("/klassen/motorrad/")} />
       </Section>
     </TopicPage>
   );
