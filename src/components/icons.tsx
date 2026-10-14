@@ -23,3 +23,11 @@ export function MailIcon(props: ComponentProps<"svg">) {
     </svg>
   );
 }
+
+export function DownloadIcon(props: ComponentProps<"svg">) {
+  return (
+    <svg aria-hidden viewBox="0 0 20 20" fill="currentColor" {...props}>
+      <path d="M10 2.5a.9.9 0 0 1 .9.9v7.9l2.5-2.5a.9.9 0 1 1 1.27 1.27l-4.04 4.04a.9.9 0 0 1-1.26 0L5.33 10.07A.9.9 0 1 1 6.6 8.8l2.5 2.5V3.4a.9.9 0 0 1 .9-.9zM3.4 14.6a.9.9 0 0 1 .9.9v.6h11.4v-.6a.9.9 0 1 1 1.8 0V17a.9.9 0 0 1-.9.9H3.4a.9.9 0 0 1-.9-.9v-1.5a.9.9 0 0 1 .9-.9z" />
+    </svg>
+  );
+}
