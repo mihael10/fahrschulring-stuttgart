@@ -233,3 +233,26 @@ kann…"). Long text clamps to 9 lines with a "Weiterlesen" toggle
 reviews, when configured, replace these quotes as up to 6
 cards (only reviews with text, clamped to 6 lines, initial-letter avatar —
 no remote author photos, so no extra third-party image requests).
+
+## Forms (`/anmeldung/`, added 2026-10-14)
+
+The owner supplied photos of three paper "Ausbildungsvertrag" forms (B196,
+A, B197). `scripts/generate-forms.py` (Python + `reportlab`) rebuilds them
+as fillable AcroForm PDFs in `public/formulare/` — rerun it after any edit
+and commit the PDFs. Visitors fill the PDF locally, print it and sign in
+the office; nothing is submitted online, so `/datenschutz` needs no change.
+
+- Texts and price lists in the PDFs are **verbatim from the paper forms**,
+  including two quirks to clarify with the owner rather than "fix": the
+  B196/B197 forms say data is stored "…und an Dritte weitergegeben" while
+  the A form says "…und nicht an Dritte weitergegeben"; and the forms say
+  "Fahrschulring Stuttgart GmbH" while `site.legalName` is "Fahrschulring
+  GmbH". The B196 photo was of a filled-in contract — none of that
+  student's data is in the repo; don't add the photo either.
+- The prices live **only inside the PDFs** (they are the contract). The
+  no-prices rule for website copy above still holds — don't lift them into
+  pages, FAQ or JSON-LD.
+- `src/content/forms.ts` lists each form, its class page, what to bring and
+  the Führerscheinstelle steps (sources in `sources.ts`). `FormDownloadBox`
+  shows the forms on `/klassen/auto/` and `/klassen/motorrad/`. A new form
+  = add it to `FORMS` in the script + an entry in `forms.ts`.
